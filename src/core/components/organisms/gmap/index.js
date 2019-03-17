@@ -346,6 +346,7 @@ class GMap extends Component {
   }
 
   renderFeatures(geo) {
+    this.hasFeatures = !!(geo.features && geo.features.length > 0);
     console.log(geo, this.hasFeatures);
     this.gmap.data.forEach((feature) => {
       this.gmap.data.remove(feature);
