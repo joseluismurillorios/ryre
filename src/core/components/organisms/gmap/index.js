@@ -351,8 +351,10 @@ class GMap extends Component {
     this.gmap.data.forEach((feature) => {
       this.gmap.data.remove(feature);
     });
-    this.gmap.data.addGeoJson(geo);
-    this.setState({ hasFeatures: this.hasFeatures });
+    if (this.hasFeatures) {
+      this.gmap.data.addGeoJson(geo);
+      this.setState({ hasFeatures: this.hasFeatures });
+    }
   }
 
   renderMap() {
