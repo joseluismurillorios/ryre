@@ -77,9 +77,8 @@ class GMap extends Component {
     if (this.hasFeatures && this.gmap) {
       const hasPrevFeatures = !!(prevProps.geo.features);
       if (hasPrevFeatures && geo.features.length !== prevProps.geo.features.length) {
-        this.renderFeatures(geo);
-
         console.log('new data');
+        this.renderFeatures(geo);
       }
     }
   }
@@ -176,6 +175,7 @@ class GMap extends Component {
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
       if (this.hasFeatures) {
+        console.log(geo);
         this.renderFeatures(geo);
       }
       // this.search();
@@ -346,7 +346,7 @@ class GMap extends Component {
   }
 
   renderFeatures(geo) {
-    console.log(geo);
+    console.log(geo, this.hasFeatures);
     this.gmap.data.forEach((feature) => {
       this.gmap.data.remove(feature);
     });
