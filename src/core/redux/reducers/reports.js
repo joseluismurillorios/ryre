@@ -3,7 +3,7 @@ import {
 } from '../actions/reports/constants';
 
 const defaultState = {
-  reports: {},
+  geo: {},
 };
 
 const reducer = (state = defaultState, action) => {
