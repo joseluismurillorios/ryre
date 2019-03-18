@@ -41,7 +41,7 @@ class Forecast extends Component {
   getValues() {
     const { forecast } = this.props;
     if (forecast.weatherMetric) {
-      const { weatherMetric } = forecast;
+      const { weatherMetric, forecastMetric } = forecast;
       if (weatherMetric.main) {
         const {
           weather,
@@ -57,6 +57,7 @@ class Forecast extends Component {
           wind: wind.speed,
           temp,
           humidity,
+          forecastMetric,
         };
       }
     }
