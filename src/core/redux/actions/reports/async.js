@@ -11,7 +11,7 @@ const serverUrl = DEVELOMPENT ? 'http://192.168.1.72:3000/' : '/';
 
 export const onReportsChange = () => (
   dispatch => socketIO.on('reports', (msg) => {
-    // console.log('reports', msg.metric);
+    console.log('reports', msg.metric);
     dispatch(setReports(msg.metric));
   })
 );
