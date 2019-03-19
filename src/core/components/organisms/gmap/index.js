@@ -74,6 +74,7 @@ class GMap extends Component {
   componentDidUpdate(prevProps) {
     const { geo } = this.props;
     this.hasFeatures = !!(geo.features && geo.features.length > 0);
+    console.log('update', geo, this.hasFeatures, !!(this.gmap));
     if (this.hasFeatures && this.gmap) {
       const hasPrevFeatures = !!(prevProps.geo.features);
       if (hasPrevFeatures && geo.features.length !== prevProps.geo.features.length) {
@@ -175,7 +176,7 @@ class GMap extends Component {
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
       if (this.hasFeatures) {
-        console.log(geo);
+        console.log('idle', geo, this.hasFeatures);
         this.renderFeatures(geo);
       }
       // this.search();
@@ -347,7 +348,7 @@ class GMap extends Component {
 
   renderFeatures(geo) {
     this.hasFeatures = !!(geo.features && geo.features.length > 0);
-    console.log(geo, this.hasFeatures);
+    console.log('renderFeatures', geo, this.hasFeatures);
     this.gmap.data.forEach((feature) => {
       this.gmap.data.remove(feature);
     });
@@ -456,7 +457,7 @@ class GMap extends Component {
                 onMouseMove={() => { this.setState({ tooltip: 'search' }); }}
                 color="light"
               >
-                <span className={showDataLayer ? 'implanf-visibility_off' : 'implanf-visibility'} />
+                <span className={showDataLayer ? 'implanf-visibility' : 'implanf-visibility_off'} />
                 {
                   (showTooltip && tooltip === 'search')
                   && <span className="map-tooltip">{showDataLayer ? 'Ocultar Reportes' : 'Ver Reportes'}</span>

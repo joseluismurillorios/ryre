@@ -105,8 +105,8 @@ const storeOpinion = (uid, info, res) => {
   };
   opinions.add({
     address,
-    latitude: lat,
-    longitude: lon,
+    latitude: lat.toFixed(12),
+    longitude: lon.toFixed(12),
     category: categ,
     message,
     subcategory: subcateg,

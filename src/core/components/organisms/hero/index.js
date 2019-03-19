@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import $ from '../../../helpers/helper-jquery';
-import bg from '../../../assets/images/carousel/carousel-02.jpg';
+// import assets from '../../../assets';
 
 import Rotator from '../../atoms/rotator';
+// import Aether from '../../atoms/aether';
+import Wave from '../../atoms/waves';
 
 const content = [
   {
@@ -58,8 +60,9 @@ class Hero extends Component {
 
   render() {
     return (
-      <section className="hero-wrap text-center" style={{ backgroundImage: `url(${bg})` }}>
+      <section className="hero-wrap text-center bg-primary">
         <div ref={(el) => { this.container = el; }} className="container">
+          <Wave className="fill" />
           <div className="hero-holder">
             <div className="hero-message text-rotator">
               <h1>
@@ -74,7 +77,7 @@ class Hero extends Component {
                 <a href="/" className="btn btn-lg btn-white">Ver Atlas de Riesgo</a>
               </div>
               <div className="local-scroll">
-                <button onClick={this.scrollTo} type="button" className="scroll-down">
+                <button onClick={this.scrollTo} type="button" className="scroll-down btn-color">
                   <i className="implanf-expand_more" />
                 </button>
               </div>
