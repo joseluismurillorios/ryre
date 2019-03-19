@@ -38,6 +38,7 @@ class Waves extends Component {
   }
 
   componentWillUnmount() {
+    window.cancelAnimationFrame(this.animationFrame);
     window.removeEventListener('resize', this.resize);
   }
 
@@ -77,7 +78,7 @@ class Waves extends Component {
   }
 
   draw() {
-    requestAnimationFrame(this.draw);
+    this.animationFrame = window.requestAnimationFrame(this.draw);
     this.ctx.clearRect(0, 0, this.cv.width, this.cv.height);
     this.osCtx.clearRect(0, 0, this.osCv.width, this.osCv.height);
 
