@@ -50,8 +50,8 @@ const Footer = ({ id }) => (
           </div>
           <div className="col-md-3 col-xs-12 footer-socials mt-mdm-10 text-right">
             <div className="social-icons dark">
-              <a href="#"><i className="fa fa-twitter" /></a>
-              <a href="#"><i className="fa fa-facebook" /></a>
+              <a href="#"><i className="implanf-google" /></a>
+              <a href="#"><i className="implanf-facebook" /></a>
             </div>
           </div>
         </div>

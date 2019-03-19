@@ -52,7 +52,9 @@ class Hero extends Component {
     // const topPos = myElement.offsetTop;
     // document.getElementById('overlay').scrollTop = topPos;
 
-    $('#MainScroll').animate({ scrollTop: $('#MainScroll').scrollTop() + ($(goTo).offset().top - $('#MainScroll').offset().top) });
+    $('#MainScroll').animate({
+      scrollTop: $('#MainScroll').scrollTop() + ($(goTo).offset().top - $('#MainScroll').offset().top),
+    }, 800, 'easeInOutQuart');
 
 
     // $('#MainScroll').scrollTo(0, $(`#${goTo}`).offset().top);
@@ -72,9 +74,9 @@ class Hero extends Component {
                   startDelay={200}
                 />
               </h1>
-              <h2 className="hero-subtitle hidden-xs">RYR Web facilita la comprensión del panorama de riesgo en la región.</h2>
+              <h2 className="hero-subtitle">RYR Web facilita la comprensión del panorama de riesgo en la región.</h2>
               <div className="buttons-holder mt-30">
-                <a href="/" className="btn btn-lg btn-white">Ver Atlas de Riesgo</a>
+                <a href="/" className="btn btn-md rounded btn-white">Ver Atlas de Riesgo</a>
               </div>
               <div className="local-scroll">
                 <button onClick={this.scrollTo} type="button" className="scroll-down btn-color">

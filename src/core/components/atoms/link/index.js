@@ -15,7 +15,7 @@ const Link = ({
     className={className}
     onClick={(e) => {
       history.push(url);
-      $('#Scrollable').scrollTop(0);
+      $('#MainScroll').scrollTop(0);
       e.preventDefault();
     }}
   >

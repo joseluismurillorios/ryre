@@ -31,6 +31,7 @@ import {
 } from './helpers/helper-util';
 
 import CloseButton from './components/atoms/close';
+import Top from './components/atoms/top';
 import Loader from './components/atoms/loader';
 import Button from './components/atoms/button';
 import AddHome from './components/molecules/addhome';
@@ -165,6 +166,8 @@ class Layout extends Component {
             <AddHome id="addhome" onClick={hideMessage} />
           )
         }
+
+        <Top />
 
         <Modal.Container id="Login">
           <Modal.Header text="Entrar" />

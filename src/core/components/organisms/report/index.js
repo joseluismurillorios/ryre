@@ -53,7 +53,7 @@ const Report = ({
   }
   return (
     <div className={`fs-menu ${opened ? 'open' : ''}`} id="overlay">
-      <Scrollable className="overlay-menu row">
+      <Scrollable id="ScrollReport" className="overlay-menu row">
         <div className="col-sm-12 col-md-6 col-md-offset-3 mb-10 mt-30">
           <div className="title uppercase">Categoría</div>
           <sup
