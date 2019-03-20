@@ -75,7 +75,8 @@ class GMap extends Component {
     const { geo } = this.props;
     this.hasFeatures = !!(geo.features && geo.features.length > 0);
     console.log('update', geo, this.hasFeatures, !!(this.gmap));
-    if (this.hasFeatures && this.gmap) {
+    if (this.hasFeatures && !!(this.gmap)) {
+      this.geo = geo;
       const hasPrevFeatures = !!(prevProps.geo.features);
       if (hasPrevFeatures && geo.features.length !== prevProps.geo.features.length) {
         console.log('new data');
@@ -95,8 +96,8 @@ class GMap extends Component {
   }
 
   initGMap() {
-    const { geo } = this.props;
-    this.hasFeatures = !!(geo.features && geo.features.length > 0);
+    // const { geo } = this.props;
+    // this.hasFeatures = !!(geo.features && geo.features.length > 0);
     this.gmap = new window.google.maps.Map(document.getElementById('map'), {
       zoomControl: false,
       zoomControlOptions: {
@@ -175,9 +176,9 @@ class GMap extends Component {
       const center = this.gmap.getCenter();
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
-      if (this.hasFeatures) {
-        console.log('idle', geo, this.hasFeatures);
-        this.renderFeatures(geo);
+      if (this.geo) {
+        console.log('idle', this.geo, this.hasFeatures);
+        this.renderFeatures(this.geo);
       }
       // this.search();
     });
