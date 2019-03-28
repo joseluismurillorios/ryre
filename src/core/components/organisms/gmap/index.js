@@ -74,7 +74,6 @@ class GMap extends Component {
   componentDidUpdate(prevProps) {
     const { geo } = this.props;
     this.hasFeatures = !!(geo.features && geo.features.length > 0);
-    console.log('update', geo, this.hasFeatures, !!(this.gmap));
     if (this.hasFeatures && !!(this.gmap)) {
       this.geo = geo;
       const hasPrevFeatures = !!(prevProps.geo.features);
@@ -177,7 +176,6 @@ class GMap extends Component {
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
       if (this.geo) {
-        console.log('idle', this.geo, this.hasFeatures);
         this.renderFeatures(this.geo);
       }
       // this.search();
@@ -395,8 +393,8 @@ class GMap extends Component {
               && <span>Descargar KML</span>
             }
             {
-              hasAddress
-              && <span>Buscar en la zona</span>
+              hasFeatures
+              && <span>ver/Ocultar reportes</span>
             }
             <span>Ver mapa completo</span>
             <span>Vista satelital</span>
