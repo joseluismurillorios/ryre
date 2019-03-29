@@ -39,8 +39,3 @@ export const getWeatherMetric = () => (
   })
 );
 
-export const getReports = () => {
-  $.getJSON(`${serverUrl}api/reports`, {}, (result) => {
-    console.log('getReports', result);
-  });
-};

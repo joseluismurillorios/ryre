@@ -17,12 +17,10 @@ module.exports = merge(common, {
     historyApiFallback: true,
     hot: true,
     host: '0.0.0.0',
-    proxy: {
-      '/socket.io': {
-        target: 'http://localhost:3000',
-        ws: true,
-      },
-    },
+    proxy: [{
+      context: ['/socket.io', '/api'],
+      target: 'http://localhost:3000',
+    }],
   },
 
   // plugins: [

@@ -1,6 +1,3 @@
-import $ from './helper-jquery';
-import { OSM_REVERSE_GEOCODE } from '../../config';
-
 export const loadScript = (url) => {
   const index = window.document.getElementsByTagName('script')[0];
   const script = window.document.createElement('script');
@@ -18,16 +15,6 @@ export const circleMarker = {
   strokeOpacity: 0.6,
   strokeColor: '#FFFFFF',
   scale: 0.5,
-};
-
-export const getAddressInfo = (lat, lon) => {
-  $.getJSON(OSM_REVERSE_GEOCODE, {
-    lat,
-    lon,
-    format: 'json',
-  }, (result) => {
-    console.log(result);
-  });
 };
 
 export const styles = [

@@ -39,7 +39,7 @@ export default (elem, inner) => {
     if (event.wheelDelta) delta = event.wheelDelta / 120;
     else if (event.detail) delta = -event.detail / 3;
     handle(delta);
-    if (event.preventDefault) event.preventDefault();
+    // if (event.preventDefault) event.preventDefault();
     event.returnValue = false;
   }
 

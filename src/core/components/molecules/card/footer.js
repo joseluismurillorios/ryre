@@ -2,11 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const ModalFooter = ({ toggle, zoomOut, zoomIn }) => (
+const ModalFooter = ({
+  toggle,
+  zoomOut,
+  zoomIn,
+  canEdit,
+  deleteReport,
+}) => (
   <div className="esri-popup__footer">
     {/* <section className="esri-popup__navigation">
       {children}
     </section> */}
+    {
+      canEdit
+      && (
+        <button
+          className="esri-popup__button esri-popup__actions-menu-button"
+          type="button"
+          aria-haspopup="true"
+          tabIndex={0}
+          onClick={deleteReport}
+        >
+          <span aria-hidden="true" className="esricon-trash" />
+        </button>
+      )
+    }
     {
       zoomOut
       && (
@@ -56,6 +76,8 @@ ModalFooter.defaultProps = {
   toggle: false,
   zoomOut: false,
   zoomIn: false,
+  deleteReport: () => {},
+  canEdit: false,
 };
 
 ModalFooter.propTypes = {
@@ -71,6 +93,8 @@ ModalFooter.propTypes = {
     PropTypes.func,
     PropTypes.bool,
   ]),
+  deleteReport: PropTypes.func,
+  canEdit: PropTypes.bool,
 };
 
 export default ModalFooter;

@@ -23,6 +23,7 @@
     "sync": "node index.dev.js",
     "profile": "webpack --profile --json > webpack-stats.json"
   },
+  "proxy": "http://localhost:3000/",
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.3",

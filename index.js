@@ -17,6 +17,7 @@ const {
   reports,
   DEFAULT_POINT,
   storeOpinion,
+  deleteOpiinion,
 } = require('./server/lib-firestore');
 
 // const serviceAccount = require('./serviceAccount.json');
@@ -38,7 +39,7 @@ const opinionesSubscribe = () => {
   const query2 = reports.within(DEFAULT_POINT, 22, 'position');
   const obs2 = query2.pipe(toGeoJSON('position', true));
   obs2.subscribe((geoj) => {
-    console.log('report added');
+    console.log('reports changed');
     mainReportsData.geo = geoj;
     io.emit('reports', {
       metric: mainReportsData.geo,
@@ -53,7 +54,7 @@ opinionesSubscribe();
 const getData = () => {
   axios.get('http://api.openweathermap.org/data/2.5/weather?q=Tijuana,mx&units=metric&lang=es&APPID=e55ac5454485f43016d78b600a54208c')
     .then((response) => {
-      logger('saving weather');
+      // logger('saving weather');
       io.emit('weather', {
         metric: response.data,
       });
@@ -64,7 +65,7 @@ const getData = () => {
     });
   axios.get('http://api.openweathermap.org/data/2.5/forecast?q=Tijuana,mx&units=metric&lang=es&APPID=e55ac5454485f43016d78b600a54208c')
     .then((response) => {
-      logger('saving forecast');
+      // logger('saving forecast');
       io.emit('forecast', {
         metric: response.data,
       });
@@ -88,25 +89,6 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// // Add headers
-// app.use((req, res, next) => {
-//   // Website you wish to allow to connect
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-
-//   // Request methods you wish to allow
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-//   // Request headers you wish to allow
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-//   // Set to true if you need the website to include cookies in the requests sent
-//   // to the API (e.g. in case you use sessions)
-//   res.setHeader('Access-Control-Allow-Credentials', true);
-
-//   // Pass to next layer of middleware
-//   next();
-// });
-
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -123,39 +105,36 @@ app.get('/forecast', (req, res) => {
   res.json(mainWeatherData.forecast.metric);
 });
 
-app.get('/api/reports', (req, res) => {
+app.post('/api/report', (req, res) => {
   const { token } = req.cookies;
-  // console.log('req.cookies', req.cookies);
-  // console.log('req.body', req.body);
-  // console.log('token', token, !token);
+  const {
+    uid,
+    info,
+  } = req.body;
   res.setHeader('Access-Control-Allow-Origin', '*');
   if (!token) {
-    res.send({ auth: '404' });
+    res.send({ auth: 'error' });
   } else {
     admin.auth().verifyIdToken(token)
       .then(() => {
-        console.log('reports');
-        res.send({ auth: 'success' });
+        storeOpinion(uid, info, res);
       });
   }
 });
 
-app.get('/api/report', (req, res) => {
+app.post('/api/report-delete', (req, res) => {
   const { token } = req.cookies;
-  // console.log('post.query', req.query);
-  // console.log('post.body', req.body);
   const {
     uid,
-    info,
-  } = req.query;
+    id,
+  } = req.body;
   res.setHeader('Access-Control-Allow-Origin', '*');
-  if (!token) {
-    res.send({ auth: '404' });
+  if (!token && !!(uid)) {
+    res.send({ auth: 'error' });
   } else {
     admin.auth().verifyIdToken(token)
       .then(() => {
-        console.log('report');
-        storeOpinion(uid, info, res);
+        deleteOpiinion(uid, id, res);
       });
   }
 });

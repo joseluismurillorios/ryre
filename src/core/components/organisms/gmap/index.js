@@ -58,6 +58,7 @@ class GMap extends Component {
     this.renderFeatures = this.renderFeatures.bind(this);
     this.toggleDataLayer = this.toggleDataLayer.bind(this);
     this.download = this.download.bind(this);
+    this.deleteReport = this.deleteReport.bind(this);
 
     this.featureSelected = false;
     this.searching = false;
@@ -83,8 +84,12 @@ class GMap extends Component {
     if (this.hasFeatures && !!(this.gmap)) {
       this.geo = geo;
       const hasPrevFeatures = !!(prevProps.geo.features);
-      if (hasPrevFeatures && geo.features.length !== prevProps.geo.features.length) {
-        console.log('new data');
+      if (hasPrevFeatures) {
+        if (geo.features.length !== prevProps.geo.features.length) {
+          console.log('new data');
+          this.renderFeatures(geo);
+        }
+      } else {
         this.renderFeatures(geo);
       }
     }
@@ -141,7 +146,7 @@ class GMap extends Component {
     });
     this.marker.setVisible(false);
 
-    this.markerSelected = new window.google.maps.Marker({
+    this.markerHighlight = new window.google.maps.Marker({
       map: this.gmap,
       position: { lat: 32.476784, lng: -116.952631 },
       icon: {
@@ -151,7 +156,11 @@ class GMap extends Component {
         fillOpacity: 0.6,
       },
     });
-    this.markerSelected.setVisible(false);
+    this.markerHighlight.setVisible(false);
+
+    this.markerHighlight.addListener('click', () => {
+      this.setState({ showProps: true });
+    });
 
     this.loading(false);
     this.gmap.data.setStyle((feature) => {
@@ -241,8 +250,8 @@ class GMap extends Component {
     // console.log('properties', properties);
     this.setState({ properties, showProps: true });
 
-    this.markerSelected.setVisible(true);
-    this.markerSelected.setPosition(evnt.latLng);
+    this.markerHighlight.setVisible(true);
+    this.markerHighlight.setPosition(evnt.latLng);
   }
 
   createOpinion() {
@@ -375,8 +384,18 @@ class GMap extends Component {
         visible: !showDataLayer,
       };
     });
-    this.markerSelected.setVisible(false);
+    this.markerHighlight.setVisible(false);
     this.setState({ showDataLayer: !showDataLayer, showProps: false });
+  }
+
+  deleteReport(uid, id) {
+    const { opinionDelete } = this.props;
+    opinionDelete(uid, id).then((el) => {
+      if (el) {
+        this.markerHighlight.setVisible(false);
+        this.setState({ showProps: false });
+      }
+    });
   }
 
   reset() {
@@ -389,7 +408,7 @@ class GMap extends Component {
 
   renderFeatures(geo) {
     this.hasFeatures = !!(geo.features && geo.features.length > 0);
-    console.log('renderFeatures', geo, this.hasFeatures);
+    // console.log('renderFeatures', geo, this.hasFeatures);
     this.gmap.data.forEach((feature) => {
       this.gmap.data.remove(feature);
     });
@@ -419,6 +438,7 @@ class GMap extends Component {
     } = this.props;
     const {
       address,
+      user,
     } = this.props;
     const hasGeo = (geo && !this.isIOS && !(window.cordova));
     const hasAddress = (address.latitude !== 0);
@@ -499,6 +519,8 @@ class GMap extends Component {
           zoomOut={this.zoomOut}
           zoomIn={this.zoomIn}
           toggle={() => this.setState({ showProps: false })}
+          user={user}
+          deleteReport={this.deleteReport}
         />
       </div>
     );
@@ -510,8 +532,10 @@ GMap.defaultProps = {
   toggle: () => {},
   setCoords: () => {},
   onUpdate: () => {},
+  opinionDelete: () => {},
   address: {},
   geo: {},
+  user: '',
 };
 
 GMap.propTypes = {
@@ -519,8 +543,10 @@ GMap.propTypes = {
   toggle: PropTypes.func,
   setCoords: PropTypes.func,
   onUpdate: PropTypes.func,
+  opinionDelete: PropTypes.func,
   address: PropTypes.objectOf(PropTypes.any),
   geo: PropTypes.objectOf(PropTypes.any),
+  user: PropTypes.string,
 };
 
 export default GMap;

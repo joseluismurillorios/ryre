@@ -3,17 +3,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-// import { CSSTransition } from 'react-transition-group';
 
 import $ from '../../../helpers/helper-jquery';
 
-// import { opinionesFetch } from '../../../redux/actions/common/async';
 import { setLoader } from '../../../redux/actions/common';
 import { setAddress, setOpinion, setLatLng } from '../../../redux/actions/info';
 import { onReportsChange } from '../../../redux/actions/reports/async';
 import {
   storeOpinion,
-  getAddressInfo,
+  deleteOpinion,
 } from '../../../redux/actions/info/async';
 
 import Scrollable from '../../atoms/scrollable';
@@ -92,13 +90,14 @@ class Google extends Component {
       mapLoading,
       onChange,
       info,
-      // fetchOpiniones,
+      common,
       setCoords,
       onUpdate,
       reports,
+      opinionDelete,
     } = this.props;
     const { opened, errors } = this.state;
-    // console.log(reports);
+    const { uid } = common.user ? common.user : '';
     return (
       <Scrollable
         id="Google"
@@ -108,13 +107,14 @@ class Google extends Component {
       >
         <GMap
           onLoad={mapLoading}
-          // search={fetchOpiniones}
           ref={(el) => { this.viewReference = el; }}
           toggle={this.toggleReport}
           address={info}
           geo={reports.geo}
           setCoords={setCoords}
           onUpdate={onUpdate}
+          user={uid}
+          opinionDelete={opinionDelete}
         />
 
         <Report
@@ -125,7 +125,6 @@ class Google extends Component {
           opinion={info.opinion}
           errors={errors}
         />
-        {/* <div id="infoDiv" /> */}
       </Scrollable>
     );
   }
@@ -138,7 +137,7 @@ Google.defaultProps = {
   onChange: () => {},
   onSave: () => {},
   onReports: () => {},
-  // fetchOpiniones: () => {},
+  opinionDelete: () => {},
 };
 
 Google.propTypes = {
@@ -157,7 +156,7 @@ Google.propTypes = {
   onChange: PropTypes.func,
   onSave: PropTypes.func,
   onReports: PropTypes.func,
-  // fetchOpiniones: PropTypes.func,
+  opinionDelete: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -171,10 +170,9 @@ const mapDispatchToProps = {
   onUpdate: setAddress,
   onChange: setOpinion,
   onSave: storeOpinion,
-  // fetchOpiniones: opinionesFetch,
-  getAddress: getAddressInfo,
   setCoords: setLatLng,
   onReports: onReportsChange,
+  opinionDelete: deleteOpinion,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Google);

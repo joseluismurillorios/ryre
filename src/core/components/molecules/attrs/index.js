@@ -15,6 +15,8 @@ const Attrs = ({
   zoomOut,
   zoomIn,
   toggle,
+  user,
+  deleteReport,
 }) => {
   const {
     address = '',
@@ -25,6 +27,7 @@ const Attrs = ({
   } = info;
   const { geopoint = {} } = position;
   const { _lat: latitude, _long: longitude } = geopoint;
+  const canEdit = user === info.user;
   return (
     <CSSTransition
       in={showInfo}
@@ -85,6 +88,8 @@ const Attrs = ({
         <Card.Footer
           zoomOut={zoomOut}
           zoomIn={zoomIn}
+          canEdit={canEdit}
+          deleteReport={() => { deleteReport(user, info.id); }}
         />
       </Card.Container>
     </CSSTransition>
@@ -95,9 +100,11 @@ const Attrs = ({
 Attrs.defaultProps = {
   showInfo: false,
   info: {},
-  zoomOut: () => { },
-  zoomIn: () => { },
-  toggle: () => { },
+  zoomOut: () => {},
+  zoomIn: () => {},
+  toggle: () => {},
+  user: '',
+  deleteReport: () => { console.log('deleting...'); },
 };
 
 Attrs.propTypes = {
@@ -108,6 +115,8 @@ Attrs.propTypes = {
   zoomOut: PropTypes.func,
   zoomIn: PropTypes.func,
   toggle: PropTypes.func,
+  user: PropTypes.string,
+  deleteReport: PropTypes.func,
 };
 
 export default Attrs;

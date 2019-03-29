@@ -126,16 +126,38 @@ const storeOpinion = (uid, info, res) => {
         [docRef.id]: true,
       }, { merge: true })
         .then(() => {
-          res.send({ auth: 'Success' });
+          res.send({ auth: 'success' });
         })
         .catch((error) => {
           console.error('Error al guardar en usuario', error);
-          res.send({ auth: '404' });
+          res.send({ auth: 'error' });
         });
     })
     .catch((error) => {
       console.error('Error al guardar', error);
-      res.send({ auth: '404' });
+      res.send({ auth: 'error' });
+    });
+};
+
+const deleteOpiinion = (uid, id, res) => {
+  console.log(uid, id);
+  const batch = db.batch();
+
+  const reportRef = db.collection('opinions').doc(id);
+  batch.delete(reportRef);
+
+  const usersRef = db.collection('users').doc(uid);
+  batch.update(usersRef, {
+    [id]: admin.firestore.FieldValue.delete(),
+  });
+
+  batch.commit()
+    .then(() => {
+      res.send({ auth: 'success' });
+    })
+    .catch((error) => {
+      console.error('Error al eliminar', error);
+      res.send({ auth: 'error' });
     });
 };
 
@@ -146,4 +168,5 @@ module.exports = {
   reports,
   DEFAULT_POINT,
   storeOpinion,
+  deleteOpiinion,
 };
