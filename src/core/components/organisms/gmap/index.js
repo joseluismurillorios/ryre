@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import tokml from 'tokml';
 
 import { loadScript, circleMarker, styles } from '../../../helpers/helper-gmap';
 
@@ -18,8 +19,11 @@ import {
   isMobile,
 } from '../../../helpers/helper-util';
 
-import Button from '../../atoms/button';
+// import Button from '../../atoms/button';
 import Attrs from '../../molecules/attrs';
+
+import ControlsLeft from '../controls/left';
+import ControlsRight from '../controls/right';
 
 class GMap extends Component {
   constructor(props) {
@@ -53,11 +57,13 @@ class GMap extends Component {
     this.toggleMapType = this.toggleMapType.bind(this);
     this.renderFeatures = this.renderFeatures.bind(this);
     this.toggleDataLayer = this.toggleDataLayer.bind(this);
+    this.download = this.download.bind(this);
 
     this.featureSelected = false;
     this.searching = false;
 
     this.isIOS = isIOS();
+    this.pom = document.createElement('a');
   }
 
   componentDidMount() {
@@ -134,6 +140,18 @@ class GMap extends Component {
       },
     });
     this.marker.setVisible(false);
+
+    this.markerSelected = new window.google.maps.Marker({
+      map: this.gmap,
+      position: { lat: 32.476784, lng: -116.952631 },
+      icon: {
+        ...circleMarker,
+        fillColor: '#00FFFF',
+        scale: 0.55,
+        fillOpacity: 0.6,
+      },
+    });
+    this.markerSelected.setVisible(false);
 
     this.loading(false);
     this.gmap.data.setStyle((feature) => {
@@ -223,8 +241,8 @@ class GMap extends Component {
     // console.log('properties', properties);
     this.setState({ properties, showProps: true });
 
-    this.marker.setVisible(true);
-    this.marker.setPosition(evnt.latLng);
+    this.markerSelected.setVisible(true);
+    this.markerSelected.setPosition(evnt.latLng);
   }
 
   createOpinion() {
@@ -321,6 +339,29 @@ class GMap extends Component {
     this.loading(false);
   }
 
+  download() {
+    const { geo } = this.props;
+    const stamp = (new Date()).getTime();
+    const kml = tokml(geo, {
+      name: 'name',
+      description: 'description',
+      documentName: 'Caminapp',
+      documentDescription: `Proyectos Caminapp ${stamp}`,
+      simplestyle: true,
+    });
+    const filename = `caminapp-${stamp}.kml`;
+    const bb = new Blob([kml], { type: 'text/xml' });
+
+    this.pom.setAttribute('href', window.URL.createObjectURL(bb));
+    this.pom.setAttribute('download', filename);
+
+    this.pom.dataset.downloadurl = ['text/xml', this.pom.download, this.pom.href].join(':');
+    this.pom.draggable = true;
+    this.pom.classList.add('dragout');
+
+    this.pom.click();
+  }
+
   toggleDataLayer() {
     const { showDataLayer } = this.state;
     this.gmap.data.setStyle((feature) => {
@@ -334,7 +375,8 @@ class GMap extends Component {
         visible: !showDataLayer,
       };
     });
-    this.setState({ showDataLayer: !showDataLayer });
+    this.markerSelected.setVisible(false);
+    this.setState({ showDataLayer: !showDataLayer, showProps: false });
   }
 
   reset() {
@@ -394,10 +436,18 @@ class GMap extends Component {
             }
             {
               hasFeatures
-              && <span>ver/Ocultar reportes</span>
+              && <span>Ver/Ocultar todo</span>
             }
-            <span>Ver mapa completo</span>
             <span>Vista satelital</span>
+            <span>Ver mapa completo</span>
+          </div>
+          <div className="fixed-right-bottom">
+            {
+              hasAddress
+              && <span>Agregar Proyecto</span>
+            }
+            <span>Alejar mapa</span>
+            <span>Acercar mapa</span>
             {
               hasGeolocation
               && <span>Ir a mi ubicación</span>
@@ -410,130 +460,38 @@ class GMap extends Component {
             <span className="implanf-search" />
           </label>
         </div>
-        <div
-          ref={(el) => { this.menu = el; }}
-          className="map-menu fixed-left-bottom"
-          onMouseLeave={() => { this.setState({ tooltip: '' }); }}
-        >
-          <Button
-            onTap={this.toggleShowHelp}
-            onMouseMove={() => { this.setState({ tooltip: 'help' }); }}
-            color="light"
-          >
-            {
-              showHelp
-                ? <span className="implanf-close" />
-                : <span className="implanf-help" />
-            }
-            {
-              (showTooltip && tooltip === 'help')
-              && <span className="map-tooltip">{showHelp ? 'Cerrar ayuda' : 'Mostrar ayuda'}</span>
-            }
-          </Button>
-          {
-            (geo && !isIOS() && !(window.cordova))
-            && (
-              <Button
-                onTap={this.download}
-                onMouseMove={() => { this.setState({ tooltip: 'download' }); }}
-                color="light"
-              >
-                <span className="implanf-get_app" />
-                {
-                  (showTooltip && tooltip === 'download')
-                  && <span className="map-tooltip">Descargar KML</span>
-                }
-              </Button>
-            )
-          }
-          {
-            hasFeatures
-            && (
-              <Button
-                onTap={() => {
-                  this.toggleDataLayer(address);
-                }}
-                onMouseMove={() => { this.setState({ tooltip: 'search' }); }}
-                color="light"
-              >
-                <span className={showDataLayer ? 'implanf-visibility' : 'implanf-visibility_off'} />
-                {
-                  (showTooltip && tooltip === 'search')
-                  && <span className="map-tooltip">{showDataLayer ? 'Ocultar Reportes' : 'Ver Reportes'}</span>
-                }
-              </Button>
-            )
-          }
-          <Button
-            onTap={this.reset}
-            onMouseMove={() => { this.setState({ tooltip: 'view' }); }}
-            color="light"
-          >
-            <span className="implanf-public" />
-            {
-              (showTooltip && tooltip === 'view')
-              && <span className="map-tooltip">Ver mapa completo</span>
-            }
-          </Button>
-          <Button
-            onTap={this.toggleMapType}
-            onMouseMove={() => { this.setState({ tooltip: 'satellite' }); }}
-            color="light"
-            className={`${mapType === 'satellite' ? 'active' : ''}`}
-          >
-            <span className="implanf-satellite" />
-            {
-              (showTooltip && tooltip === 'satellite')
-              && <span className="map-tooltip">Vista satelital</span>
-            }
-          </Button>
-          {
-            hasGeolocation
-            && (
-              <Button
-                onTap={this.getLocation}
-                onMouseMove={() => { this.setState({ tooltip: 'myloc' }); }}
-                color="light"
-              >
-                <span className="implanf-my_location" />
-                {
-                  (showTooltip && tooltip === 'myloc')
-                  && <span className="map-tooltip">Mi ubicación</span>
-                }
-              </Button>
-            )
-          }
-        </div>
 
-        <div className="map-menu fixed-right-bottom">
-          {
-            hasAddress
-            && (
-              <Button
-                onTap={this.createOpinion}
-                color="primary"
-              >
-                <span className="implanf-add_location" />
-                {
-                  (showTooltip && tooltip === 'add')
-                  && <span className="map-tooltip">Agregar proyecto</span>
-                }
-              </Button>
-            )
-          }
-          <Button
-            onTap={this.zoomIn}
-            color="light"
-          >
-            <span className="implanf-add" />
-          </Button>
-          <Button
-            onTap={this.zoomOut}
-            color="light"
-          >
-            <span className="implanf-remove" />
-          </Button>
-        </div>
+        <ControlsLeft
+          showHelp={showHelp}
+          showTooltip={showTooltip}
+          geo={geo}
+          tooltip={tooltip}
+          hasFeatures={hasFeatures}
+          showDataLayer={showDataLayer}
+          mapType={mapType}
+          toggleShowHelp={this.toggleShowHelp}
+          download={this.download}
+          toggleDataLayer={this.toggleDataLayer}
+          toggleMapType={this.toggleMapType}
+          onMouseLeave={(tip) => {
+            this.setState({ tooltip: tip.tooltip });
+          }}
+          reset={this.reset}
+        />
+
+        <ControlsRight
+          tooltip={tooltip}
+          showTooltip={showTooltip}
+          hasAddress={hasAddress}
+          hasGeolocation={hasGeolocation}
+          createOpinion={this.createOpinion}
+          getLocation={this.getLocation}
+          zoomOut={this.zoomOut}
+          zoomIn={this.zoomIn}
+          onMouseLeave={(tip) => {
+            this.setState({ tooltip: tip.tooltip });
+          }}
+        />
 
         <Attrs
           showInfo={showProps}
