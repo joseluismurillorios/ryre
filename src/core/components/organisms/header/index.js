@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import $ from '../../../helpers/helper-jquery';
-import { debounce, isMobile } from '../../../helpers/helper-util';
+import { debounce } from '../../../helpers/helper-util';
 
 import { CAMINAPP_URL } from '../../../../config';
 
@@ -25,7 +25,7 @@ class NavBar extends Component {
     this.router = routes.map((path, i) => (
       <li key={path.url !== '#' ? path.url : i} className="dropdown">
         {
-          isMobile
+          path.items.length
             ? (
               <a href="#" className="dropdown-toggle" data-toggle="dropdown">{path.name}</a>
             )

@@ -269,3 +269,86 @@ export const CATEGORIES = {
     },
   },
 };
+
+export const COMUNITY = [
+  {
+    name: 'ING. JORGE A. MUÑOZ ',
+    role: 'CICTAC / ITT',
+  },
+  {
+    name: 'ING. OSCAR F. DUARTE JARAMILLO',
+    role: 'CICTAC',
+  },
+  {
+    name: 'OC. DELIA CRISTINA CASTELLANOS ARMENDARIZ',
+    role: 'IMPLAN',
+  },
+  {
+    name: 'ING. LUIS FERNANDO GONZALEZ VERGARA',
+    role: 'CICTAC / CCPT',
+  },
+  {
+    name: 'ARQ. ALEJANDRO',
+    role: 'IMPLAN',
+  },
+  {
+    name: 'ARQ. FELIPE ALEJANDRO GARCIA CRUZ',
+    role: 'CATAC',
+  },
+  {
+    name: 'C. URIEL MANZANARES TIRADO',
+    role: 'PROTECCIÓN CIVIL',
+  },
+  {
+    name: 'ING. EVERARDO LONA LOPEZ',
+    role: 'SECRETARIA DE DESARROLLO URBANO Y ECOLOGÍA',
+  },
+  {
+    name: 'MTRO.. MARCO ANTONIO SOTOMAYOR  AMEZCUA',
+    role: 'SECRETARIA DE SEGURIDAD PÚBLICA',
+  },
+  {
+    name: 'CPTN. JOSE LUIS JIMENEZ GONZALEZ',
+    role: 'DIRECCION DE BOMBEROS',
+  },
+  {
+    name: 'ARQ. MARGARITA PATRICIA HURTADO MENDIOLA',
+    role: 'DAU',
+  },
+  {
+    name: 'ARQ. GERMAN JESUS LIZOLA MARQUEZ',
+    role: 'CESPT',
+  },
+  {
+    name: 'ING. FRANCISCO JAVIER MEJIA PANCARDO',
+    role: 'INDIVI',
+  },
+  {
+    name: 'ING. EDHER JAVIER MENDOZA GARCIA',
+    role: 'COMICE TTR',
+  },
+  {
+    name: 'ING. GABRIEL ANTON',
+    role: 'CMIC TITR',
+  },
+  {
+    name: 'DR. LUIS HUMBERTO MENDOZA GARCILAZO',
+    role: 'CICESE',
+  },
+  {
+    name: 'DR. JUAN MANUEL RODRIGUEZ ESTEVES',
+    role: 'COLEF',
+  },
+  {
+    name: 'ING. MARIO GONZALEZ DURAN',
+    role: 'UABC',
+  },
+  {
+    name: 'ING. RENE MARTINEZ LEON',
+    role: 'ITT',
+  },
+  {
+    name: 'ING. GERARDO I. TENORIO ESCARCEGA',
+    role: 'CICTAC',
+  },
+];

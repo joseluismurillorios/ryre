@@ -8,6 +8,9 @@ export default {
     'objectives.one': 'Identificar las necesidades y prioridades de riesgo de la ciudad que requieren atención.',
     'objectives.two': 'Determinar cómo se alinean las prioridades de resiliencia de la comunidad tijuanense.',
     'objectives.three': 'Planear los puntos de riesgo de entrada a nivel comunitario que puedan contribuir al general.',
+
+    'us.mision': 'Fomentar y orientar el desarrollo estratégico de la zona metropolitana que permita garantizar la equidad social, el impulso de una economía innovadora y competitiva que tenga pleno respeto al medio ambiente.',
+    'us.vision': 'Generar estrategias encaminadas a una planeación incluyente de los diferentes sectores ciudadanos y los distintos órdenes de gobierno, y así impulsar una cultura urbana-ambiental que mejore la calidad de vida de los habitantes.',
   },
   en: {
     'presentation.one': '',

@@ -97,7 +97,7 @@ class Home extends Component {
                 <div className="col-xs-12 text-center">
                   <h2>¿Necesitas más información? ¡Envíanos tu mensaje!</h2>
                   <div className="cta-button">
-                    <Linked url="/contacto" className="btn btn-md btn-color">
+                    <Linked url="/contacto" className="btn btn-md btn-color rounded">
                       Contacto
                     </Linked>
                   </div>

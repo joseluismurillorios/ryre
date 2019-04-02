@@ -3,34 +3,9 @@ import Generic from './generic';
 import Weather from './weather';
 import Time from './time';
 import Google from './google';
-import Presentation from './presentation';
-
-const gmaps = !(window.cordova)
-  ? [
-    {
-      url: '/',
-      component: Home,
-      name: 'Inicio',
-    },
-    {
-      url: '*',
-      component: Generic,
-      name: '404',
-    },
-  ]
-  : [
-    {
-      url: '/',
-      component: Home,
-      name: 'Inicio',
-    },
-    {
-      url: '*',
-      component: Generic,
-      name: '404',
-    },
-  ];
-
+// import Presentation from './presentation';
+import News from './news';
+import AboutUs from './aboutus';
 
 export const ROUTES = [
   {
@@ -38,26 +13,18 @@ export const ROUTES = [
     component: Home,
     name: 'Inicio',
     items: [
-      {
-        url: '/inicio/presentacion',
-        component: Presentation,
-        name: 'Presentación',
-      },
-      {
-        url: '/inicio/video-institucional',
-        component: Generic,
-        name: 'Video Institucional',
-      },
-      {
-        url: '/inicio/mapa-de-contenido',
-        component: Generic,
-        name: 'Mapa de Contenido',
-      },
+    ],
+  },
+  {
+    url: '/nosotros',
+    component: AboutUs,
+    name: 'Nosotros',
+    items: [
     ],
   },
   {
     url: '/noticias',
-    component: Generic,
+    component: News,
     name: 'Noticias',
     items: [
       {
@@ -94,38 +61,6 @@ export const ROUTES = [
         url: '/noticias/reportes',
         component: Google,
         name: 'Reportes de Riesgos',
-      },
-    ],
-  },
-  {
-    url: '/nosotros',
-    component: Generic,
-    name: 'Nosotros',
-    items: [
-      {
-        url: '/nosotros/objetivos',
-        component: Generic,
-        name: 'Objectivos',
-      },
-      {
-        url: '/nosotros/mision',
-        component: Generic,
-        name: 'Misión',
-      },
-      {
-        url: '/nosotros/vision',
-        component: Generic,
-        name: 'Visión',
-      },
-      {
-        url: '/nosotros/instituciones-y-empresas-participantes',
-        component: Generic,
-        name: 'Instituciones y Empresas Participantes',
-      },
-      {
-        url: '/nosotros/comuniti-mesa-de-r-y-r',
-        component: Generic,
-        name: 'COMUNITI Mesa de R. Y R.',
       },
     ],
   },
@@ -274,4 +209,4 @@ export const ROUTES = [
   },
 ];
 
-export default gmaps;
+export default ROUTES;
