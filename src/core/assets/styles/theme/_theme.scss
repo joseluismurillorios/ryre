@@ -542,7 +542,13 @@ p {
 			padding: 0 20px;
 			line-height: 100px;
 			&:hover {
-				color: $color_bunker_approx;
+				// color: $color_bunker_approx;
+			}
+			&.active {
+				color: $black;
+				&:hover {
+					background: transparent;
+				}
 			}
 			&.nav-search {
 				position: relative;
@@ -672,13 +678,14 @@ p {
 	}
 	> li > a {
 		&:focus {
-			background-color: transparent;
-			border-color: $concrete;
+			// background-color: inherit;
+			// border-color: $concrete;
 			text-decoration: none;
 		}
-		&:hover {
+		&.active:hover {
 			background-color: transparent;
-			border-color: $concrete;
+			color: $black;
+			// border-color: $concrete;
 			text-decoration: none;
 		}
 	}
@@ -788,6 +795,7 @@ p {
 		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 		font-weight: 400;
+		user-select: none;
 		&:focus {
 			background-color: transparent;
 			color: $color_keppel_approx;
@@ -795,6 +803,10 @@ p {
 		&:hover {
 			background-color: transparent;
 			color: $color_keppel_approx;
+		}
+		&.active {
+			background-color: transparent;
+			color: $black;
 		}
 	}
 	.megamenu-wrap ul > li > a {
@@ -940,7 +952,7 @@ p {
 		}
 	}
 	.navbar {
-		min-height: 151px;
+		min-height: 138px;
 		background: #fff;
 	}
 	.header-wrap {
@@ -957,7 +969,7 @@ p {
 			float: none;
 			> a {
 				line-height: 1;
-				padding-bottom: 30px;
+				padding: 20px;
 			}
 		}
 	}
@@ -991,7 +1003,7 @@ p {
 		}
 	}
 	.logo-wrap > a {
-		height: 105px;
+		height: 85px;
 	}
 	.navigation.sticky {
 		height: auto;

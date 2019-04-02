@@ -42,24 +42,28 @@ class NavBar extends Component {
               </NavItem>
             )
         }
-        <ul className="dropdown-menu">
-          {
-            path.items.map(sub => (
-              <li key={sub.url}>
-                <NavItem
-                  key={sub.url}
-                  exact
-                  to={sub.url}
-                  onClick={() => {
-                    $('#MainScroll').scrollTop(0);
-                  }}
-                >
-                  {sub.name}
-                </NavItem>
-              </li>
-            ))
-          }
-        </ul>
+        {
+          !!(path.items.length) && (
+            <ul className="dropdown-menu">
+              {
+                path.items.map(sub => (
+                  <li key={sub.url}>
+                    <NavItem
+                      key={sub.url}
+                      exact
+                      to={sub.url}
+                      onClick={() => {
+                        $('#MainScroll').scrollTop(0);
+                      }}
+                    >
+                      {sub.name}
+                    </NavItem>
+                  </li>
+                ))
+              }
+            </ul>
+          )
+        }
       </li>
     ));
   }
