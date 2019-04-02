@@ -535,7 +535,7 @@ p {
 		> a {
 			font-family: $font_2, $font_1;
 			text-transform: uppercase;
-			font-weight: 400;
+			font-weight: 500;
 			letter-spacing: 0.12em;
 			color: $boulder;
 			font-size: 13px;
@@ -787,7 +787,7 @@ p {
 		border-bottom: 1px solid $concrete;
 		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
-		font-weight: 500;
+		font-weight: 400;
 		&:focus {
 			background-color: transparent;
 			color: $color_keppel_approx;
@@ -1249,6 +1249,9 @@ p {
 .work-img {
 	position: relative;
 	overflow: hidden;
+	height: 50vh;
+	background-position: center center;
+	background-size: 180%;
 	> a {
 		display: block;
 		position: relative;
@@ -1843,7 +1846,7 @@ p {
 			padding: 0 20%;
 			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: translateY(-50%);
-			top: 60%;
+			top: 50%;
 			left: 0;
 			i {
 				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
@@ -2345,6 +2348,7 @@ p {
 		.hidden-text {
 			opacity: 1;
 			visibility: visible;
+			line-height: inherit;
 		}
 	}
 }
@@ -2353,6 +2357,7 @@ p {
 	transition: 0.3s ease-in-out;
 	opacity: 0;
 	visibility: hidden;
+	line-height: 0px;
 }
 .process-parallax {
 	.parallax {
@@ -5590,7 +5595,7 @@ img {
 }
 .btn {
 	font-family: $font_2, $font_1;
-	font-weight: bold;
+	font-weight: 600;
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
@@ -6799,13 +6804,6 @@ ol.numbers {
 }
 .mfp-image-holder .mfp-close {
 	color: transparent;
-}
-.mfp-close:before {
-	font-family: $font_10, $font_1;
-	content: "\4d";
-	position: absolute;
-	right: 0;
-	color: $white;
 }
 .footer-socials .social-icons a {
 	margin-bottom: 0;

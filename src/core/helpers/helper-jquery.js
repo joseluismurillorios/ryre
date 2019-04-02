@@ -9,7 +9,7 @@ import getBootstrap from './helper-bootstrap';
 import getEasing from './helper-easing';
 // import getScrolling from './helper-localscroll';
 // import getWow from './helper-wow';
-// import getMagnific from './helper-magnific';
+import getMagnific from './helper-magnific';
 // import getIsotope from './helper-isotope';
 
 // getSwipe(jQuery);
@@ -20,7 +20,7 @@ getBootstrap(jQuery);
 // getFlexslider(jQuery);
 getEasing(jQuery);
 // getScrolling(jQuery);
-// getMagnific(jQuery);
+getMagnific(jQuery);
 // getWow();
 // getIsotope(jQuery);
 

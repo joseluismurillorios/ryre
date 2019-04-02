@@ -9,17 +9,17 @@ const Aether = ({
       <defs>
         <radialGradient id="Gradient1" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
           <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite" />
-          <stop offset="0%" stopColor="rgba(255,255,255, 0.4)" />
+          <stop offset="0%" stopColor="rgba(255,255,255, 0.3)" />
           <stop offset="100%" stopColor="rgba(255,255,255, 0)" />
         </radialGradient>
         <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
           <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite" />
-          <stop offset="0%" stopColor="rgba(255,255,255, 0.4)" />
+          <stop offset="0%" stopColor="rgba(255,255,255, 0.3)" />
           <stop offset="100%" stopColor="rgba(255,255,255, 0)" />
         </radialGradient>
         <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
           <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite" />
-          <stop offset="0%" stopColor="rgba(255,255,255, 0.4)" />
+          <stop offset="0%" stopColor="rgba(255,255,255, 0.3)" />
           <stop offset="100%" stopColor="rgba(255,255,255, 0)" />
         </radialGradient>
       </defs>

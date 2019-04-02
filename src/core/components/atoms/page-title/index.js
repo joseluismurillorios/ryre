@@ -5,9 +5,18 @@ import Linked from '../link';
 
 import { isMobile } from '../../../helpers/helper-util';
 
-const PageTitle = ({ text, paths }) => (
-  <section className={`page-title ${isMobile ? 'title-sm' : ''} text-center`}>
-    <div className="container relative clearfix">
+import Aether from '../aether';
+
+const PageTitle = ({ text, paths, aether }) => (
+  <section
+    className={`page-title ${isMobile ? 'title-sm' : ''} text-center`}
+  >
+    {
+      aether && (
+        <Aether className="fill" />
+      )
+    }
+    <div className="container relative clearfix" style={aether ? { height: '200px' } : {}}>
       <div className="title-holder">
         <div className="title-text">
           <h1 className="uppercase">{text}</h1>
@@ -32,9 +41,14 @@ const PageTitle = ({ text, paths }) => (
   </section>
 );
 
+PageTitle.defaultProps = {
+  aether: false,
+};
+
 PageTitle.propTypes = {
   paths: PropTypes.arrayOf(PropTypes.any).isRequired,
   text: PropTypes.element.isRequired,
+  aether: PropTypes.bool,
 };
 
 export default PageTitle;

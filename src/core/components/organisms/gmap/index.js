@@ -59,6 +59,7 @@ class GMap extends Component {
     this.toggleDataLayer = this.toggleDataLayer.bind(this);
     this.download = this.download.bind(this);
     this.deleteReport = this.deleteReport.bind(this);
+    this.hideAttrs = this.hideAttrs.bind(this);
 
     this.featureSelected = false;
     this.searching = false;
@@ -276,6 +277,12 @@ class GMap extends Component {
     this.setState({ showHelp: false });
   }
 
+  hideAttrs() {
+    const { showDataLayer } = this.state;
+    this.markerHighlight.setVisible(false);
+    this.setState({ showDataLayer: !showDataLayer, showProps: false });
+  }
+
   showLocation(position) {
     const { setCoords } = this.props;
     const { longitude, latitude } = position.coords;
@@ -384,8 +391,7 @@ class GMap extends Component {
         visible: !showDataLayer,
       };
     });
-    this.markerHighlight.setVisible(false);
-    this.setState({ showDataLayer: !showDataLayer, showProps: false });
+    this.hideAttrs();
   }
 
   deleteReport(uid, id) {
@@ -518,7 +524,7 @@ class GMap extends Component {
           info={properties}
           zoomOut={this.zoomOut}
           zoomIn={this.zoomIn}
-          toggle={() => this.setState({ showProps: false })}
+          toggle={this.hideAttrs}
           user={user}
           deleteReport={this.deleteReport}
         />

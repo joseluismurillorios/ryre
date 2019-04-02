@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Section = ({ className, children }) => (
+const Section = ({ id, className, children }) => (
   <section
+    id={id}
     className={`section-wrap ${className}`}
   >
     {children}
@@ -11,6 +12,7 @@ const Section = ({ className, children }) => (
 );
 
 Section.defaultProps = {
+  id: '',
   className: '',
 };
 
@@ -20,6 +22,7 @@ Section.propTypes = {
     PropTypes.object,
     PropTypes.arrayOf(PropTypes.any),
   ]).isRequired,
+  id: PropTypes.string,
   className: PropTypes.string,
 };
 

@@ -3,6 +3,7 @@ import Generic from './generic';
 import Weather from './weather';
 import Time from './time';
 import Google from './google';
+import Presentation from './presentation';
 
 const gmaps = !(window.cordova)
   ? [
@@ -39,7 +40,7 @@ export const ROUTES = [
     items: [
       {
         url: '/inicio/presentacion',
-        component: Generic,
+        component: Presentation,
         name: 'Presentación',
       },
       {

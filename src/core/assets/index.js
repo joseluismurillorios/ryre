@@ -3,6 +3,7 @@
 import fullbg from './images/ui/full_bg.jpg';
 import banner from './images/ui/banner.png';
 import bg01 from './images/ui/bg-03.jpg';
+import device from './images/ui/promo_device.png';
 import navbarDark from './images/navbar-dark.png';
 
 import IconShock from './images/categories/shock.png';
@@ -27,6 +28,7 @@ export default {
   banner,
   navbarDark,
   bg01,
+  device,
 
   'Lluvia (Riesgos)': IconRains,
   'Fugas': IconLeak,

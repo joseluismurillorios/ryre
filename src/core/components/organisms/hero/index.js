@@ -6,31 +6,22 @@ import $ from '../../../helpers/helper-jquery';
 
 import Rotator from '../../atoms/rotator';
 // import Aether from '../../atoms/aether';
+import Linked from '../../atoms/link';
 import Wave from '../../atoms/waves';
 
 const content = [
   {
-    text: 'Terremotos',
+    text: 'Clima',
     className: 'rotate',
     animation: 'fade',
   },
   {
-    text: 'Tsunamis',
+    text: 'Reportes',
     className: 'rotate',
     animation: 'fade',
   },
   {
-    text: 'Inundaciones',
-    className: 'rotate',
-    animation: 'fade',
-  },
-  {
-    text: 'Ciclónes',
-    className: 'rotate',
-    animation: 'fade',
-  },
-  {
-    text: 'Marejadas',
+    text: 'Mapas',
     className: 'rotate',
     animation: 'fade',
   },
@@ -52,8 +43,10 @@ class Hero extends Component {
     // const topPos = myElement.offsetTop;
     // document.getElementById('overlay').scrollTop = topPos;
 
+    console.log(goTo);
+
     $('#MainScroll').animate({
-      scrollTop: $('#MainScroll').scrollTop() + ($(goTo).offset().top - $('#MainScroll').offset().top),
+      scrollTop: $('#MainScroll').scrollTop() + ($(`#${goTo}`).offset().top - $('#MainScroll').offset().top),
     }, 800, 'easeInOutQuart');
 
 
@@ -76,7 +69,9 @@ class Hero extends Component {
               </h1>
               <h2 className="hero-subtitle">RYR Web facilita la comprensión del panorama de riesgo en la región.</h2>
               <div className="buttons-holder mt-30">
-                <a href="/" className="btn btn-md rounded btn-white">Ver Atlas de Riesgo</a>
+                <Linked url="/noticias/reportes" className="btn btn-md rounded btn-white">
+                  Ver Reportes de Riesgo
+                </Linked>
               </div>
               <div className="local-scroll">
                 <button onClick={this.scrollTo} type="button" className="scroll-down btn-color">

@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import $ from '../../../helpers/helper-jquery';
-import { debounce } from '../../../helpers/helper-util';
+import { debounce, isMobile } from '../../../helpers/helper-util';
 
 import { CAMINAPP_URL } from '../../../../config';
 
@@ -24,7 +24,24 @@ class NavBar extends Component {
     const { routes } = this.props;
     this.router = routes.map((path, i) => (
       <li key={path.url !== '#' ? path.url : i} className="dropdown">
-        <a href="#" className="dropdown-toggle" data-toggle="dropdown">{path.name}</a>
+        {
+          isMobile
+            ? (
+              <a href="#" className="dropdown-toggle" data-toggle="dropdown">{path.name}</a>
+            )
+            : (
+              <NavItem
+                key={path.url}
+                exact
+                to={path.url}
+                onClick={() => {
+                  $('#MainScroll').scrollTop(0);
+                }}
+              >
+                {path.name}
+              </NavItem>
+            )
+        }
         <ul className="dropdown-menu">
           {
             path.items.map(sub => (
