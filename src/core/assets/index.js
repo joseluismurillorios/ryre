@@ -150,4 +150,8 @@ export default {
   'Riesgo de electrocutamiento': IconShock,
   'Azolves/Taponamientos': IconDrain,
   'Otro': IconOther,
+
+  cict,
+  cocopo,
+  colearq,
 };

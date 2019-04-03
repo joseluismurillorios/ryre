@@ -366,3 +366,26 @@ export const COMUNITY = [
     role: 'CICTAC',
   },
 ];
+
+export const IMPLAN_DIRECTORY = [
+  {
+    role: 'Director General Ejecutivo',
+    name: 'Arq. Alejandro Ruiz Garcia',
+  },
+  {
+    role: 'Asistente de Dirección',
+    name: 'Lic. Alma Graciela Flores Flores',
+  },
+  {
+    role: 'Coordinador Administrativo y de Financiero',
+    name: 'C.P Ernesto Lucero Lopez',
+  },
+  {
+    role: 'Director de Planeación Territorial',
+    name: 'Arq. Alma Gloria Sevilla Vigil',
+  },
+  {
+    role: 'Director de Planeación para el Desarrollo',
+    name: 'Lic. Baudelio Benites Galvez',
+  },
+];

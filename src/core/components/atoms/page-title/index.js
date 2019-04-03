@@ -16,11 +16,16 @@ const PageTitle = ({ text, paths, aether }) => (
         <Aether className="fill" />
       )
     }
-    <div className="container relative clearfix" style={aether ? { height: '160px' } : {}}>
+    <div className="container relative clearfix" style={aether ? { height: '120px' } : {}}>
       <div className="title-holder">
         <div className="title-text">
           <h1 className="uppercase">{text}</h1>
           <ol className="breadcrumb">
+            <li className="active">
+              <Linked url="/">
+                Inicio
+              </Linked>
+            </li>
             {
               paths
               && paths.map(path => (

@@ -50,12 +50,12 @@ class AboutUs extends Component {
             paths={paths}
             aether
           />
-          <Section className="pt-80 pb-80 icon-boxes style-4">
+          <Section className="pt-80 pb-80 pt-mdm-30 icon-boxes style-4">
             <Container>
               <Appear>
-                <h1 className="text-center mb-50 mb-mdm-30 bottom-line">
+                <h2 className="text-center mb-50 mb-mdm-30 bottom-line">
                   Mesa Técnica de Riesgos y Resiliencia
-                </h1>
+                </h2>
                 <div className="row" ref={(el) => { this.wow = el; }}>
                   <div
                     className="col-md-6 mb-50"

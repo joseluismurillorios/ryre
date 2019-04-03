@@ -1,21 +1,17 @@
 @import "../fonts/montserrat/montserrat.css";
-// @import "../fonts/eva/style.css";
 @import "../fonts/implanf/style.css";
 @import "../fonts/esricon/style.css";
 @import "../fonts/flexslider-icon/flexslider.css";
 @import "../fonts/WeatherIcons/WeatherIcons.css";
 
 @import "foundation/variables";
-@import "foundation/colors";
-// @import "foundation/scrollbars";
-@import "foundation/page-transition";
-@import "foundation/ripple";
 
 @import "theme/bootstrap";
 @import "theme/maps";
 
-// @import "rev/settings.css";
-// @import "rev/rev-slider.css";
+@import "foundation/colors";
+@import "foundation/page-transition";
+@import "foundation/ripple";
 
 @import "theme/theme";
 @import "theme/responsive";

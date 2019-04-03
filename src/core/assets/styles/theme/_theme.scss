@@ -2013,7 +2013,7 @@ p {
 .gmap-btn {
 	background-color: $color_wild_sand_approx;
 	width: 100%;
-	height: 70px;
+	// height: 70px;
 	z-index: 2;
 	position: relative;
 	text-align: center;
@@ -2027,21 +2027,31 @@ p {
 	&:hover {
 		color: $white;
 		background-color: $color_shark_approx;
+		 > * {
+			color: $white;
+			background-color: transparent;
+			transition: all 0.3s ease-in-out;
+		}
 	}
 	&.opened {
 		color: $white;
 		background-color: $color_shark_approx;
+		> * {
+			color: $white;
+			background-color: transparent;
+			transition: all 0.3s ease-in-out;
+		}
 	}
 }
 .gmap {
 	width: 100%;
-	height: 450px;
+	height: 400px;
 	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
-	transition: all 0.2s ease-in-out;
+	transition: all 0.4s ease-in-out;
 	&.gmap-hidden {
 		visibility: hidden;
 		z-index: -10;
-		margin-top: -450px;
+		margin-top: -400px;
 		opacity: 0;
 	}
 	&.opened {

@@ -164,7 +164,7 @@ class NavBar extends Component {
                       <NavItem
                         className="cart-temp right hidden-lg hidden-md"
                         exact
-                        to="/noticias/condiciones-clim"
+                        to="/noticias/clima"
                         onClick={() => {
                           $('#MainScroll').scrollTop(0);
                         }}
@@ -233,7 +233,7 @@ class NavBar extends Component {
                           <NavItem
                             className="cart-temp right"
                             exact
-                            to="/noticias/condiciones-clim"
+                            to="/noticias/clima"
                             onClick={() => {
                               $('#MainScroll').scrollTop(0);
                             }}

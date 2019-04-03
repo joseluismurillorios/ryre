@@ -1,11 +1,12 @@
 import Home from './home';
 import Generic from './generic';
 import Weather from './weather';
-import Time from './time';
+// import Time from './time';
 import Google from './google';
 // import Presentation from './presentation';
 import News from './news';
-import AboutUs from './aboutus';
+import AboutUs from './about';
+import Contact from './contact';
 
 export const ROUTES = [
   {
@@ -38,14 +39,9 @@ export const ROUTES = [
         name: 'COMUNITI',
       },
       {
-        url: '/noticias/tiempo',
-        component: Time,
-        name: 'Tiempo',
-      },
-      {
-        url: '/noticias/condiciones-clim',
+        url: '/noticias/clima',
         component: Weather,
-        name: 'Condiciones Clim.',
+        name: 'Clima',
       },
       {
         url: '/noticias/eventos-y-congresos',
@@ -103,29 +99,29 @@ export const ROUTES = [
   },
   {
     url: '/contacto',
-    component: Generic,
+    component: Contact,
     name: 'Contacto',
     items: [
-      {
-        url: '/contacto/implan',
-        component: Generic,
-        name: 'IMPLAN',
-      },
-      {
-        url: '/contacto/colegios',
-        component: Generic,
-        name: 'Colegios',
-      },
-      {
-        url: '/contacto/correos',
-        component: Generic,
-        name: 'Correos',
-      },
-      {
-        url: '/contacto/encuestas',
-        component: Generic,
-        name: 'Encuestas',
-      },
+      // {
+      //   url: '/contacto/implan',
+      //   component: Generic,
+      //   name: 'IMPLAN',
+      // },
+      // {
+      //   url: '/contacto/colegios',
+      //   component: Generic,
+      //   name: 'Colegios',
+      // },
+      // {
+      //   url: '/contacto/correos',
+      //   component: Generic,
+      //   name: 'Correos',
+      // },
+      // {
+      //   url: '/contacto/encuestas',
+      //   component: Generic,
+      //   name: 'Encuestas',
+      // },
     ],
   },
   {
