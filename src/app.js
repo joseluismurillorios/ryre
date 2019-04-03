@@ -24,8 +24,8 @@ import './core/assets/images/apple_splash_750.png';
 
 import './core/assets/styles/main.scss';
 
-const DEVELOMPENT = (process.env.NODE_ENV === 'development');
-console.log(DEVELOMPENT);
+// const DEVELOMPENT = (process.env.NODE_ENV === 'development');
+// console.log(DEVELOMPENT);
 
 // if (('serviceWorker' in navigator) && !(window.cordova) && !DEVELOMPENT) {
 //   navigator.serviceWorker.register('service-worker.js');

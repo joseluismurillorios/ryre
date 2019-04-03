@@ -50,8 +50,8 @@ class Home extends Component {
             </div>
           </Section>
           <Section className="promo-section bg-dark style-2">
-            <Container>
-              <div className="col-md-6">
+            <Container className="flex-center">
+              <div className="col-md-7 mb-mdm-40">
                 <h3 className="color-white">IMPLAN RYRE WEB</h3>
                 <p className="color-white">
                   {dict.es['presentation.one']}
@@ -62,13 +62,13 @@ class Home extends Component {
                   <br />
                   {dict.es['presentation.three']}
                 </p>
-                <Linked url="/noticias/reportes" className="btn btn-md btn-light mt-10">Explorar</Linked>
+                <Linked url="/noticias/reportes" className="btn btn-md btn-light mt-20">Explorar</Linked>
               </div>
-              <div className="col-md-6 text-center mb-mdm-60">
+              <div className="col-md-5 text-center">
                 <img
                   src={assets.device}
                   alt=""
-                  className="wow fadeInRight ml-40"
+                  className="wow fadeInRight"
                   data-wow-duration="1s"
                   data-wow-delay=".2s"
                   style={{

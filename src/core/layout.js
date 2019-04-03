@@ -45,8 +45,8 @@ class Layout extends Component {
     super(props);
     this.state = {
       menuOpened: false,
-      showInstallMessage: (isIOS() && !isInStandaloneMode() && !isIOSChrome && !(window.cordova)),
-      isStandalone: isIOS() && (isInStandaloneMode() || !!(window.cordova)),
+      showInstallMessage: (isIOS && !isInStandaloneMode() && !isIOSChrome && !(window.cordova)),
+      isStandalone: isIOS && (isInStandaloneMode() || !!(window.cordova)),
       email: '',
       password: '',
     };

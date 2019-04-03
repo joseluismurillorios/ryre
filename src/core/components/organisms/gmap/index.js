@@ -64,7 +64,7 @@ class GMap extends Component {
     this.featureSelected = false;
     this.searching = false;
 
-    this.isIOS = isIOS();
+    this.isIOS = isIOS;
     this.pom = document.createElement('a');
   }
 

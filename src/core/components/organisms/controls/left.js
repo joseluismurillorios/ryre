@@ -41,7 +41,7 @@ const ControlsLeft = ({
       }
     </Button>
     {
-      ((geo.features && geo.features.length > 0) && !isIOS() && !(window.cordova))
+      ((geo.features && geo.features.length > 0) && !isIOS && !(window.cordova))
       && (
         <Button
           onTap={download}

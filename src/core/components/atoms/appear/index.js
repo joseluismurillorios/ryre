@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 
 import $ from '../../../helpers/helper-jquery';
 import { throttle } from '../../../helpers/helper-util';
+import { FADEIN } from '../../../helpers/helper-constants';
 
 class Appear extends Component {
   constructor(props) {
     super(props);
-    this.state = { isHide: false };
+    this.state = {
+      isHide: true,
+      appeared: false,
+    };
     this.throttledScroll = throttle(this.throttledScroll.bind(this), 200);
     this.prev = 0;
   }
@@ -15,7 +19,7 @@ class Appear extends Component {
   componentDidMount() {
     this.scroll = document.getElementById('MainScroll');
     this.scroll.addEventListener('scroll', this.throttledScroll);
-    this.scroll.dispatchEvent(new Event('scroll'));
+    setTimeout(() => { this.scroll.dispatchEvent(new Event('scroll')); }, 800);
   }
 
   componentWillUnmount() {
@@ -24,26 +28,30 @@ class Appear extends Component {
 
   throttledScroll() {
     const { onAppear } = this.props;
-    const { isHide } = this.state;
+    const { isHide, appeared } = this.state;
     const top = $('#MainScroll').height();
-    if ($(this.appearEl).offset().top < top) {
-      if (isHide) {
-        this.setState({ isHide: true });
-      } else {
-        onAppear();
-        this.setState({ isHide: false });
-      }
+    if ($(this.appearEl).offset().top < top && isHide && !appeared) {
+      onAppear();
+      this.setState({ isHide: false, appeared: true });
     }
 
     this.prev = $(this.appearEl).offset().top;
   }
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, fade } = this.props;
     const { isHide } = this.state;
-    const classHide = isHide ? 'hide' : '';
+    const classHide = isHide ? '' : '';
+    const active = isHide ? FADEIN.inactive : FADEIN.active;
+    const style = fade ? active : {};
     return (
-      <div ref={(el) => { this.appearEl = el; }} className={`${classHide} ${className}`}>{children}</div>
+      <div
+        ref={(el) => { this.appearEl = el; }}
+        className={`${classHide} ${className}`}
+        style={style}
+      >
+        {children}
+      </div>
     );
   }
 }
@@ -51,6 +59,7 @@ class Appear extends Component {
 Appear.defaultProps = {
   className: '',
   onAppear: () => {},
+  fade: true,
 };
 
 Appear.propTypes = {
@@ -61,6 +70,7 @@ Appear.propTypes = {
   ]).isRequired,
   className: PropTypes.string,
   onAppear: PropTypes.func,
+  fade: PropTypes.bool,
 };
 
 export default Appear;

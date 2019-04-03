@@ -1,12 +1,14 @@
-import React from 'react';
+/* eslint-disable react/jsx-no-target-blank */
+import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import OwlCarousel from 'react-owl-carousel';
 
 import { PARTNERS } from '../../../assets';
+import { isMobile } from '../../../helpers/helper-util';
 
 const config = {
   0: {
-    items: 2,
+    items: 1,
   },
   768: {
     items: 3,
@@ -18,30 +20,52 @@ const config = {
 
 const navText = ['<i class=\'implanf-chevron-left\'></i>', '<i class=\'implanf-chevron-right\'></i>'];
 
-const OwlPartners = () => (
-  <OwlCarousel
-    className="owl-carousel owl-theme"
-    responsive={config}
-    // dots={false}
-    navText={navText}
-    slideBy="page"
-    nav
-    // autoplay
-    // autoplayTimeout={6000}
-  >
-    {
-      PARTNERS.map(obj => (
-        <div key={obj.link} className="item text-center ml-20 mr-20 mb-20">
-          <a href={obj.link}>
-            <img src={obj.url} alt="" style={{ maxWidth: '150px', margin: '0 auto' }} />
-            <small className="color-white">{obj.info}</small>
-          </a>
-        </div>
-      ))
-    }
+class OwlPartners extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialized: false,
+    };
 
-  </OwlCarousel>
-);
+    this.onInitialized = this.onInitialized.bind(this);
+  }
+
+  shouldComponentUpdate() {
+    const { initialized } = this.state;
+    return !initialized;
+  }
+
+  onInitialized() {
+    this.setState({ initialized: true });
+  }
+
+  render() {
+    return (
+      <OwlCarousel
+        className="owl-carousel owl-theme"
+        onInitialized={this.onInitialized}
+        responsive={config}
+        navText={navText}
+        dots={!isMobile}
+        // slideBy="page"
+        nav
+        autoplay
+        autoplayTimeout={6000}
+      >
+        {
+          PARTNERS.map(obj => (
+            <div key={obj.link} className="item text-center ml-20 mr-20 mb-20">
+              <a href={obj.link} target="_blank">
+                <img src={obj.url} alt="" style={{ maxWidth: '150px', margin: '0 auto' }} />
+                <small className="color-white">{obj.info}</small>
+              </a>
+            </div>
+          ))
+        }
+      </OwlCarousel>
+    );
+  }
+}
 
 OwlPartners.defaultProps = {
 };

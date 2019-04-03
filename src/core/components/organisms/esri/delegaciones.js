@@ -21,7 +21,7 @@ class Delegaciones extends Component {
     super(props);
     this.loading = this.loading.bind(this);
 
-    this.isIOS = isIOS();
+    this.isIOS = isIOS;
     this.isMobile = isMobile;
   }
 

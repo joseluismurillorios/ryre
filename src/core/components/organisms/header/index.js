@@ -23,7 +23,10 @@ class NavBar extends Component {
 
     const { routes } = this.props;
     this.router = routes.map((path, i) => (
-      <li key={path.url !== '#' ? path.url : i} className="dropdown">
+      <li
+        key={path.url !== '#' ? path.url : i}
+        className={path.items.length ? 'dropdown' : ''}
+      >
         {
           path.items.length
             ? (

@@ -50,18 +50,16 @@ export const transformProperty = (() => {
   return 'WebkitTransform';
 })();
 
-export const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 // const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-export const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-export const isIOSChrome = /CriOS/.test(navigator.userAgent);
+const { userAgent } = window.navigator;
 
-
-export const isIOS = () => {
-  const userAgent = window.navigator.userAgent.toLowerCase();
-  return /iphone|ipad|ipod/.test(userAgent);
-};
+export const isMobile = /iPhone|iPad|iPod|Android/i.test(userAgent);
+export const isChrome = /Chrome/.test(userAgent) && /Google Inc/.test(navigator.vendor);
+export const isIOSChrome = /CriOS/.test(userAgent);
+export const isMac = (navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+export const isIOS = /iphone|ipad|ipod/.test(userAgent.toLowerCase());
 
 export const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
 

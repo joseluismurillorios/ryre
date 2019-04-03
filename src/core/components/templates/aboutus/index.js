@@ -23,18 +23,6 @@ import dict from '../../../dict';
 import Row from '../../atoms/row';
 
 class AboutUs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      style: {
-        visibility: 'hidden',
-        animationDuration: '2s',
-        animationDelay: '0.2s',
-        animationName: 'none',
-      },
-    };
-  }
-
   componentDidMount() {
     const { mapLoading } = this.props;
     mapLoading(false);
@@ -45,7 +33,6 @@ class AboutUs extends Component {
     const path = match.path.substring(1, match.path.length);
     const paths = path.split('/');
     paths.pop();
-    const { style } = this.state;
     return (
       <div
         id="AboutUs"
@@ -65,24 +52,13 @@ class AboutUs extends Component {
           />
           <Section className="pt-80 pb-80 icon-boxes style-4">
             <Container>
-              <Appear
-                onAppear={() => {
-                  this.setState({
-                    style: {
-                      animationDuration: '3s',
-                      animationDelay: '0s',
-                      animationName: 'fadeIn',
-                    },
-                  });
-                }}
-              >
+              <Appear>
                 <h1 className="text-center mb-50 mb-mdm-30 bottom-line">
                   Mesa Técnica de Riesgos y Resiliencia
                 </h1>
                 <div className="row" ref={(el) => { this.wow = el; }}>
                   <div
                     className="col-md-6 mb-50"
-                    style={style}
                   >
                     <div className="service-item-box text-center">
                       <h3>Misión</h3>
@@ -91,7 +67,6 @@ class AboutUs extends Component {
                   </div>
                   <div
                     className="col-md-6 mb-50"
-                    style={style}
                   >
                     <div className="service-item-box text-center">
                       <h3>Visión</h3>
@@ -114,46 +89,50 @@ class AboutUs extends Component {
 
           <Section>
             <Container>
-              <h2 className="heading relative bottom-line text-center mb-40">
-                Integrantes de la Mesa Técnica
-              </h2>
-              <div className="table-wrap">
-                <table className="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>NOMBRE</th>
-                      <th>INSTITUCIÓN</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      COMUNITY.map((obj, key) => (
-                        <tr key={obj.name}>
-                          <th>{key + 1}</th>
-                          <td>{obj.name}</td>
-                          <td>{obj.role}</td>
-                        </tr>
-                      ))
-                    }
-                  </tbody>
-                </table>
-              </div>
+              <Appear>
+                <h2 className="heading relative bottom-line text-center mb-40">
+                  Integrantes de la Mesa Técnica
+                </h2>
+                <div className="table-wrap">
+                  <table className="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>NOMBRE</th>
+                        <th>INSTITUCIÓN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        COMUNITY.map((obj, key) => (
+                          <tr key={obj.name}>
+                            <th>{key + 1}</th>
+                            <td>{obj.name}</td>
+                            <td>{obj.role}</td>
+                          </tr>
+                        ))
+                      }
+                    </tbody>
+                  </table>
+                </div>
 
+              </Appear>
             </Container>
           </Section>
 
           <Section className="bg-light pb-50 pt-50">
             <Container>
               <Row>
-                <div className="col-sm-9 col-xs-12">
-                  <h2 className="mb-0">¿Necesitas más información? ¡Envíanos tu mensaje!</h2>
-                </div>
-                <div className="col-sm-3 col-xs-12 cta-button">
-                  <Linked url="/contacto" className="btn btn-md btn-color rounded">
-                    Contacto
-                  </Linked>
-                </div>
+                <Appear>
+                  <div className="col-sm-9 col-xs-12 text-center">
+                    <h2 className="mb-0">¿Necesitas más información? ¡Envíanos tu mensaje!</h2>
+                  </div>
+                  <div className="col-sm-3 col-xs-12 text-center mt-mdm-20">
+                    <Linked url="/contacto" className="btn btn-md btn-color rounded">
+                      Contacto
+                    </Linked>
+                  </div>
+                </Appear>
               </Row>
             </Container>
           </Section>
