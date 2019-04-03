@@ -2,13 +2,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 
 import PageTitle from '../../atoms/page-title';
 import Appear from '../../atoms/appear';
 import Container from '../../atoms/container';
 import Section from '../../atoms/section';
-import Linked from '../../atoms/link';
+import Linked from '../../atoms/linked';
 
 import { COMUNITY } from '../../../helpers/helper-constants';
 

@@ -6,7 +6,7 @@ import $ from '../../../helpers/helper-jquery';
 
 import Rotator from '../../atoms/rotator';
 // import Aether from '../../atoms/aether';
-import Linked from '../../atoms/link';
+import Linked from '../../atoms/linked';
 import Wave from '../../atoms/waves';
 
 const content = [

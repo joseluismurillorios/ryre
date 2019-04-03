@@ -7,6 +7,7 @@ import Google from './google';
 import News from './news';
 import AboutUs from './about';
 import Contact from './contact';
+import Maps from './maps';
 
 export const ROUTES = [
   {
@@ -21,6 +22,43 @@ export const ROUTES = [
     component: AboutUs,
     name: 'Nosotros',
     items: [
+    ],
+  },
+  {
+    url: '/mapas',
+    component: Maps,
+    name: 'Mapas',
+    items: [
+      // {
+      //   url: '/mapas/tijuana-2014',
+      //   component: Generic,
+      //   name: 'Tijuana 2014',
+      // },
+      // {
+      //   url: '/mapas/rosarito-2018',
+      //   component: Generic,
+      //   name: 'Rosarito 2018',
+      // },
+      // {
+      //   url: '/mapas/pmdu-y-pducp',
+      //   component: Generic,
+      //   name: 'PMDU Y PDUCP',
+      // },
+      // {
+      //   url: '/mapas/links-a-paginas-externas',
+      //   component: Generic,
+      //   name: 'Links a Páginas externas',
+      // },
+      // {
+      //   url: '/mapas/estudios-especiales',
+      //   component: Generic,
+      //   name: 'Estudios Especiales',
+      // },
+      // {
+      //   url: '/mapas/contribuciones',
+      //   component: Generic,
+      //   name: 'Contribuciones',
+      // },
     ],
   },
   {
@@ -58,70 +96,6 @@ export const ROUTES = [
         component: Google,
         name: 'Reportes de Riesgos',
       },
-    ],
-  },
-  {
-    url: '/mapas',
-    component: Generic,
-    name: 'Mapas',
-    items: [
-      {
-        url: '/mapas/tijuana-2014',
-        component: Generic,
-        name: 'Tijuana 2014',
-      },
-      {
-        url: '/mapas/rosarito-2018',
-        component: Generic,
-        name: 'Rosarito 2018',
-      },
-      {
-        url: '/mapas/pmdu-y-pducp',
-        component: Generic,
-        name: 'PMDU Y PDUCP',
-      },
-      {
-        url: '/mapas/links-a-paginas-externas',
-        component: Generic,
-        name: 'Links a Páginas externas',
-      },
-      {
-        url: '/mapas/estudios-especiales',
-        component: Generic,
-        name: 'Estudios Especiales',
-      },
-      {
-        url: '/mapas/contribuciones',
-        component: Generic,
-        name: 'Contribuciones',
-      },
-    ],
-  },
-  {
-    url: '/contacto',
-    component: Contact,
-    name: 'Contacto',
-    items: [
-      // {
-      //   url: '/contacto/implan',
-      //   component: Generic,
-      //   name: 'IMPLAN',
-      // },
-      // {
-      //   url: '/contacto/colegios',
-      //   component: Generic,
-      //   name: 'Colegios',
-      // },
-      // {
-      //   url: '/contacto/correos',
-      //   component: Generic,
-      //   name: 'Correos',
-      // },
-      // {
-      //   url: '/contacto/encuestas',
-      //   component: Generic,
-      //   name: 'Encuestas',
-      // },
     ],
   },
   {
@@ -200,6 +174,13 @@ export const ROUTES = [
         url: '/informacion/contribuciones',
         component: Generic,
         name: 'Contribuciones',
+      },
+      {
+        url: '/contacto',
+        component: Contact,
+        name: 'Contacto',
+        items: [
+        ],
       },
     ],
   },

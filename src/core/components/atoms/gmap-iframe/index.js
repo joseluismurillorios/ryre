@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import Loader from '../loader';
+import Loader from '../loader';
+
+import $ from '../../../helpers/helper-jquery';
 
 class GmapIframe extends Component {
   constructor(props) {
@@ -14,8 +17,19 @@ class GmapIframe extends Component {
     this.toggleMap = this.toggleMap.bind(this);
   }
 
+  componentDidMount() {
+    $('.mfp-pop').magnificPopup({
+      type: 'iframe',
+      disableOn: () => {
+        if ($(window).width() < 992) {
+          return false;
+        }
+        return true;
+      },
+    });
+  }
+
   onLoad() {
-    console.log('loaded');
     this.setState({
       loaded: true,
     });
@@ -31,37 +45,45 @@ class GmapIframe extends Component {
   render() {
     const { url, visible } = this.props;
     const { isHide, loaded } = this.state;
-    const opened = (!isHide || visible) && loaded ? 'opened' : '';
+    const isVisible = (!isHide || visible);
+    const opened = isVisible ? 'opened' : '';
     // console.log(isHide, url);
     return (
-      <div style={{ overflow: 'hidden' }}>
+      <div style={{ overflow: 'hidden', flexDirection: 'column' }}>
         {
           !visible && (
-            <button type="button" className={`gmap-btn flex-center ${opened}`} onClick={this.toggleMap}>
-              <h6 className="mt-20 mb-20">
+            <div className={`gmap-btns flex-center ${opened}`}>
+              <button type="button" className="flex-center" onClick={this.toggleMap}>
                 {isHide ? 'Ver Mapa' : 'Ocultar Mapa'}
                 <i className={`implanf-visibility${!isHide ? '_off' : ''} ml-10`} />
-              </h6>
-            </button>
+              </button>
+              <a target="_blank" href={url} className="mfp-pop flex-center">
+                <i className="implanf-crop_free" />
+              </a>
+            </div>
           )
         }
-        {/* {
-          (!loaded) && (
-            <Loader className="gmap bg-light" />
-          )
-        } */}
         <div className={`gmap gmap-hidden ${opened}`}>
-          <iframe
-            title="implan"
-            width="100%"
-            height={400}
-            src={url}
-            frameBorder={0}
-            scrolling="no"
-            marginHeight={0}
-            marginWidth={0}
-            onLoad={this.onLoad}
-          />
+          {
+            (!loaded) && (
+              <Loader className="gmap bg-light" />
+            )
+          }
+          {
+            (isVisible || loaded) && (
+              <iframe
+                title="implan"
+                width="100%"
+                height={400}
+                src={url}
+                frameBorder={0}
+                scrolling="no"
+                marginHeight={0}
+                marginWidth={0}
+                onLoad={this.onLoad}
+              />
+            )
+          }
         </div>
       </div>
     );

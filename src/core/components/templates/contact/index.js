@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 
 import PageTitle from '../../atoms/page-title';
 import Appear from '../../atoms/appear';
@@ -54,15 +53,14 @@ class Contact extends Component {
             paths={paths}
             aether
           />
-          <Section className="pt-50 pb-50 pt-mdm-30">
+          <Section className="pt-50 pb-80 pt-mdm-30">
             <Container>
               <Appear>
-                <div className="row heading">
+                <div className="row">
                   <div className="col-md-6 col-md-offset-3 text-center">
-                    <h2 className="text-center mb-30 mt-20 bottom-line">
-                      IMPLAN
+                    <h2 className="text-center mb-30 bottom-line">
+                      Instituto Metropolitano de Planeación
                     </h2>
-                    <p className="subheading style-2">Instituto Metropolitano de Planeación</p>
                   </div>
                 </div>
 
@@ -113,12 +111,12 @@ class Contact extends Component {
             </Container>
           </Section>
 
-          <Section className="bg-primary pt-40 pb-80 pt-mdm-30">
+          <Section className="bg-primary pt-80 pb-80 pt-mdm-30">
             <Container>
               <Appear>
                 <div className="row heading">
                   <div className="col-md-6 col-md-offset-3 text-center">
-                    <h2 className="color-white text-center mb-30 mt-20">
+                    <h2 className="color-white text-center mb-30 mt-0">
                       Directorio
                     </h2>
                   </div>
@@ -156,99 +154,96 @@ class Contact extends Component {
           </Section>
 
           <Section className="pb-0 pt-mdm-40">
-            <div className="relative">
-              <div className="">
-                <h2 className="text-center mb-70 mb-mdm-50">Colegios</h2>
-                <div className="row">
-                  <div className="col-lg-4 col-md-12 pl-0 pr-0">
-                    <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                      <div className="pricing-title">
-                        <h3>Colegio de Arquitectos de Tijuana, A.C.</h3>
-                      </div>
-                      <div className="pricing-price">
-                        <img src={assets.colearq} alt="" />
-                      </div>
-                      <div className="pricing-features">
-                        <ul>
-                          <li>Presidente, Alejandro García Cruz</li>
-                          <li>colarqtj@prodigy.net.mx</li>
-                          <li>
-                            <a
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              href="https://www.facebook.com/colearquistijuana"
-                            >
-                              Página
-                            </a>
-                          </li>
-                          <li>664 634 2959</li>
-                        </ul>
-                      </div>
-                      <div className="pricing-button">
-                        <GmapIframe url={COLEARQ_IFRAME} />
-                      </div>
+            <Appear className="relative">
+              <h2 className="text-center mb-70 mb-mdm-50">Colegios</h2>
+              <div className="row">
+                <div className="col-lg-4 col-md-12 pl-0 pr-0">
+                  <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <div className="pricing-title">
+                      <h3>Colegio de Arquitectos de Tijuana, A.C.</h3>
+                    </div>
+                    <div className="pricing-price">
+                      <img src={assets.colearq} alt="" />
+                    </div>
+                    <div className="pricing-features">
+                      <ul>
+                        <li>Presidente, Alejandro García Cruz</li>
+                        <li>colarqtj@prodigy.net.mx</li>
+                        <li>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.facebook.com/colearquistijuana"
+                          >
+                            Página
+                          </a>
+                        </li>
+                        <li>664 634 2959</li>
+                      </ul>
+                    </div>
+                    <div className="pricing-button">
+                      <GmapIframe url={COLEARQ_IFRAME} />
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-12 pl-0 pr-0">
-                    <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                      <div className="pricing-title">
-                        <h3>Colegio de Constructores Posgraduados de Tijuana, A.C.</h3>
-                      </div>
-                      <div className="pricing-price">
-                        <img src={assets.cocopo} alt="" />
-                      </div>
-                      <div className="pricing-features">
-                        <ul>
-                          <li>Presidente, Luis Fernando González Vergara</li>
-                          <li>
-                            <a
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              href="https://www.facebook.com/Colegio-de-Constructores-Posgraduados-de-Tijuana-AC-190332435133673/"
-                            >
-                              Página
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      {/* <div className="pricing-button">
+                </div>
+                <div className="col-lg-4 col-md-12 pl-0 pr-0">
+                  <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <div className="pricing-title">
+                      <h3>Colegio de Constructores Posgraduados de Tijuana, A.C.</h3>
+                    </div>
+                    <div className="pricing-price">
+                      <img src={assets.cocopo} alt="" />
+                    </div>
+                    <div className="pricing-features">
+                      <ul>
+                        <li>Presidente, Luis Fernando González Vergara</li>
+                        <li>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.facebook.com/Colegio-de-Constructores-Posgraduados-de-Tijuana-AC-190332435133673/"
+                          >
+                            Página
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    {/* <div className="pricing-button">
                         <a href="#" className="btn btn-md btn-color rounded">Order Now</a>
                       </div> */}
-                    </div>
                   </div>
-                  <div className="col-lg-4 col-md-12 pl-0 pr-0">
-                    <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                      <div className="pricing-title">
-                        <h3>Colegio de Ingenieros Civiles de Tijuana, A.C.</h3>
-                      </div>
-                      <div className="pricing-price">
-                        <img src={assets.cict} alt="" />
-                      </div>
-                      <div className="pricing-features">
-                        <ul>
-                          <li>Presidente, Gerardo Tenorio Escárcega</li>
-                          <li>cicttj@gmail.com</li>
-                          <li>
-                            <a
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              href="https://www.facebook.com/colegiodeingenieroscivilesdetijuanaac/"
-                            >
-                              Página
-                            </a>
-                          </li>
-                          <li>664 634 1815</li>
-                        </ul>
-                      </div>
-                      <div className="pricing-button">
-                        <GmapIframe url={CICT_IFRAME} />
-                      </div>
+                </div>
+                <div className="col-lg-4 col-md-12 pl-0 pr-0">
+                  <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <div className="pricing-title">
+                      <h3>Colegio de Ingenieros Civiles de Tijuana, A.C.</h3>
+                    </div>
+                    <div className="pricing-price">
+                      <img src={assets.cict} alt="" />
+                    </div>
+                    <div className="pricing-features">
+                      <ul>
+                        <li>Presidente, Gerardo Tenorio Escárcega</li>
+                        <li>cicttj@gmail.com</li>
+                        <li>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.facebook.com/colegiodeingenieroscivilesdetijuanaac/"
+                          >
+                            Página
+                          </a>
+                        </li>
+                        <li>664 634 1815</li>
+                      </ul>
+                    </div>
+                    <div className="pricing-button">
+                      <GmapIframe url={CICT_IFRAME} />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="parallax" data-stellar-background-ratio="0.5" />
+            </Appear>
           </Section>
           <Footer />
         </Scrollable>

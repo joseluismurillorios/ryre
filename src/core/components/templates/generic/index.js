@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 
 import PageTitle from '../../atoms/page-title';
 import Container from '../../atoms/container';
@@ -10,7 +9,7 @@ import Section from '../../atoms/section';
 import Row from '../../atoms/row';
 
 import Footer from '../../organisms/footer';
-import Linked from '../../atoms/link';
+import Linked from '../../atoms/linked';
 
 import { setLoader } from '../../../redux/actions/common';
 

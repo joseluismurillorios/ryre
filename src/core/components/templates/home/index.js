@@ -2,11 +2,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 
 import Container from '../../atoms/container';
 import Section from '../../atoms/section';
-import Linked from '../../atoms/link';
+import Linked from '../../atoms/linked';
 import Scrollable from '../../atoms/scrollable';
 
 import LightBox from '../../molecules/light-box';

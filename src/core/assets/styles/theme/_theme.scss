@@ -141,7 +141,6 @@ $url_7: $full_bg;
 //original selectors
 //.loader, .loader:after
 %extend_4 {
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 50%;
 	width: 10em;
 	height: 10em;
@@ -236,7 +235,6 @@ a {
 	text-decoration: none;
 	color: $color_keppel_approx;
 	outline: none;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: color .2s ease-in-out;
 	&:hover {
 		@extend %extend_2;
@@ -274,7 +272,6 @@ body {
 	img {
 		border: none;
 		max-width: 100%;
-		//Instead of the line below you could use @include user-select($select)
 		user-select: none;
 	}
 	&.fs-open {
@@ -392,7 +389,6 @@ p {
 	border-right: 0.5em solid $color_wild_sand_50_approx;
 	border-bottom: 0.5em solid $color_wild_sand_50_approx;
 	border-left: 0.5em solid $color_wild_sand_50_approx;
-	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 	transform: translateZ(0);
 	animation: load8 1.1s infinite linear;
 	@extend %extend_4;
@@ -402,21 +398,17 @@ p {
 }
 @-webkit-keyframes load8 {
 	0% {
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: rotate(0deg);
 	}
 	100% {
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: rotate(360deg);
 	}
 }
 @keyframes load8 {
 	0% {
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: rotate(0deg);
 	}
 	100% {
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: rotate(360deg);
 	}
 }
@@ -425,7 +417,6 @@ p {
 	width: 30px;
 	height: 30px;
 	background-color: $white_100;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 50%;
 	text-align: center;
 	line-height: 30px;
@@ -496,9 +487,7 @@ p {
 	margin-bottom: 0;
 	border: none;
 	min-height: 100px;
-	//Instead of the line below you could use @include backface-visibility($visibility)
 	backface-visibility: hidden;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all 0.3s ease-in-out;
 	z-index: 1200;
 	.dropdown-menu {
@@ -523,7 +512,6 @@ p {
 	}
 }
 .logo {
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: height 0.3s ease-in-out;
 }
 .nav-wrap {
@@ -600,14 +588,12 @@ p {
 	border: none;
 	padding-left: 0;
 	padding-right: 0;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
 	&.in {
 		overflow-x: hidden;
 	}
 }
 .navigation-overlay {
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all 0.3s ease-in-out;
 	width: 100%;
 	line-height: 0;
@@ -636,7 +622,6 @@ p {
 			}
 		}
 		> li > a {
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all 0.3s ease-in-out;
 			color: $white_80;
 			&:hover {
@@ -696,7 +681,6 @@ p {
 			padding: 0;
 			background-color: transparent;
 			border: none;
-			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 			border-radius: 0;
 			margin-right: 30px;
 			font-family: $font_2, $font_1;
@@ -729,9 +713,7 @@ p {
 }
 .navigation {
 	&.offset {
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: translate3d(0, -300px, 0);
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .3s ease-in-out;
 	}
 	&.sticky {
@@ -742,7 +724,6 @@ p {
 		width: 100%;
 		height: 60px;
 		top: 0;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 5px $black_10;
 		z-index: 1009;
 		&.scrolling {
@@ -761,7 +742,6 @@ p {
 		}
 	}
 	&.scrolling {
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: translate3d(0, 0, 0);
 	}
 }
@@ -773,14 +753,11 @@ p {
 	border-left: 1px solid $concrete;
 	border-right: 1px solid $concrete;
 	border-bottom: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: 0 2px 4px $black_5;
 	display: block;
 	visibility: hidden;
 	opacity: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .1s ease-in-out;
 	&.megamenu {
 		padding: 0 20px;
@@ -792,7 +769,6 @@ p {
 		padding: 10px 15px;
 		color: $boulder;
 		border-bottom: 1px solid $concrete;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 		font-weight: 400;
 		user-select: none;
@@ -816,7 +792,6 @@ p {
 		line-height: 1.42857143;
 		color: $boulder;
 		white-space: nowrap;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .3s ease-in-out;
 	}
 }
@@ -838,7 +813,6 @@ p {
 		display: block;
 		visibility: hidden;
 		opacity: 0;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .1s ease-in-out;
 	}
 	&:hover > .dropdown-menu {
@@ -1053,7 +1027,6 @@ p {
 		height: 15px;
 		text-align: center;
 		line-height: 15px;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
 		font-size: 10px;
 	}
@@ -1089,7 +1062,6 @@ p {
 	i {
 		line-height: 80px;
 		margin: 0 auto;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
 		width: 80px;
 		height: 80px;
@@ -1103,7 +1075,6 @@ p {
 	margin: 15px 30px;
 	width: 80px;
 	height: 80px;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 50%;
 	text-align: center;
 	position: relative;
@@ -1114,10 +1085,8 @@ p {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
 		content: '';
-		//Instead of the line below you could use @include box-sizing($bs)
 		box-sizing: content-box;
 	}
 }
@@ -1176,9 +1145,7 @@ p {
 		width: 100%;
 		height: auto;
 		overflow: hidden;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: 0.60s cubic-bezier(0.86, 0, 0.07, 1);
-		//Instead of the line below you could use @include backface-visibility($visibility)
 		backface-visibility: hidden;
 	}
 	.work-description {
@@ -1211,7 +1178,6 @@ p {
 			margin-top: -20px;
 		}
 		.work-img img {
-			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: translateY(-30px);
 		}
 	}
@@ -1220,21 +1186,18 @@ p {
 			background-color: transparent;
 			padding: 0 15px;
 			top: 50%;
-			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: translateY(-50%);
 			bottom: auto;
 			color: $white;
 			h2 {
 				position: relative;
 				bottom: -100px;
-				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 				transition: bottom .3s ease-in-out .1s;
 			}
 			span {
 				position: relative;
 				bottom: -100px;
 				display: block;
-				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 				transition: bottom .3s ease-in-out;
 			}
 		}
@@ -1242,17 +1205,14 @@ p {
 			.work-description {
 				h2 {
 					bottom: 0;
-					//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 					transition: bottom .3s ease-in-out .1s;
 				}
 				span {
 					bottom: 0;
-					//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 					transition: bottom .3s ease-in-out .2s;
 				}
 			}
 			.work-img img {
-				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 				transform: scale(1.1);
 			}
 		}
@@ -1281,7 +1241,6 @@ p {
 	top: auto;
 	bottom: -75px;
 	z-index: 3;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: 0.60s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .work-overlay {
@@ -1294,10 +1253,8 @@ p {
 	opacity: 0;
 	visibility: hidden;
 	text-align: center;
-	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 	transform: translate3d(0,0,0);
 	background-color: $black_70;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 }
 .project-icons {
@@ -1305,7 +1262,6 @@ p {
 	top: 20%;
 	width: 100%;
 	text-align: center;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	a {
 		display: inline-block;
@@ -1317,9 +1273,7 @@ p {
 		text-align: center;
 		color: $color_bunker_approx;
 		background-color: $white;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 100px;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .3s ease-in-out;
 		&:hover {
 			color: $white;
@@ -1596,12 +1550,10 @@ p {
 	position: fixed;
 	bottom: -40px;
 	right: 20px;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	background-color: $color_heavy_metal_approx;
 	text-decoration: none;
 	i {
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 1s ease-in-out;
 		color: $light;
 	}
@@ -1629,7 +1581,6 @@ p {
 		font-family: $font_2, $font_1;
 	}
 	.logo-wrap > a {
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 	}
 }
@@ -1657,7 +1608,6 @@ p {
 			}
 		}
 		> li > a {
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all 0.3s ease-in-out;
 			color: $white_50;
 			&:hover {
@@ -1852,16 +1802,13 @@ p {
 			border-left: 1px solid $color_bon_jour_approx;
 		}
 		.service-item-box {
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: 0.3s ease-in-out;
 			position: absolute;
 			padding: 0 20%;
-			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: translateY(-50%);
 			top: 50%;
 			left: 0;
 			i {
-				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 				transition: 0.3s ease-in-out;
 				width: auto;
 				height: auto;
@@ -1893,7 +1840,6 @@ p {
 	}
 	&.style-2 .service-item-box i {
 		margin: 0;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 0;
 		width: auto;
 		height: auto;
@@ -1910,7 +1856,6 @@ p {
 	position: relative;
 	overflow: hidden;
 	img {
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .2s ease-in-out;
 		overflow: hidden;
 		width: 100%;
@@ -1942,7 +1887,6 @@ p {
 	height: 100%;
 	opacity: 0;
 	visibility: hidden;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .2s ease-in-out;
 	overflow: hidden;
 }
@@ -1954,7 +1898,6 @@ p {
 	overflow: hidden;
 	width: 100%;
 	z-index: 2;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .2s ease-in-out;
 	.social-icons a {
 		background-color: $white_20;
@@ -2010,7 +1953,58 @@ p {
 		color: $color_delta_approx;
 	}
 }
-.gmap-btn {
+.gmap-btns {
+	position: relative;
+	&.opened {
+		color: $white;
+		background-color: $color_shark_approx;
+		> button {
+			color: $white;
+			background-color: $color_shark_approx;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+	> button, > a {
+		background-color: $color_wild_sand_approx;
+		color: $color_bunker_approx;
+		width: 100%;
+		z-index: 2;
+		position: relative;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+		font-weight: 600;
+		margin: 0;
+		padding: 0;
+		line-height: 64px;
+		&:last-child {
+			width: 70px;
+			// border-left: 1px solid $color_shark_approx;
+			// color: $white;
+			background-color: $color_cararra_approx;
+			// position: absolute;
+			// top: 0;
+			// right: 0;
+		}
+		i {
+			font-size: 150%;
+			line-height: inherit;
+		}
+		&:hover {
+			color: $white;
+			background-color: $color_shark_approx;
+			 > * {
+				color: $white;
+				background-color: transparent;
+				transition: all 0.3s ease-in-out;
+			}
+		}
+	}
+}
+
+.gmap-btn{
 	background-color: $color_wild_sand_approx;
 	width: 100%;
 	// height: 70px;
@@ -2022,7 +2016,6 @@ p {
 	letter-spacing: 0.14em;
 	color: $color_bunker_approx;
 	cursor: pointer;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all 0.3s ease-in-out;
 	&:hover {
 		color: $white;
@@ -2043,10 +2036,10 @@ p {
 		}
 	}
 }
+
 .gmap {
 	width: 100%;
 	height: 400px;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all 0.4s ease-in-out;
 	&.gmap-hidden {
 		visibility: hidden;
@@ -2140,13 +2133,10 @@ p {
 	width: 77px;
 	height: 77px;
 	background-color: $black_20;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 50%;
 	position: relative;
 	border: 7px solid $white_20;
-	//Instead of the line below you could use @include background-clip($clip)
 	background-clip: padding-box;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: transform 1s linear;
 	&:before {
 		content: "";
@@ -2168,11 +2158,9 @@ p {
 	}
 	40% {
 		opacity: 0.5;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $white_10, 0 0 10px 10px $white, 0 0 0 10px $white_50;
 	}
 	100% {
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $white_10, 0 0 10px 10px $white, 0 0 0 10px $white_50;
 		opacity: 0;
 	}
@@ -2183,11 +2171,9 @@ p {
 	}
 	40% {
 		opacity: 0.5;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $white_10, 0 0 10px 10px $white, 0 0 0 10px $white_50;
 	}
 	100% {
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $white_10, 0 0 10px 10px $white, 0 0 0 10px $white_50;
 		opacity: 0;
 	}
@@ -2198,13 +2184,10 @@ p {
 	}
 	40% {
 		opacity: 0.5;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $white_10, 0 0 10px 10px $white, 0 0 0 10px $white_50;
 	}
 	100% {
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $white_10, 0 0 10px 10px $white, 0 0 0 10px $white_50;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: scale(1.3);
 		opacity: 0;
 	}
@@ -2216,7 +2199,6 @@ p {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: none;
 		ul li:nth-child(2n) {
 			background-color: $color_cod_gray_70_approx;
@@ -2283,7 +2265,6 @@ p {
 		width: 50px;
 		height: 50px;
 		background-color: $color_cod_gray_80_approx;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
 		top: 25px;
 		float: right;
@@ -2339,7 +2320,6 @@ p {
 			height: 100%;
 			padding: 0;
 			background-color: $color_cod_gray_50_approx;
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all 0.2s ease-in-out;
 			a {
 				display: table-cell;
@@ -2361,7 +2341,6 @@ p {
 .service-item-wrap {
 	border-right: 1px solid $color_bon_jour_approx;
 	padding: 9% 5%;
-	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 	transform: translate3d(0,0,0);
 	&:hover {
 		.service-item-box {
@@ -2375,7 +2354,6 @@ p {
 	}
 }
 .hidden-text {
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: 0.3s ease-in-out;
 	opacity: 0;
 	visibility: hidden;
@@ -2608,7 +2586,6 @@ p {
 	right: 15px;
 	visibility: hidden;
 	opacity: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	ul li {
 		line-height: 26px;
@@ -2629,7 +2606,6 @@ p {
 	right: 15px;
 	visibility: hidden;
 	opacity: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	right: 0;
 	ul li {
@@ -2694,9 +2670,7 @@ p {
 	border-left: 1px solid $concrete;
 	border-right: 1px solid $concrete;
 	border-bottom: none;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: 0 2px 4px $black_5;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all 0.3s ease-in-out;
 	z-index: 201;
 }
@@ -2762,7 +2736,6 @@ p {
 .valign {
 	position: absolute;
 	top: 50%;
-	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 	transform: translateY(-50%);
 }
 .promo-banner {
@@ -2771,15 +2744,12 @@ p {
 		background: $color_bunker_approx;
 		&:hover img {
 			opacity: 0.6;
-			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: scale(1.1);
 		}
 	}
 	img {
 		width: 100%;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
-		//Instead of the line below you could use @include backface-visibility($visibility)
 		backface-visibility: hidded;
 	}
 	.work-overlay {
@@ -2821,9 +2791,7 @@ p {
 		position: absolute;
 		top: 0;
 		opacity: 0;
-		//Instead of the line below you could use @include backface-visibility($visibility)
 		backface-visibility: hidden;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .3s ease-in-out;
 	}
 	&.hover-1 {
@@ -2852,7 +2820,6 @@ p {
 			opacity: 0;
 			visibility: hidden;
 			background-color: $white_75;
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all .3s ease-in-out;
 		}
 		.product-actions {
@@ -2871,7 +2838,6 @@ p {
 			text-transform: uppercase;
 			letter-spacing: 0.14em;
 			text-align: center;
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all .3s ease-in-out;
 		}
 		.product-add-to-wishlist {
@@ -2879,7 +2845,6 @@ p {
 			position: absolute;
 			top: 20px;
 			right: 20px;
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all .3s ease-in-out;
 		}
 	}
@@ -3461,13 +3426,11 @@ p {
 		color: $color_bunker_approx;
 		background-color: $color_wild_sand_approx;
 		display: block;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 	}
 }
 .pagination {
 	margin: 0 auto;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
 	display: block;
 	text-align: center;
@@ -3482,7 +3445,6 @@ p {
 		height: 38px;
 		line-height: 20px;
 		text-align: center;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 		margin-bottom: -2px;
 		font-family: $font_2, $font_1;
@@ -3504,7 +3466,6 @@ p {
 		height: 38px;
 		line-height: 20px;
 		text-align: center;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 		margin-bottom: -2px;
 		font-family: $font_2, $font_1;
@@ -3525,7 +3486,6 @@ p {
 	.ui-slider {
 		.ui-slider-handle {
 			position: absolute;
-			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 			border-radius: 10px;
 			width: 13px;
 			height: 13px;
@@ -3561,10 +3521,8 @@ p {
 		border: none;
 		background-color: transparent;
 		height: auto;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 0;
 		margin-bottom: 0;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 		line-height: 1;
 		font-family: $font_2, $font_1;
@@ -3652,7 +3610,6 @@ p {
 		left: 20px;
 		font-size: 24px;
 		color: $color_celeste_approx;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 	}
 }
@@ -3666,9 +3623,7 @@ p {
 	img {
 		opacity: 0.5;
 		cursor: pointer;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: opacity 0.3s ease-in-out;
-		//Instead of the line below you could use @include backface-visibility($visibility)
 		backface-visibility: hidden;
 		&:hover {
 			opacity: 1;
@@ -3681,13 +3636,11 @@ p {
 .flickity-prev-next-button {
 	background-color: transparent;
 	opacity: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: opacity 0.3s ease-in-out;
 	&:hover {
 		background-color: transparent;
 	}
 	&:focus {
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -3830,11 +3783,8 @@ select {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	appearance: none;
 	cursor: pointer;
@@ -3963,11 +3913,8 @@ input[type="email"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&.newsletter-input {
 		border-color: $color_fuscous_gray_approx;
@@ -3979,7 +3926,6 @@ input[type="email"] {
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -4153,7 +4099,6 @@ input[type="email"] {
 	.comment-avatar {
 		position: absolute;
 		display: block;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
 	}
 	.comment-content {
@@ -4459,13 +4404,10 @@ input[type="email"] {
 	}
 }
 .full-nav {
-	//Instead of the line below you could use @include user-select($select)
 	user-select: none;
 }
 #nav-icon {
-	//Instead of the line below you could use @include user-select($select)
 	user-select: none;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .2s linear;
 	right: 40px;
 	top: 44px;
@@ -4474,11 +4416,9 @@ input[type="email"] {
 	z-index: 300;
 	width: 20px;
 	height: 20px;
-	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 	transform: rotate(0deg);
 	cursor: pointer;
 	span {
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .2s linear;
 		display: block;
 		position: absolute;
@@ -4487,7 +4427,6 @@ input[type="email"] {
 		background: $white;
 		opacity: 1;
 		left: 0;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: rotate(0deg);
 		&:nth-child(1) {
 			top: 0;
@@ -4514,17 +4453,14 @@ input[type="email"] {
 			left: 50%;
 		}
 		&:nth-child(2) {
-			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: rotate(45deg);
 		}
 		&:nth-child(3) {
-			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: rotate(-45deg);
 		}
 	}
 }
 .fs-menu {
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .2s linear;
 	// position: fixed;
 	// background-color: $color_cod_gray_95_approx;
@@ -4539,7 +4475,6 @@ input[type="email"] {
 	visibility: hidden;
 	overflow: hidden;
 	&.open {
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .2s linear;
 		opacity: 1;
 		visibility: visible;
@@ -4559,7 +4494,6 @@ input[type="email"] {
 .overlay-menu {
 	// position: relative;
 	// top: 50%;
-	// //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 	// transform: translateY(-50%);
 	text-align: center;
 	ul {
@@ -4575,7 +4509,6 @@ input[type="email"] {
 			opacity: 0;
 			padding: 15px 0;
 			a {
-				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 				transition: all .2s linear;
 				display: block;
 				position: relative;
@@ -4669,9 +4602,7 @@ input[type="email"] {
 }
 .photography-v2 {
 	.slick-slide {
-		//Instead of the line below you could use @include backface-visibility($visibility)
 		backface-visibility: hidden;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: translateZ(0);
 		margin: 0 2px;
 		position: relative;
@@ -4681,7 +4612,6 @@ input[type="email"] {
 		background-color: transparent;
 		bottom: auto;
 		top: 50%;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: translateY(-50%);
 		h2 {
 			font-size: 30px;
@@ -4698,7 +4628,6 @@ input[type="email"] {
 				opacity: 0;
 				bottom: -10px;
 				position: relative;
-				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 				transition: all .3s ease-in-out;
 			}
 			&:hover:after {
@@ -4760,12 +4689,10 @@ input[type="email"] {
 		.work-item:hover {
 			.project-icons {
 				top: 50%;
-				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 				transform: translateY(-50%);
 				margin-top: 0;
 			}
 			.work-img img {
-				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 				transform: none;
 			}
 		}
@@ -4818,12 +4745,10 @@ input[type="email"] {
 		width: 10px;
 		height: 10px;
 		opacity: 0.5;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
 		background: transparent;
 		z-index: 100;
 		border: 2px solid $white;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .2s ease-in-out;
 		&:hover {
 			opacity: 1;
@@ -4853,7 +4778,6 @@ input[type="email"] {
 	width: 90px;
 	height: 90px;
 	opacity: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	&:before {
 		content: "";
@@ -4862,10 +4786,8 @@ input[type="email"] {
 		top: 13px;
 		display: block;
 		position: absolute;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: rotate(-45deg);
 		background-color: $black_30;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 3px;
 	}
 	i {
@@ -4892,7 +4814,6 @@ input[type="email"] {
 		width: 90px;
 		height: 90px;
 		opacity: 0;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .3s ease-in-out;
 	}
 	.flex-disabled {
@@ -4911,7 +4832,6 @@ input[type="email"] {
 	width: 90px;
 	height: 90px;
 	opacity: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	&:before {
 		content: "";
@@ -4920,10 +4840,8 @@ input[type="email"] {
 		top: 13px;
 		display: block;
 		position: absolute;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: rotate(-45deg);
 		background-color: $black_30;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 3px;
 		left: auto;
 		right: 0;
@@ -4943,10 +4861,8 @@ input[type="email"] {
 			top: 13px;
 			display: block;
 			position: absolute;
-			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 			transform: rotate(-45deg);
 			background-color: $black_30;
-			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 			border-radius: 3px;
 		}
 		.flex-next:before {
@@ -5171,7 +5087,6 @@ input[type="email"] {
 	text-align: center;
 	padding: 50px 20px;
 	margin-bottom: 10px;
-	//Instead of the line below you could use @include backface-visibility($visibility)
 	backface-visibility: hidden;
 	&.best {
 		padding: 70px 20px;
@@ -5503,7 +5418,6 @@ img {
 					position: absolute;
 					top: 0;
 					background-color: $color_shady_lady_approx;
-					//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 					transform: rotate(-90deg);
 				}
 			}
@@ -5522,9 +5436,7 @@ img {
 		position: relative;
 		background-color: $color_wild_sand_approx;
 		padding: 0;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 0;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .2s ease-in-out;
 		> a {
 			display: block;
@@ -5536,7 +5448,6 @@ img {
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 			font-size: 12px;
-			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all .2s ease-in-out;
 			&.minus {
 				color: $color_bunker_approx;
@@ -5551,7 +5462,6 @@ img {
 	}
 	&.panel-group .panel {
 		border: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 		margin-top: 10px;
 		&:first-child {
@@ -5623,19 +5533,16 @@ img {
 	text-align: center;
 	letter-spacing: 0.14em;
 	border: 2px solid transparent;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	color: $white;
 	background-color: $color_bunker_approx;
-	//Instead of the line below you could use @include backface-visibility($visibility)
 	backface-visibility: hidden;
 	&.btn-dark {
 		background-color: $color_baltic_sea_approx;
 	}
 	&.btn-light {
-		background-color: $light;
+		background-color: $color_cararra_approx;
 		color: $color_bunker_approx;
 		&:hover {
 			background-color: $color_keppel_approx;
@@ -5695,7 +5602,6 @@ img {
 		outline: none !important;
 	}
 	&:hover {
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .3s ease-in-out;
 		color: $white;
 		opacity: .9;
@@ -5714,7 +5620,6 @@ img {
 	padding: 7px 23px;
 }
 .rounded {
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 70px;
 }
 .modal {
@@ -5727,7 +5632,6 @@ img {
 	margin-top: 7%;
 }
 .modal-content {
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
 }
 .mfp-iframe-holder {
@@ -5749,9 +5653,7 @@ img {
 		line-height: 32px;
 		text-align: center;
 		font-size: 13px;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .3s ease-in-out;
-		//Instead of the line below you could use @include backface-visibility($visibility)
 		backface-visibility: hidden;
 	}
 	&.large {
@@ -5769,7 +5671,6 @@ img {
 		}
 	}
 	&.rounded a {
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
 	}
 	&.transparent a {
@@ -5901,9 +5802,7 @@ img {
 	}
 }
 .progress-bar {
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: width 2s cubic-bezier(0.86, 0, 0.07, 1);
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
 }
 .progress-bars {
@@ -5927,12 +5826,10 @@ img {
 .progress {
 	&.meter {
 		height: 3px;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 0;
 		position: relative;
 		background: $color_black_haze_approx;
 		margin-bottom: 27px;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 		&:last-child {
 			margin-bottom: 0;
@@ -5941,7 +5838,6 @@ img {
 	.progress-bar {
 		display: block;
 		height: 3px;
-		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 0;
 		position: relative;
 		overflow: hidden;
@@ -5968,12 +5864,10 @@ img {
 	padding: 10px 18px;
 	margin-bottom: 20px;
 	border: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
 }
 .close {
 	opacity: 1;
-	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	text-shadow: none;
 	font-weight: normal;
 	font-size: 18px;
@@ -6001,16 +5895,12 @@ input[type="text"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -6021,16 +5911,12 @@ input[type="password"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -6041,16 +5927,12 @@ input[type="url"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -6061,16 +5943,12 @@ input[type="tel"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -6081,16 +5959,12 @@ input[type="number"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -6101,16 +5975,12 @@ input[type="date"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -6121,16 +5991,12 @@ input[type="search"] {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 }
@@ -6141,11 +6007,8 @@ textarea {
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 0;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: border-color 0.3s ease-in-out;
 	height: auto;
 	padding: 8px 16px;
@@ -6153,7 +6016,6 @@ textarea {
 	&:focus {
 		border-color: $color_bunker_approx;
 		outline: none;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: none;
 	}
 	&:-moz-placeholder {
@@ -6237,7 +6099,6 @@ input[type="radio"] {
 			width: 17px;
 			height: 17px;
 			background-color: $color_gallery_approx;
-			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 			border-radius: 40px;
 			margin: -3px 10px 0 0;
 			outline: none;
@@ -6268,7 +6129,6 @@ label {
 	z-index: 10000;
 	height: 100%;
 	background-color: $white;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: 0 0 8px $black_10;
 	width: 260px;
 }
@@ -6281,11 +6141,9 @@ label {
 	position: absolute;
 	top: 100px;
 	left: -40px;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: -3px 0 8px -1px $black_10;
 	line-height: 40px;
 	text-align: center;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 3px 0 0 3px;
 	font-size: 20px;
 	color: $color_bunker_approx;
@@ -6293,7 +6151,6 @@ label {
 }
 .s-close {
 	right: -260px !important;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .4s ease-in-out;
 }
 .s-open {
@@ -6379,17 +6236,13 @@ header.transparent {
 }
 .icon-effect-1 .hi-icon {
 	background: $color_bunker_approx;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: background 0.2s, color 0.2s;
 	&:after {
 		top: -5px;
 		left: -5px;
 		padding: 5px;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $color_keppel_approx;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: transform 0.2s, opacity 0.2s;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: scale(.8);
 		opacity: 0;
 	}
@@ -6398,7 +6251,6 @@ header.transparent {
 	background-color: $color_keppel_approx;
 	color: $white;
 	&:after {
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: scale(1);
 		opacity: 1;
 	}
@@ -6440,7 +6292,6 @@ header.transparent {
 	}
 }
 .hover-scale:hover img {
-	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 	transform: scale(1.1, 1.1);
 }
 #contact-form .message {
@@ -6465,22 +6316,18 @@ header.transparent {
 	letter-spacing: 0.2em;
 }
 .icon-effect-8 .hi-icon {
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: transform ease-out 0.1s, background 0.2s;
 	&:after {
 		top: 0;
 		left: 0;
 		padding: 0;
 		z-index: -1;
-		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 		box-shadow: 0 0 0 2px $white_10;
 		opacity: 0;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: scale(0.9);
 	}
 	&:hover {
 		background-color: $black_40;
-		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: scale(0.93);
 		&:after {
 			animation: sonarEffect 1.3s ease-out 75ms;
@@ -6534,7 +6381,6 @@ header.transparent {
 	width: 100%;
 }
 .ui-slider .ui-slider-range {
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 10px;
 	position: absolute;
 	background-color: $color_keppel_approx;
@@ -6630,9 +6476,7 @@ abbr.required {
 	margin-right: 7px;
 }
 article img {
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: transform 1.5s ease-out;
-	//Instead of the line below you could use @include backface-visibility($visibility)
 	backface-visibility: hidden;
 	position: relative;
 	width: 100%;
@@ -6692,7 +6536,6 @@ article img {
 	color: $boulder;
 	display: inline-block;
 	float: left;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .3s ease-in-out;
 	&:hover {
 		background-color: $color_keppel_approx;
@@ -6796,7 +6639,6 @@ ol.numbers {
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	font-size: 12px;
-	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all .2s ease-in-out;
 	border-bottom: 1px solid $concrete;
 	padding: 13px 0;
@@ -6840,31 +6682,26 @@ ol.numbers {
 input[type="datetime"]:focus {
 	border-color: $color_bunker_approx;
 	outline: none;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
 }
 input[type="datetime-local"]:focus {
 	border-color: $color_bunker_approx;
 	outline: none;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
 }
 input[type="month"]:focus {
 	border-color: $color_bunker_approx;
 	outline: none;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
 }
 input[type="week"]:focus {
 	border-color: $color_bunker_approx;
 	outline: none;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
 }
 input[type="time"]:focus {
 	border-color: $color_bunker_approx;
 	outline: none;
-	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
 	box-shadow: none;
 }
 .radio-buttons > li {
