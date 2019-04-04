@@ -22,16 +22,24 @@ import dict from '../../../dict';
 import Row from '../../atoms/row';
 
 class AboutUs extends Component {
+  constructor(props) {
+    super(props);
+    const { match } = this.props;
+    this.path = match.path.substring(1, match.path.length);
+    this.paths = this.path.split('/');
+    this.paths.pop();
+  }
+
   componentDidMount() {
     const { mapLoading } = this.props;
     mapLoading(false);
   }
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
-    const { match } = this.props;
-    const path = match.path.substring(1, match.path.length);
-    const paths = path.split('/');
-    paths.pop();
     return (
       <div
         id="AboutUs"
@@ -46,7 +54,7 @@ class AboutUs extends Component {
         >
           <PageTitle
             text={<span>Nosotros</span>}
-            paths={paths}
+            paths={this.paths}
             aether
           />
           <Section className="pt-80 pb-80 pt-mdm-30 icon-boxes style-4">
@@ -155,10 +163,7 @@ AboutUs.propTypes = {
   ]),
 };
 
-const mapStateToProps = state => ({
-  common: state.common,
-  esri: state.esri,
-  info: state.info,
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = {

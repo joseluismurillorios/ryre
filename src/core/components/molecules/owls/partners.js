@@ -6,6 +6,8 @@ import OwlCarousel from 'react-owl-carousel';
 import { PARTNERS } from '../../../assets';
 import { isMobile } from '../../../helpers/helper-util';
 
+import Linked from '../../atoms/linked';
+
 const config = {
   0: {
     items: 1,
@@ -55,10 +57,13 @@ class OwlPartners extends Component {
         {
           PARTNERS.map(obj => (
             <div key={obj.link} className="item text-center ml-20 mr-20 mb-20">
-              <a href={obj.link} target="_blank">
-                <img src={obj.url} alt="" style={{ maxWidth: '150px', margin: '0 auto' }} />
+              <img src={obj.url} alt="" style={{ maxWidth: '150px', margin: '0 auto' }} />
+              <Linked
+                newTab
+                url={obj.link}
+              >
                 <small className="color-white">{obj.info}</small>
-              </a>
+              </Linked>
             </div>
           ))
         }

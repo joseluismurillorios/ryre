@@ -175,13 +175,13 @@ export const ROUTES = [
         component: Generic,
         name: 'Contribuciones',
       },
-      {
-        url: '/contacto',
-        component: Contact,
-        name: 'Contacto',
-        items: [
-        ],
-      },
+    ],
+  },
+  {
+    url: '/contacto',
+    component: Contact,
+    name: 'Contacto',
+    items: [
     ],
   },
 ];

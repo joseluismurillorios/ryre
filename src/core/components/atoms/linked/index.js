@@ -9,14 +9,19 @@ const Link = ({
   className,
   children,
   history,
+  newTab,
 }) => (
   <a
     href={url}
+    target={newTab ? '_blank' : '_self'}
     className={className}
+    rel={newTab ? 'noopener noreferrer' : ''}
     onClick={(e) => {
-      history.push(url);
-      $('#MainScroll').scrollTop(0);
-      e.preventDefault();
+      if (!newTab) {
+        history.push(url);
+        $('#MainScroll').scrollTop(0);
+        e.preventDefault();
+      }
     }}
   >
     {children}
@@ -26,6 +31,7 @@ const Link = ({
 Link.defaultProps = {
   className: '',
   url: '#',
+  newTab: false,
 };
 
 Link.propTypes = {
@@ -36,6 +42,7 @@ Link.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   className: PropTypes.string,
   url: PropTypes.string,
+  newTab: PropTypes.bool,
 };
 
 export default withRouter(Link);

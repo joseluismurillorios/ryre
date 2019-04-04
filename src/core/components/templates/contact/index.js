@@ -11,6 +11,7 @@ import Scrollable from '../../atoms/scrollable';
 import GmapIframe from '../../atoms/gmap-iframe';
 import Footer from '../../organisms/footer';
 import Row from '../../atoms/row';
+import ContactCard from '../../atoms/contact-card';
 
 import {
   IMPLAN_IFRAME,
@@ -26,16 +27,20 @@ import assets from '../../../assets';
 // import dict from '../../../dict';
 
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    const { match } = this.props;
+    this.path = match.path.substring(1, match.path.length);
+    this.paths = this.path.split('/');
+    this.paths.pop();
+  }
+
   componentDidMount() {
     const { mapLoading } = this.props;
     mapLoading(false);
   }
 
   render() {
-    const { match } = this.props;
-    const path = match.path.substring(1, match.path.length);
-    const paths = path.split('/');
-    paths.pop();
     return (
       <div
         id="Contact"
@@ -50,7 +55,7 @@ class Contact extends Component {
         >
           <PageTitle
             text={<span>Contacto</span>}
-            paths={paths}
+            paths={this.paths}
             aether
           />
           <Section className="pt-50 pb-80 pt-mdm-30">
@@ -153,95 +158,37 @@ class Contact extends Component {
             </Container>
           </Section>
 
-          <Section className="pb-0 pt-mdm-40">
+          <Section className="bg-light pb-0 pt-mdm-40">
             <Appear className="relative">
               <h2 className="text-center mb-70 mb-mdm-50">Colegios</h2>
               <div className="row">
-                <div className="col-lg-4 col-md-12 pl-0 pr-0">
-                  <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <div className="pricing-title">
-                      <h3>Colegio de Arquitectos de Tijuana, A.C.</h3>
-                    </div>
-                    <div className="pricing-price">
-                      <img src={assets.colearq} alt="" />
-                    </div>
-                    <div className="pricing-features">
-                      <ul>
-                        <li>Presidente, Alejandro García Cruz</li>
-                        <li>colarqtj@prodigy.net.mx</li>
-                        <li>
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="https://www.facebook.com/colearquistijuana"
-                          >
-                            Página
-                          </a>
-                        </li>
-                        <li>664 634 2959</li>
-                      </ul>
-                    </div>
-                    <div className="pricing-button">
-                      <GmapIframe url={COLEARQ_IFRAME} />
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-12 pl-0 pr-0">
-                  <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                    <div className="pricing-title">
-                      <h3>Colegio de Constructores Posgraduados de Tijuana, A.C.</h3>
-                    </div>
-                    <div className="pricing-price">
-                      <img src={assets.cocopo} alt="" />
-                    </div>
-                    <div className="pricing-features">
-                      <ul>
-                        <li>Presidente, Luis Fernando González Vergara</li>
-                        <li>
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="https://www.facebook.com/Colegio-de-Constructores-Posgraduados-de-Tijuana-AC-190332435133673/"
-                          >
-                            Página
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    {/* <div className="pricing-button">
-                        <a href="#" className="btn btn-md btn-color rounded">Order Now</a>
-                      </div> */}
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-12 pl-0 pr-0">
-                  <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <div className="pricing-title">
-                      <h3>Colegio de Ingenieros Civiles de Tijuana, A.C.</h3>
-                    </div>
-                    <div className="pricing-price">
-                      <img src={assets.cict} alt="" />
-                    </div>
-                    <div className="pricing-features">
-                      <ul>
-                        <li>Presidente, Gerardo Tenorio Escárcega</li>
-                        <li>cicttj@gmail.com</li>
-                        <li>
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="https://www.facebook.com/colegiodeingenieroscivilesdetijuanaac/"
-                          >
-                            Página
-                          </a>
-                        </li>
-                        <li>664 634 1815</li>
-                      </ul>
-                    </div>
-                    <div className="pricing-button">
-                      <GmapIframe url={CICT_IFRAME} />
-                    </div>
-                  </div>
-                </div>
+                <ContactCard
+                  img={assets.colearq}
+                  gmap={COLEARQ_IFRAME}
+                  className="col-lg-4 col-md-12 pl-0 pr-0"
+                  name="Colegio de Arquitectos de Tijuana, A.C."
+                  director="Alejandro García Cruz"
+                  mail="colarqtj@prodigy.net.mx"
+                  link="https://www.facebook.com/colearquistijuana"
+                  phone="664 634 2959"
+                />
+                <ContactCard
+                  img={assets.cocopo}
+                  className="col-lg-4 col-md-12 pl-0 pr-0"
+                  name="Colegio de Constructores Posgraduados de Tijuana, A.C."
+                  director="Luis Fernando González Vergara"
+                  link="https://www.facebook.com/Colegio-de-Constructores-Posgraduados-de-Tijuana-AC-190332435133673/"
+                />
+                <ContactCard
+                  img={assets.colearq}
+                  gmap={CICT_IFRAME}
+                  className="col-lg-4 col-md-12 pl-0 pr-0"
+                  name="Colegio de Ingenieros Civiles de Tijuana, A.C."
+                  director="Gerardo Tenorio Escárcega"
+                  mail="cicttj@gmail.com"
+                  link="https://www.facebook.com/colegiodeingenieroscivilesdetijuanaac/"
+                  phone="664 634 1815"
+                />
               </div>
             </Appear>
           </Section>
@@ -265,10 +212,7 @@ Contact.propTypes = {
   ]),
 };
 
-const mapStateToProps = state => ({
-  common: state.common,
-  esri: state.esri,
-  info: state.info,
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = {

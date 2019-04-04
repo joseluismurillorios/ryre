@@ -53,7 +53,7 @@ const PageTitle = ({
 
 PageTitle.defaultProps = {
   aether: false,
-  height: '120px',
+  height: '80px',
 };
 
 PageTitle.propTypes = {

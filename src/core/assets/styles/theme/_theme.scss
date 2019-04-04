@@ -1955,19 +1955,8 @@ p {
 }
 .gmap-btns {
 	position: relative;
-	&.opened {
-		color: $white;
-		background-color: $color_shark_approx;
-		> button {
-			color: $white;
-			background-color: $color_shark_approx;
-			transition: all 0.3s ease-in-out;
-		}
-	}
 	> button, > a {
-		background-color: $color_wild_sand_approx;
 		color: $color_bunker_approx;
-		width: 100%;
 		z-index: 2;
 		position: relative;
 		text-align: center;
@@ -1980,11 +1969,13 @@ p {
 		padding: 0;
 		line-height: 64px;
 		font-family: $font_2;
-		&:last-child {
-			width: 70px;
+		width: 80px;
+		background-color: $color_cararra_approx;
+		&:first-child {
+			width: 100%;
+			background-color: $color_wild_sand_approx;
 			// border-left: 1px solid $color_shark_approx;
 			// color: $white;
-			background-color: $color_cararra_approx;
 			// position: absolute;
 			// top: 0;
 			// right: 0;
@@ -2001,6 +1992,15 @@ p {
 				background-color: transparent;
 				transition: all 0.3s ease-in-out;
 			}
+		}
+	}
+	&.opened {
+		color: $white;
+		background-color: $color_shark_approx;
+		> button {
+			color: $white;
+			background-color: $color_shark_approx;
+			transition: all 0.3s ease-in-out;
 		}
 	}
 }

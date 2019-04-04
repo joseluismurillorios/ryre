@@ -26,16 +26,24 @@ import { setLoader } from '../../../redux/actions/common';
 // import dict from '../../../dict';
 
 class Maps extends Component {
+  constructor(props) {
+    super(props);
+    const { match } = this.props;
+    this.path = match.path.substring(1, match.path.length);
+    this.paths = this.path.split('/');
+    this.paths.pop();
+  }
+
   componentDidMount() {
     const { mapLoading } = this.props;
     mapLoading(false);
   }
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
-    const { match } = this.props;
-    const path = match.path.substring(1, match.path.length);
-    const paths = path.split('/');
-    paths.pop();
     return (
       <div
         id="Maps"
@@ -50,7 +58,7 @@ class Maps extends Component {
         >
           <PageTitle
             text={<span>Mapas</span>}
-            paths={paths}
+            paths={this.paths}
             aether
           />
           <Section className="pt-50 pb-80 pt-mdm-30">
@@ -103,17 +111,25 @@ class Maps extends Component {
                 <div className="row mt-40">
                   <div className="col-md-6 text-center">
                     <p>Plan Municipal de Desarrollo Urbano de Tijuana, B.C. (PMDU T 2008-2030)</p>
-                    <a target="_blank" href="http://implan.tijuana.gob.mx/pdf/Documento%20PMD%20oct%2008.pdf" className="btn btn-md btn-color rounded mt-10">
+                    <Linked
+                      newTab
+                      url="http://implan.tijuana.gob.mx/pdf/Documento%20PMD%20oct%2008.pdf"
+                      className="btn btn-md btn-color rounded mt-10"
+                    >
                       Descargar PDF
-                    </a>
+                    </Linked>
                   </div>
                   <div className="col-md-6 text-center">
                     <p>
                       Programa de Desarrollo Urbano del Centro de Población de Tijuana 2010-2030
                     </p>
-                    <a target="_blank" href="http://implan.tijuana.gob.mx/pdf/atlas/PDUCPT%202010-2030.pdf" className="btn btn-md btn-color rounded mt-10">
+                    <Linked
+                      newTab
+                      url="http://implan.tijuana.gob.mx/pdf/atlas/PDUCPT%202010-2030.pdf"
+                      className="btn btn-md btn-color rounded mt-10"
+                    >
                       Descargar PDF
-                    </a>
+                    </Linked>
                   </div>
                 </div>
               </Appear>
@@ -157,10 +173,7 @@ Maps.propTypes = {
   ]),
 };
 
-const mapStateToProps = state => ({
-  common: state.common,
-  esri: state.esri,
-  info: state.info,
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = {

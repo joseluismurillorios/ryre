@@ -19,7 +19,13 @@ class Appear extends Component {
   componentDidMount() {
     this.scroll = document.getElementById('MainScroll');
     this.scroll.addEventListener('scroll', this.throttledScroll);
-    setTimeout(() => { this.scroll.dispatchEvent(new Event('scroll')); }, 800);
+    setTimeout(() => { this.scroll.dispatchEvent(new Event('scroll')); }, 500);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const { isHide } = this.state;
+    // console.log('shouldComponentUpdate', isHide !== nextState.isHide);
+    return isHide !== nextState.isHide;
   }
 
   componentWillUnmount() {

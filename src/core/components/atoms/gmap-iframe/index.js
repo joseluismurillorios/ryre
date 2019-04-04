@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Loader from '../loader';
+import Linked from '../linked';
 
 import $ from '../../../helpers/helper-jquery';
 
@@ -21,12 +22,26 @@ class GmapIframe extends Component {
     $('.mfp-pop').magnificPopup({
       type: 'iframe',
       disableOn: () => {
-        if ($(window).width() < 992) {
+        if ($(window).width() < 0) {
           return false;
         }
         return true;
       },
     });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const { url, visible } = this.props;
+    const { isHide, loaded } = this.state;
+
+    const should = !!(
+      url !== nextProps.url
+      || visible !== nextProps.visible
+      || isHide !== nextState.isHide
+      || loaded !== nextState.loaded
+    );
+
+    return should;
   }
 
   onLoad() {
@@ -47,7 +62,6 @@ class GmapIframe extends Component {
     const { isHide, loaded } = this.state;
     const isVisible = (!isHide || visible);
     const opened = isVisible ? 'opened' : '';
-    // console.log(isHide, url);
     return (
       <div style={{ overflow: 'hidden', flexDirection: 'column' }}>
         {
@@ -55,11 +69,14 @@ class GmapIframe extends Component {
             <div className={`gmap-btns flex-center ${opened}`}>
               <button type="button" className="flex-center" onClick={this.toggleMap}>
                 {isHide ? 'Ver Mapa' : 'Ocultar Mapa'}
-                <i className={`implanf-visibility${!isHide ? '_off' : ''} ml-10`} />
+                <i className={`esricon-${!isHide ? 'non-' : ''}visible ml-10`} />
               </button>
-              <a target="_blank" href={url} className="mfp-pop flex-center">
-                <i className="implanf-crop_free" />
-              </a>
+              <Linked newTab url={url} className="mfp-pop flex-center">
+                <i className="esricon-zoom-out-fixed" />
+              </Linked>
+              <Linked newTab url={url} className="flex-center">
+                <i className="esricon-launch-link-external" />
+              </Linked>
             </div>
           )
         }
