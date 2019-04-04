@@ -6,23 +6,24 @@ const Aether = ({
 }) => (
   <div className={`aether ${className}`}>
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-      <defs>
+      {/* <defs>
         <radialGradient id="Gradient1" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
           <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite" />
-          <stop offset="0%" stopColor="rgba(255,255,255, 0.3)" />
-          <stop offset="100%" stopColor="rgba(255,255,255, 0)" />
+          <stop stopOpacity="0.3" offset="0%" stopColor="rgba(255,255,255, 1.0)" />
+          <stop stopOpacity="0.0" offset="100%" stopColor="rgba(255,255,255, 1.0)" />
         </radialGradient>
         <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
           <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite" />
-          <stop offset="0%" stopColor="rgba(255,255,255, 0.3)" />
-          <stop offset="100%" stopColor="rgba(255,255,255, 0)" />
+          <stop stopOpacity="0.3" offset="0%" stopColor="rgba(255,255,255, 1.0)" />
+          <stop stopOpacity="0.0" offset="100%" stopColor="rgba(255,255,255, 1.0)" />
         </radialGradient>
         <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
           <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite" />
-          <stop offset="0%" stopColor="rgba(255,255,255, 0.3)" />
-          <stop offset="100%" stopColor="rgba(255,255,255, 0)" />
+          <stop stopOpacity="0.3" offset="0%" stopColor="rgba(255,255,255, 1.0)" />
+          <stop stopOpacity="0.0" offset="100%" stopColor="rgba(255,255,255, 1.0)" />
         </radialGradient>
-      </defs>
+
+      </defs> */}
       <rect x={0} y={0} width="100%" height="100%" fill="url(#Gradient1)">
         <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite" />
         <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />

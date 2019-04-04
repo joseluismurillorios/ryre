@@ -40,6 +40,20 @@ html
     link(rel='stylesheet', type='text/css', href='bundle.css')
     title Ryre
   body(style='background:rgba(255, 255, 255, 0);')
+    svg.defs
+      defs
+        radialGradient#Gradient1(cx='50%', cy='50%', fx='50%', fy='50%', r='.5')
+          animate(attributename='fx', dur='34s', values='0%;3%;0%', repeatcount='indefinite')
+          stop(stop-opacity='0.3', offset='0%', stop-color='rgba(255,255,255, 1.0)')
+          stop(stop-opacity='0.0', offset='100%', stop-color='rgba(255,255,255, 1.0)')
+        radialGradient#Gradient2(cx='50%', cy='50%', fx='10%', fy='50%', r='.5')
+          animate(attributename='fx', dur='23.5s', values='0%;3%;0%', repeatcount='indefinite')
+          stop(stop-opacity='0.3', offset='0%', stop-color='rgba(255,255,255, 1.0)')
+          stop(stop-opacity='0.0', offset='100%', stop-color='rgba(255,255,255, 1.0)')
+        radialGradient#Gradient3(cx='50%', cy='50%', fx='50%', fy='50%', r='.5')
+          animate(attributename='fx', dur='21.5s', values='0%;3%;0%', repeatcount='indefinite')
+          stop(stop-opacity='0.3', offset='0%', stop-color='rgba(255,255,255, 1.0)')
+          stop(stop-opacity='0.0', offset='100%', stop-color='rgba(255,255,255, 1.0)')
     
     main#Root(data-client=client, data-server=server || 'localhost', data-port=port || '3000')
 

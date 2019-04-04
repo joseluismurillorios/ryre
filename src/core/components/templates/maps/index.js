@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -107,7 +108,9 @@ class Maps extends Component {
                     </a>
                   </div>
                   <div className="col-md-6 text-center">
-                    <p>Programa de Desarrollo Urbano del Centro de Población de Tijuana 2010-2030</p>
+                    <p>
+                      Programa de Desarrollo Urbano del Centro de Población de Tijuana 2010-2030
+                    </p>
                     <a target="_blank" href="http://implan.tijuana.gob.mx/pdf/atlas/PDUCPT%202010-2030.pdf" className="btn btn-md btn-color rounded mt-10">
                       Descargar PDF
                     </a>
