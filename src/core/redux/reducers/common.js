@@ -38,6 +38,7 @@ const reducer = (state = defaultState, action) => {
     }
 
     case SET_LOADER: {
+      console.log(action.payload);
       return {
         ...state,
         loading: action.payload,

@@ -391,7 +391,7 @@ export const IMPLAN_DIRECTORY = [
 ];
 
 export const EXTERNAL_LINKS = {
-  biology: [
+  'Biología': [
     {
       subject: 'Biología',
       institution: 'Comisión Nacional para el Conocimiento y Uso de la Biodiversidad',
@@ -400,7 +400,7 @@ export const EXTERNAL_LINKS = {
       link: 'http://www.conabio.gob.mx/informacion/gis/',
     },
   ],
-  geology: [
+  'Geología': [
     {
       subject: 'Geología',
       institution: 'OneGeology',
@@ -416,7 +416,7 @@ export const EXTERNAL_LINKS = {
       link: 'https://www.sgm.gob.mx/GeoInfoMexGobMx/',
     },
   ],
-  metereology: [
+  'Miología': [
     {
       subject: 'Meteorología',
       institution: 'The Weather Company',
@@ -446,7 +446,7 @@ export const EXTERNAL_LINKS = {
       link: 'https://www.star.nesdis.noaa.gov/goes/index.php',
     },
   ],
-  risks: [
+  'Riesgos': [
     {
       subject: 'Riesgos',
       institution: 'National Association of Radio Distress-Signalling and Infocommunications',
@@ -476,7 +476,7 @@ export const EXTERNAL_LINKS = {
       link: 'http://www.earthquake3d.com/',
     },
   ],
-  quakes: [
+  'Sismos': [
     {
       subject: 'Sismos',
       institution: 'Incorporated Research Institutions For Seismology',
@@ -490,6 +490,248 @@ export const EXTERNAL_LINKS = {
       title: 'Red Sísmica del Noroeste de México',
       description: 'Proporcionar un servicio de información veraz y oportuna a la sociedad, medios de comunicación y a autoridades relacionadas con protección civil. La información proporcionada es sobre la actividad sísmica (localizaciones, magnitudes y mapas de intensidades) que ocurre en la región noroeste de México.',
       link: 'http://resnom.cicese.mx/sitio/',
+    },
+  ],
+};
+
+export const CONTRIBUTIONS = {
+  'Geociencias': [
+    {
+      name: 'Geociencias',
+      institution: 'Centro De Investigación Científica y de Educación Superior De Ensenada',
+      title: 'Centro De Investigación Científica y de Educación Superior De Ensenada',
+      description: 'El CICESE es una institución de referencia en el contexto científico nacional e internacional, su excelencia académica apoya el desarrollo nacional, la formación de recursos humanos y contribuye a generar el conocimiento que puede coadyuvar en la solución de problemas que afectan el entorno social y económico de México.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'National Aeronautics And Space Administration',
+      title: 'Earth Observing System Data And Information System (Eosdis)',
+      description: 'The Earth Observing System Data and Information System (EOSDIS) is a key core capability in NASA’s Earth Science Data Systems (ESDS) Program. It provides end-to-end capabilities for managing NASA’s Earth science data from various sources – satellites, aircraft, field measurements, and various other programs.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'Geology Page',
+      title: 'Geology Page',
+      description: 'Geology Page is a science website, helps geoscientist by adding geology news, new researches, videos, photos and new articles .',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'Geology.Com',
+      title: 'Geology.com',
+      description: 'Geology.com is one of the internet’s leading websites for earth science news and information. Every day thousands of people visit Geology.com to read about rocks, minerals, oil and gas, geologic hazards, gemstones, meteorites, and many other topics. Geology.com also connects visitors to earth science news and content on other websites with a news page that is updated daily.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'Instituto Nacional De Estadistica Y Geografia',
+      title: 'INEGI',
+      description: 'El INEGI es un organismo público autónomo responsable de normar y coordinar el Sistema Nacional de Información Estadística y Geográfica, así como de captar y difundir información de México en cuanto al territorio, los recursos, la población y economía, que permita dar conocer las características de nuestro país y ayudar a la toma de decisiones.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'US National Science Foundation',
+      title: 'Interdisciplinary Earth Data Alliance',
+      description: 'The IEDA data facility’s mission is to support, sustain, and advance the geosciences by providing data services for observational geoscience data from the Ocean, Earth, and Polar Sciences.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'National Oceanic and Atmospheric Adminsitration',
+      title: 'National Centers For Environmental Information',
+      description: 'NCEI archives and assimilates tsunami, earthquake and volcano data to support research, planning, response and mitigation. Long-term data, including photographs, can be used to establish the history of natural hazard occurrences and help mitigate against future events.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'National Oceanic and Atmospheric Administration',
+      title: 'National Oceanic and Atmospheric Administration',
+      description: 'NOAA is an agency that enriches life through science. Our reach goes from the surface of the sun to the depths of the ocean floor as we work to keep the public informed of the changing environment around them.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'Norwegian Meteorological Institute',
+      title: 'Norwegian Meteorological Institute',
+      description: 'Yr is the joint online weather service from the Norwegian Meteorological Institute (met.no) and the Norwegian Broadcasting Corporation (NRK).',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'United States Geological Survey',
+      title: 'U.S. Geological Survey',
+      description: 'The USGS serves the Nation by providing reliable scientific information to describe and understand the Earth; minimize loss of life and property from natural disasters; manage water, biological, energy, and mineral resources; and enhance and protect our quality of life.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geociencias',
+      institution: 'Unión Geofísica Mexicana',
+      title: 'Unión Geofísica Mexicana',
+      description: 'Fundada en 1960, la Unión Geofísica Mexicana (UGM) tiene la misión de promover el estudio de las Ciencias de la Tierra y del Espacio y de diseminar el conocimiento científico a través de actividades que fortalezcan la investigación y solución de problemas básicos y aplicados, la colaboración científica y la divulgación de la ciencia.',
+      link: 'eeeeeee',
+    },
+  ],
+  'Geología': [
+    {
+      name: 'Geologia',
+      institution: 'Centro De Instrumentación y Registro Sísmico',
+      title: 'Centro De Instrumentación y Registro Sísmico',
+      description: 'El Centro de Instrumentación y Registro Sísmico, A.C. (CIRES), es una asociación civil no lucrativa fundada en junio de 1986, originalmente bajo el auspicio de la Fundación Javier Barros Sierra, A. C., hasta el 2002, para promover la investigación y desarrollo de tecnología aplicada a la instrumentación sísmica, como medio útil para mitigar posibles desastres sísmicos, como los que sufrió la Ciudad de México en 1985.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Earthquake Engineering Research Institute',
+      title: 'Earthquake Engineering Research Institute',
+      description: 'The objective of the Earthquake Engineering Research Institute is to reduce earthquake risk by (1) advancing the science and practice of earthquake engineering, (2) improving understanding of the impact of earthquakes on the physical, social, economic, political, and cultural environment, and (3) advocating comprehensive and realistic measures for reducing the harmful effects of earthquakes.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Incorporated Research Institutions For Seismology',
+      title: 'Incorporated Research Institutions For Seismology',
+      description: 'IRIS is a consortium of over 120 US universities dedicated to the operation of science facilities for the acquisition, management, and distribution of seismological data.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Jay Patton Online',
+      title: 'Jay Patton Online',
+      description: 'Earthquake Reports',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'United States Geological Survey',
+      title: 'National Earthquake Hazards Reduction Program',
+      description: 'To develop, disseminate, and promote knowledge, tools, and practices for earthquake risk reduction—through coordinated, multidisciplinary, interagency partnerships among the NEHRP agencies and their stakeholders—that improve the Nation’s earthquake resilience in public safety, economic strength, and national security.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'United States Geological Survey',
+      title: 'National Landslide Hazards Program',
+      description: 'The primary objective of the National Landslide Hazards Program is to reduce long-term losses from landslide hazards by improving our understanding of the causes of ground failure and suggesting mitigation strategies.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Ayuntamiento de Tijuana',
+      title: 'Programa RADIUS - Tijuana',
+      description: 'Desarrollar un Escenario de Daños por Terremoto para la ciudad de Tijuana , el cual describa sus consecuencias. Elevar el nivel de conciencia sísmica en la Comunidad y Autoridades de Tijuana y el Estado.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Servicio Geológico Mexicano',
+      title: 'Servicio Geológico Mexicano',
+      description: 'El Servicio Geológico Mexicano (SGM) es un organismo público descentralizado del Gobierno Federal con personalidad jurídica y patrimonio propios, regido por la Ley Minera y adscrito sectorialmente a la Secretaría de Economía a través de la Subsecretaría de Minería.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Southern California Earthquake Center',
+      title: 'Shake Out',
+      description: 'Many areas of the globe are prone to earthquakes (see links below) You could be anywhere when an earthquake strikes: at home, at work, at school or even on vacation. Are you prepared to survive and to recover quickly?',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Southern California Earthquake Center',
+      title: 'Southern California Earthquake Center',
+      description: 'SCEC coordinates fundamental research on earthquake processes using Southern California as its principal natural laboratory. This research program is investigator-driven and supports core research and education in seismology, tectonic geodesy, earthquake geology, and computational science.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'United States Geological Survey',
+      title: 'Southern California Seismic Network',
+      description: 'The SCSN is the southern California portion of the California Integrated Seismic Network (CISN). The CISN is the region of the Advanced National Seismic System (ANSS) that represents the entire state of California.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Geologia',
+      institution: 'Geotecnología S.A.S.',
+      title: 'Visión Geotécnica de la Amenaza Sísmica',
+      description: 'Geotecnología S.A.S., es una empresa creada en 1975 por el ingeniero JAIME SUÁREZ DÍAZ con sede en la ciudad de Bucaramanga, al nororiente de Colombia, una empresa de consultoría geotécnica especializada en estabilidad de taludes y erosión, y se destaca por su rigor científico y calidad técnica con tecnologías de última generación.',
+      link: 'eeeeeee',
+    },
+  ],
+  'Ingeniería': [
+    {
+      name: 'Ingenieria',
+      institution: 'Missouri University Of Science And Technology',
+      title: 'Advanced Engineering Geology And Geotechnics Online Lectures',
+      description: 'This course will seek to introduce students to advanced level lecture topics in the analysis of geologic factors for the solution of engineering problems.  Specific emphasis will be placed on state-of-the-practice procedures for site characterization, universal standards for excavation and grading, and preparation of documents summarizing such work.  ',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Ingenieria',
+      institution: 'Sociedad Mexicana De Ingeniería Estructural',
+      title: 'Sociedad Mexicana De Ingeniería Estructural',
+      description: 'La SMIE es una Sociedad formada por personas físicas o morales dedicadas o relacionadas con la Ingeniería Estructural y cuyo objetivo es promover la importancia de la ingeniería estructural en las construcciones, como medio para salvaguardar la vida y el patrimonio de sus habitantes y usuarios de los sectores social, público y privado en todo el país.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Ingenieria',
+      institution: 'Sociedad Mexicana De Ingeniería Geotecnia',
+      title: 'Sociedad Mexicana De Ingeniería Geotecnia',
+      description: 'La SMIG es una asociación enfocada a proveer de elementos científicos, que permitan a profesionales de la Geotecnia mantenerse actualizados en esta ciencia, así como formar parte de una organización que busca promover y mantener vigente a la Ingeniería Geotécnica, en México.',
+      link: 'eeeeeee',
+    },
+  ],
+  'Riesgos': [
+    {
+      name: 'Riesgos',
+      institution: 'State of California',
+      title: 'Cal Fire',
+      description: 'The men and women of the California Department of Forestry and Fire Protection (CAL FIRE) are dedicated to the fire protection and stewardship of over 31 million acres of California\'s privately- owned wildlands.In addition, the Department provides varied emergency services in 36 of the State\'s 58 counties via contracts with local governments.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Riesgos',
+      institution: 'Centro Nacional de Prevención de Riesgos',
+      title: 'Centro Nacional de Prevención de Riesgos',
+      description: 'Salvaguardar en todo momento la vida, los bienes e infraestructura de las y los mexicanos a través de la gestión continua de políticas públicas para la prevención y reducción de riesgos de desastres, por medio de la investigación y el monitoreo de fenómenos perturbadores, así como la formación educativa y la difusión de la cultura de protección civil, con objeto de lograr una sociedad más resiliente.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Riesgos',
+      institution: 'Centro Regional de Información sobre Desastres para América Latina y El Caribe',
+      title: 'Centro Regional de Información sobre Desastres para América Latina y El Caribe',
+      description: 'El Centro Regional de Información sobre Desastres (CRID) es una iniciativa patrocinada por seis organizaciones que decidieron mancomunar esfuerzos para asegurar la recopilación y diseminación de información disponible sobre el tema de desastres en América Latina y el Caribe.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Riesgos',
+      institution: 'Organización de las Naciones Unidas',
+      title: 'Oficina de las Naciones Unidas para la Reducción del Riesgo de Desastres',
+      description: 'La UNISDR se estableció en diciembre de 1999 como parte de la Secretaría de las Naciones Unidas, con el propósito de velar por la aplicación de la Estrategia Internacional para la Reducción del Riesgo de Desastres.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Riesgos',
+      institution: 'Secretaría General de Gobierno',
+      title: 'Coordinación Estatal de Protección Civil',
+      description: 'El objetivo fundamental del Sistema Estatal de Protección Civil es el de proteger la vida de los habitantes del Estado, la propiedad pública, la propiedad privada y el entorno ecológico ante la eventualidad de un desastre provocado por fenómenos naturales o humanos, a través de acciones que reduzcan la pérdida de vidas humanas, la destrucción de bienes materiales y el daño a la naturaleza.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Riesgos',
+      institution: 'Department Of Homeland Security',
+      title: 'Ready',
+      description: 'Launched in February 2003, Ready is a National public service campaign designed to educate and empower the American people to prepare for, respond to and mitigate emergencies, including natural and man-made disasters. The goal of the campaign is to promote preparedness through public involvement.',
+      link: 'eeeeeee',
+    },
+    {
+      name: 'Riesgos',
+      institution: 'National Centers for Environmental Information',
+      title: 'U.S. Climate Resilience Toolkit',
+      description: 'The U.S. Climate Resilience Toolkit is a website designed to help people find and use tools, information, and subject matter expertise to build climate resilience. The Toolkit offers information from all across the U.S. federal government in one easy-to-use location.',
+      link: 'eeeeeee',
     },
   ],
 };

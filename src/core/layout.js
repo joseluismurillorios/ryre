@@ -220,10 +220,6 @@ Layout.propTypes = {
 
 const mapStateToProps = state => ({
   common: state.common,
-  forecast: state.forecast,
-  esri: state.esri,
-  info: state.info,
-  reports: state.reports,
 });
 
 const mapDispatchToProps = {
