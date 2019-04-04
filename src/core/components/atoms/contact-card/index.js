@@ -13,47 +13,44 @@ const ContactCard = ({
   link,
   phone,
   email,
-}) => {
-  console.log('ContactCard', name);
-  return (
-    <div className={className}>
-      <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-        <div className="pricing-title">
-          <h3>{name}</h3>
-        </div>
-        <div className="pricing-price">
-          <img src={img} alt="" />
-        </div>
-        <div className="pricing-features">
-          <ul>
-            <li>{`Presidente, ${director}`}</li>
-            <li>{email}</li>
-            <li>
-              <Linked
-                newTab
-                url={link}
-              >
-                Página
-              </Linked>
-            </li>
-            {
-              !!(phone) && (
-                <li>{phone}</li>
-              )
-            }
-          </ul>
-        </div>
-        {
-          !!(gmap) && (
-            <div className="pricing-button">
-              <GmapIframe url={gmap} />
-            </div>
-          )
-        }
+}) => (
+  <div className={className}>
+    <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+      <div className="pricing-title">
+        <h3>{name}</h3>
       </div>
+      <div className="pricing-price">
+        <img src={img} alt="" />
+      </div>
+      <div className="pricing-features">
+        <ul>
+          <li>{`Presidente, ${director}`}</li>
+          <li>{email}</li>
+          <li>
+            <Linked
+              newTab
+              url={link}
+            >
+              Página
+            </Linked>
+          </li>
+          {
+            !!(phone) && (
+              <li>{phone}</li>
+            )
+          }
+        </ul>
+      </div>
+      {
+        !!(gmap) && (
+          <div className="pricing-button">
+            <GmapIframe url={gmap} />
+          </div>
+        )
+      }
     </div>
-  );
-};
+  </div>
+);
 
 ContactCard.defaultProps = {
   className: 'light',

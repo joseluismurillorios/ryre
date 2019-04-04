@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import $ from '../../../helpers/helper-jquery';
 
-const Link = ({
+const Linked = ({
   url,
   className,
   children,
@@ -28,15 +28,16 @@ const Link = ({
   </a>
 );
 
-Link.defaultProps = {
+Linked.defaultProps = {
   className: '',
   url: '#',
   newTab: false,
 };
 
-Link.propTypes = {
+Linked.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.objectOf(PropTypes.any),
+    PropTypes.arrayOf(PropTypes.any),
     PropTypes.string,
   ]).isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
@@ -45,4 +46,4 @@ Link.propTypes = {
   newTab: PropTypes.bool,
 };
 
-export default withRouter(Link);
+export default withRouter(Linked);

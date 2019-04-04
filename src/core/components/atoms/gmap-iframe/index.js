@@ -74,7 +74,7 @@ class GmapIframe extends Component {
               <Linked newTab url={url} className="mfp-pop flex-center">
                 <i className="esricon-zoom-out-fixed" />
               </Linked>
-              <Linked newTab url={url} className="flex-center">
+              <Linked newTab url={url.replace(/[/]embed[/]/, '/search/')} className="flex-center">
                 <i className="esricon-launch-link-external" />
               </Linked>
             </div>
@@ -102,6 +102,20 @@ class GmapIframe extends Component {
             )
           }
         </div>
+        {
+          visible && (
+            <div className="flex-center mt-20">
+              <Linked newTab url={url} className="mfp-pop btn btn-dark flex-center ">
+                <small>Expandir</small>
+                <i className="esricon-zoom-out-fixed ml-10" />
+              </Linked>
+              <Linked newTab url={url.replace(/[/]embed[/]/, '/search/')} className="btn btn-dark flex-center ml-10">
+                <small>Abrir</small>
+                <i className="esricon-launch-link-external ml-10" />
+              </Linked>
+            </div>
+          )
+        }
       </div>
     );
   }

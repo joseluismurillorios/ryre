@@ -8,6 +8,7 @@ import News from './news';
 import AboutUs from './about';
 import Contact from './contact';
 import Maps from './maps';
+// import Links from './links';
 
 export const ROUTES = [
   {

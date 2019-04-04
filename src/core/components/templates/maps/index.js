@@ -14,6 +14,8 @@ import Footer from '../../organisms/footer';
 import Row from '../../atoms/row';
 import Linked from '../../atoms/linked';
 
+import Toggle from '../../molecules/toggle';
+
 import {
   TIJUANA_IFRAME,
   ROSARITO_IFRAME,
@@ -21,7 +23,7 @@ import {
 } from '../../../../config';
 
 import { setLoader } from '../../../redux/actions/common';
-// import assets from '../../../assets';
+import { EXTERNAL_LINKS, SPECIAL_STUDIES } from '../../../helpers/helper-constants';
 
 // import dict from '../../../dict';
 
@@ -82,7 +84,7 @@ class Maps extends Component {
               <Appear>
                 <div className="row">
                   <div className="col-md-6 col-md-offset-3 text-center">
-                    <h2 className="color-white text-center mb-30 bottom-line">
+                    <h2 className="text-center mb-30 bottom-line">
                       Rosarito 2018
                     </h2>
                   </div>
@@ -93,10 +95,10 @@ class Maps extends Component {
             </Container>
           </Section>
 
-          <Section className="pt-50 pb-80 pt-mdm-30">
+          <Section className="bg-light pt-50 pb-80 pt-mdm-30">
             <Container>
               <Appear>
-                <div className="row mb-20">
+                <div className="row mb-10">
                   <div className="col-md-6 col-md-offset-3 text-center">
                     <h2 className="text-center mb-30 bottom-line">
                       PMDU Y PDUCP
@@ -109,7 +111,7 @@ class Maps extends Component {
                 </div>
                 <GmapIframe url={CARTA_URBANA} />
                 <div className="row mt-40">
-                  <div className="col-md-6 text-center">
+                  <div className="col-md-6 text-center mb-20">
                     <p>Plan Municipal de Desarrollo Urbano de Tijuana, B.C. (PMDU T 2008-2030)</p>
                     <Linked
                       newTab
@@ -131,6 +133,109 @@ class Maps extends Component {
                       Descargar PDF
                     </Linked>
                   </div>
+                </div>
+              </Appear>
+            </Container>
+          </Section>
+
+          <Section className="pt-80 pb-80 pt-mdm-30">
+            <Container>
+              <Appear>
+                <div className="row heading">
+                  <div className="col-md-6 col-md-offset-3 text-center">
+                    <h2 className="text-center mb-30 mt-0 bottom-line">
+                      Links a páginas externas
+                    </h2>
+                  </div>
+                </div>
+                <Toggle className="mb-20" title="Biología">
+                  {
+                    EXTERNAL_LINKS.biology.map(el => (
+                      <div className="mb-10">
+                        <h6>{el.institution}</h6>
+                        <Linked newTab url={el.link}>{el.title}</Linked>
+                        <p>{el.description}</p>
+                      </div>
+                    ))
+                  }
+                </Toggle>
+                <Toggle className="mb-20" title="Geología">
+                  {
+                    EXTERNAL_LINKS.geology.map(el => (
+                      <div className="mb-10">
+                        <h6>{el.institution}</h6>
+                        <Linked newTab url={el.link}>{el.title}</Linked>
+                        <p>{el.description}</p>
+                      </div>
+                    ))
+                  }
+                </Toggle>
+                <Toggle className="mb-20" title="Metereología">
+                  {
+                    EXTERNAL_LINKS.metereology.map(el => (
+                      <div className="mb-10">
+                        <h6>{el.institution}</h6>
+                        <Linked newTab url={el.link}>{el.title}</Linked>
+                        <p>{el.description}</p>
+                      </div>
+                    ))
+                  }
+                </Toggle>
+                <Toggle className="mb-20" title="Riesgos">
+                  {
+                    EXTERNAL_LINKS.risks.map(el => (
+                      <div className="mb-10">
+                        <h6>{el.institution}</h6>
+                        <Linked newTab url={el.link}>{el.title}</Linked>
+                        <p>{el.description}</p>
+                      </div>
+                    ))
+                  }
+                </Toggle>
+                <Toggle className="mb-20" title="Sismos">
+                  {
+                    EXTERNAL_LINKS.quakes.map(el => (
+                      <div className="mb-10">
+                        <h6>{el.institution}</h6>
+                        <Linked newTab url={el.link}>{el.title}</Linked>
+                        <p>{el.description}</p>
+                      </div>
+                    ))
+                  }
+                </Toggle>
+
+              </Appear>
+            </Container>
+          </Section>
+          <Section className="bg-primary pt-50 pb-80 pt-mdm-30">
+            <Container>
+              <Appear>
+                <div className="row mb-20">
+                  <div className="col-md-6 col-md-offset-3 text-center">
+                    <h2 className="text-center mb-30 bottom-line">
+                      Estudios especiales
+                    </h2>
+                  </div>
+                </div>
+                <div className="row mt-40 flex-wrap">
+                  {
+                    SPECIAL_STUDIES.map(obj => (
+                      <div className="col-md-4 text-center">
+                        <blockquote className="bg-light blockquote-style-1 mb-30">
+                          <div className="dark">
+                            {obj.name}
+                          </div>
+                          <Linked
+                            newTab
+                            url={obj.link}
+                            className="btn btn-md btn-dark rounded mt-20"
+                          >
+                            Leer
+                          </Linked>
+                        </blockquote>
+                      </div>
+                    ))
+                  }
                 </div>
               </Appear>
             </Container>

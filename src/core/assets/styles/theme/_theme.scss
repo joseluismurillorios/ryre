@@ -99,7 +99,7 @@ $font_6: "FontAwesome";
 $font_7: "Poppins";
 $font_8: "Merriweather";
 $font_9: serif;
-$font_10: "ElegantIcons";
+$font_10: "implanf";
 
 //urls
 $url_0: $full_bg;
@@ -2001,6 +2001,16 @@ p {
 			color: $white;
 			background-color: $color_shark_approx;
 			transition: all 0.3s ease-in-out;
+		}
+	}
+}
+
+.bg-light {
+	.gmap-btns {
+		> button, > a {
+			&:first-child {
+				background-color: $white;
+			}
 		}
 	}
 }
@@ -5326,7 +5336,7 @@ blockquote {
 	}
 }
 .blockquote-style-1 {
-	background-color: $color_keppel_approx;
+	// background-color: $color_keppel_approx;
 	padding: 40px;
 	p {
 		color: $white;
@@ -6630,7 +6640,7 @@ ol.numbers {
 .section-columns p {
 	margin-bottom: 40px;
 }
-.toggle > .acc-panel > a {
+.toggle > .acc-panel > a, .toggle > .acc-panel > button {
 	display: block;
 	position: relative;
 	text-decoration: none;
@@ -6643,17 +6653,21 @@ ol.numbers {
 	transition: all .2s ease-in-out;
 	border-bottom: 1px solid $concrete;
 	padding: 13px 0;
+	width: 100%;
+	text-align: left;
+	appearance: none;
+	background: transparent;
 	&.active {
 		color: $color_bunker_approx;
 		&:after {
-			content: "\32";
+			content: $chevron-up;
 			color: $color_bunker_approx;
 		}
 	}
 	&:after {
 		font-family: $font_10;
 		position: absolute;
-		content: "\33";
+		content: $chevron-down;
 		right: 0;
 		color: $boulder;
 		font-size: 18px;

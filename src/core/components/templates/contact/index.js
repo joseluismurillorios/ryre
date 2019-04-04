@@ -158,7 +158,7 @@ class Contact extends Component {
             </Container>
           </Section>
 
-          <Section className="bg-light pb-0 pt-mdm-40">
+          <Section className="pb-0 pt-mdm-40">
             <Appear className="relative">
               <h2 className="text-center mb-70 mb-mdm-50">Colegios</h2>
               <div className="row">

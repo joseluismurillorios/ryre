@@ -343,6 +343,20 @@ button.toast-close {
   justify-content: center;
 }
 
+.flex-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+@media(max-width: 991px) {
+	.flex-wrap {
+		display: block;
+		flex-wrap: nowrap;
+	}
+}
+
 .fixed-right-bottom {
   position: absolute;
   bottom: 15px;

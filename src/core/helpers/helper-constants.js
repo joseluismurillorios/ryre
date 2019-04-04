@@ -389,3 +389,130 @@ export const IMPLAN_DIRECTORY = [
     name: 'Lic. Baudelio Benites Galvez',
   },
 ];
+
+export const EXTERNAL_LINKS = {
+  biology: [
+    {
+      subject: 'Biología',
+      institution: 'Comisión Nacional para el Conocimiento y Uso de la Biodiversidad',
+      title: 'Geoportal del Sistema Nacional de Información sobre Diversidad',
+      description: 'La CONABIO tiene la misión de promover, coordinar, apoyar y realizar actividades dirigidas al conocimiento de la diversidad biológica, así como a su conservación y uso sustentable para beneficio de la sociedad.',
+      link: 'http://www.conabio.gob.mx/informacion/gis/',
+    },
+  ],
+  geology: [
+    {
+      subject: 'Geología',
+      institution: 'OneGeology',
+      title: 'OneGeology',
+      description: 'It is an international initiative of the geological surveys of the world who are working together with the support of international organisations, regional organisations and industry sponsors to achieve this ambitious and exciting venture.',
+      link: 'http://portal.onegeology.org/OnegeologyGlobal/',
+    },
+    {
+      subject: 'Geología',
+      institution: 'Servicio Geológico Mexicano',
+      title: 'GeoInfoMex',
+      description: 'GeoInfoMex, es el sistema de consulta del Servicio Geológico Mexicano que permite a los usuarios conocer la información geocientífica y tomar decisiones con ahorro en tiempo y recursos, coadyuvando al fomento de la actividad minera.',
+      link: 'https://www.sgm.gob.mx/GeoInfoMexGobMx/',
+    },
+  ],
+  metereology: [
+    {
+      subject: 'Meteorología',
+      institution: 'The Weather Company',
+      title: 'Weather Underground',
+      description: 'Weather Underground has challenged the conventions around how weather information is shared with the public since 1993. We\'re immensely proud of the unique products that our community and meteorologists have created to improve people\'s access to meaningful weather data from around the globe. As the Internet\'s 1st weather service, we consider ourselves pioneers within our field and we\'re constantly seeking new data sets and the next technologies that will help us share more data with more people.',
+      link: 'https://www.wunderground.com/wundermap',
+    },
+    {
+      subject: 'Meteorología',
+      institution: 'Earth Nullschool',
+      title: 'EarthWindMap',
+      description: 'An animated map of global weather conditions.',
+      link: 'https://earth.nullschool.net/',
+    },
+    {
+      subject: 'Meteorología',
+      institution: 'National Aeronautics And Space Administration',
+      title: 'NASA Worldview',
+      description: 'This app from NASA\'s EOSDIS provides the capability to interactively browse over 800 global, full-resolution satellite imagery layers and then download the underlying data. Many of the available imagery layers are updated within three hours of observation, essentially showing the entire Earth as it looks "right now".',
+      link: 'https://worldview.earthdata.nasa.gov/',
+    },
+    {
+      subject: 'Meteorología',
+      institution: 'National Oceanic and Atmospheric Administration',
+      title: 'GOES Image Viewer',
+      description: 'NOAA\'s mission is central to many of today\'s greatest challenges. Climate change. Severe weather. Natural and human-induced disasters. Declining biodiversity. Ocean acidification. Threatened or degraded ocean and coastal resources. These challenges convey a common message: human health, prosperity, and well-being depend upon the health and resilience of coupled natural and social ecosystems. Managing this interdependence requires timely and usable information to make decisions and the science that underpins our knowledge of these systems. NOAA\'s mission of science, service, and stewardship is directed to a vision of the future where societies and their ecosystems are healthy and resilient in the face of sudden or prolonged change.',
+      link: 'https://www.star.nesdis.noaa.gov/goes/index.php',
+    },
+  ],
+  risks: [
+    {
+      subject: 'Riesgos',
+      institution: 'National Association of Radio Distress-Signalling and Infocommunications',
+      title: 'RSOE Emergency and Disaster Information Service',
+      description: 'The National Association of Radio Distress-Signalling and Infocommunications (RSOE) operates Emergency and Disaster Information Service (EDIS) within the frame of his own web site which has the objective to monitor and document all the events on Earth which may cause disaster or emergency. The main objective is to manage information about events endangering the safety of our own country.',
+      link: 'http://hisz.rsoe.hu/alertmap/index2.php',
+    },
+    {
+      subject: 'Riesgos',
+      institution: 'Centro Nacional de Prevención de Desastres',
+      title: 'Monitoreo de Fenómenos Naturales',
+      description: 'Consulta de los fenómenos que se están generando en este momento, actualizados constantemente para su seguimiento y análisis.',
+      link: 'http://www.atlasnacionalderiesgos.gob.mx/archivo/monitoreo.html',
+    },
+    {
+      subject: 'Riesgos',
+      institution: 'Centro Nacional de Prevención de Desastres',
+      title: 'Sistema de información sobre riesgos',
+      description: 'El sistema integra todos los mapas del Atlas Nacional de Riesgos, de peligro, exposición, vulnerabilidad y riesgo, clasificados según el tema para su visualización y análisis.',
+      link: 'http://www.atlasnacionalderiesgos.gob.mx/archivo/visor-capas.html',
+    },
+    {
+      subject: 'Riesgos',
+      institution: 'Earthquake 3d',
+      title: 'Earthquake 3d',
+      description: 'EQ3D is a simplified version of the application program Earthquake 3D running in an internet browser.',
+      link: 'http://www.earthquake3d.com/',
+    },
+  ],
+  quakes: [
+    {
+      subject: 'Sismos',
+      institution: 'Incorporated Research Institutions For Seismology',
+      title: 'IRIS Earthquake Browser',
+      description: 'The IRIS Earthquake Browser (IEB) is an interactive map for exploring millions of seismic event epicenters (normally earthquakes) on a map of the world.',
+      link: 'http://ds.iris.edu/ieb',
+    },
+    {
+      subject: 'Sismos',
+      institution: 'Centro de Investigación Científica y Educación Superior de Ensenada',
+      title: 'Red Sísmica del Noroeste de México',
+      description: 'Proporcionar un servicio de información veraz y oportuna a la sociedad, medios de comunicación y a autoridades relacionadas con protección civil. La información proporcionada es sobre la actividad sísmica (localizaciones, magnitudes y mapas de intensidades) que ocurre en la región noroeste de México.',
+      link: 'http://resnom.cicese.mx/sitio/',
+    },
+  ],
+};
+
+export const SPECIAL_STUDIES = [
+  {
+    name: 'Atlas de Riesgos Naturales para el Municipio de Tijuana',
+    link: 'http://implan.tijuana.gob.mx/pdf/atlas/ATLAS%20TIJUANA%202014.pdf',
+  },
+  {
+    name: 'Estudio de movilidad en bicicleta',
+    link: 'http://implan.tijuana.gob.mx/pdf/Planes/Estudio%20de%20movilidad%20en%20bicicleta_Final.pdf',
+  },
+  {
+    name: 'Atlas de la Región Fronteriza San Diego-Baja California',
+    link: 'http://implan.tijuana.gob.mx/pdf/atlas/SanDiegoBajaCaliforniaBorderRegionAtlas.pdf',
+  },
+  {
+    name: 'Plan Estratégico Metropolitano',
+    link: 'http://implan.tijuana.gob.mx/pdf/PEM.pdf',
+  },
+  {
+    name: 'Perfil de Resiliencia Urbana',
+    link: 'http://implan.tijuana.gob.mx/pdf/Planes/tijuana_final.pdf',
+  },
+];
