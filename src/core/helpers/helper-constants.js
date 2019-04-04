@@ -758,3 +758,152 @@ export const SPECIAL_STUDIES = [
     link: 'http://implan.tijuana.gob.mx/pdf/Planes/tijuana_final.pdf',
   },
 ];
+
+export const NEWS_LINKS = {
+  'GOBIERNO': {
+    'tijuana.gob.mx': 'http://www.tijuana.gob.mx/noticialistado.aspx',
+    'bajacalifornia.gob.mx': 'http://www.bajacalifornia.gob.mx/portal/comunicados_prensa.jsp',
+  },
+  'COMUNITI': {
+    'gob.mx': 'https://www.gob.mx/presidencia#5172',
+    'nehrp.gov': 'https://www.nehrp.gov/',
+  },
+  'CLIMA': {
+    'weather.gov': 'https://www.weather.gov/forecastmaps',
+    'smn.cna.gob.mx': 'https://smn.cna.gob.mx/es/',
+  },
+  'ARTÍCULOS': {
+    'redalyc.org': 'https://www.redalyc.org/home.oa',
+    'scielo.org': 'https://www.scielo.org/',
+    'doaj.org': 'https://doaj.org/',
+    'biblat.unam.mx': 'https://biblat.unam.mx/es/',
+    'dialnet.unirioja.es': 'https://dialnet.unirioja.es/',
+  },
+};
+
+export const RISK_PLANNING_DOCS = [
+  {
+    name: 'Guía sobre riesgos para el Estado de Baja California: Fenómenos Hidrometeorológicos',
+    link: 'http://www.proteccioncivilbc.gob.mx/Doctos/GuiaHidrometeorologicaBC1.pdf',
+  },
+  {
+    name: 'Plan De Contingencias Riesgos Hidrometeorológicos Baja California, México',
+    link: 'http://www.proteccioncivilbc.gob.mx/Doctos/PlanContingenciasHidrometeorologicas.pdf',
+  },
+  {
+    name: 'Plan de Contingencias para Terremotos Destructivos en el Estado de Baja California',
+    link: 'http://www.proteccioncivilbc.gob.mx/Doctos/temblores/PlanContingenciasTerremoto1.pdf',
+  },
+  {
+    name: 'Atlas de Riesgos Naturales del Municipio de Tijuana 2014',
+    link: 'http://www.implan.tijuana.gob.mx/pdf/atlas/ATLAS%20TIJUANA%202014.pdf',
+  },
+];
+
+export const REGULATORY_DOCS = [
+  {
+    name: 'Ley General De Protección Civil ',
+    link: 'http://www.diputados.gob.mx/LeyesBiblio/pdf/LGPC_190118.pdf',
+  },
+  {
+    name: 'Reglamento De La Ley General De Protección Civil',
+    link: 'http://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGPC_091215.pdf',
+  },
+  {
+    name: 'Ley De Protección Civil Y Gestión Integral De Riesgos Del Estado De Baja California',
+    link: 'http://www.congresobc.gob.mx/Parlamentarias/TomosPDF/Leyes/TOMO_VII/LEYPROCIVGESINTRIE_08SEP2017.pdf',
+  },
+  {
+    name: 'Reglamento de Protección Civil para el Municipio de Tijuana - Junio 2017',
+    link: 'http://www.proteccioncivil.tijuana.gob.mx/pdf/marco/municipal/ReglamentoPCBC_06-2017.pdf',
+  },
+  {
+    name: 'Ley De Prevención, Mitigación Y Adaptación Del Cambio Climático Para El Estado De Baja California ',
+    link: 'http://www.congresobc.gob.mx/contenido/legislacionestatal/Parlamentarias/TomosPDF/Leyes/TOMO_VII/Leycamclim-2_27MAR2015.pdf',
+  },
+];
+
+export const SPECIAL_STUDIES_DOCS = [
+  {
+    name: 'Movimientos de Ladera o Masas de Terreno en Tijuana B. C.',
+    link: 'http://www.proteccioncivil.tijuana.gob.mx/pdf/planes/estudios/Movimientos%20de%20Ladera%20o%20Masas%20de%20Terreno%20en%20Tijuana%20BC%20v%202007.pdf',
+  },
+  {
+    name: 'Microzonación Sísmica En La Zona Urbana De Tijuana, B. C. ',
+    link: 'http://www.proteccioncivilbc.gob.mx/Doctos/temblores/InformeFinalTijuana2009.pdf',
+  },
+  {
+    name: 'Diagnóstico de Riesgos Urbanos en el Área Metropolitana de Tijuana',
+    link: 'http://www.proteccioncivil.tijuana.gob.mx/pdf/planes/estudios/Diagnostico%20de%20Riesgos%20Urbanos%20en%20el%20area%20Metropolitana%20de%20Tijuana.pdf',
+  },
+  {
+    name: 'Herramientas de Evaluación de Riesgo para Diagnóstico de Áreas Urbanas contra Desastres Sísmicos',
+    link: 'http://www.proteccioncivil.tijuana.gob.mx/pdf/planes/estudios/Reporte%20Final%20del%20Proyecto%20RADIUS%20Caso%20Tijuana%202001.pdf',
+  },
+];
+
+export const TOOLS = {
+  'Herramientas de Cálculo': [
+    {
+      subject: 'Biología',
+      institution: 'Universidad Nacional de Educación a Distancia',
+      title: 'Cartografía Geológica',
+      description: 'Con este trabajo se presenta una herramienta diseñada para ayudar al alumno a evaluar, interpretar y sintetizar información geológica elemental obtenida sobre el terreno y sobre mapas geológicos, y así, poder identificar y valorar las características geológicas básicas del planeta Tierra.',
+      link: 'http://ocw.innova.uned.es/cartografia/indice_general.htm',
+    },
+  ],
+  'Área Infantil': [
+    {
+      subject: 'Sismos',
+      institution: 'Incorporated Research Institutions For Seismology',
+      title: 'Education and Public Outreach Program',
+      description: 'The IRIS Education and Public Outreach (EPO) program is committed to advancing awareness and understanding of seismology and geophysics while inspiring careers in the Earth sciences.',
+      link: 'https://www.iris.edu/hq/inclass/search#type=7',
+    },
+    {
+      subject: 'Sismos',
+      institution: 'United States Geological Survey',
+      title: 'Earthquakes for Kids',
+      description: 'Fun and educational resources including Science Fair ideas and earthquake science you can understand.',
+      link: 'https://earthquake.usgs.gov/learn/kids/',
+    },
+  ],
+  'MOOC': [
+    {
+      subject: 'Massive Online Open Courses',
+      title: 'MéxicoX',
+      description: 'MéxicoX, es la Plataforma de cursos en línea de la SEP, operada por la Dirección General de Televisión Educativa. Inició el 23 de junio de 2015 y, a tres años de su creación, se ha convertido en la comunidad educativa digital más importante del país.',
+      link: 'https://www.mexicox.gob.mx/about',
+    },
+    {
+      subject: 'Massive Online Open Courses',
+      title: 'Coursera',
+      description: 'Coursera was founded in 2012 by two Stanford Computer Science professors who wanted to share their knowledge and skills with the world. Professors Daphne Koller and Andrew Ng put their courses online for anyone to take - and taught more learners in a few months than they could have in an entire lifetime in the classroom. Since then, we’ve built a platform where anyone, anywhere can learn and earn credentials from the world’s top universities and education providers.',
+      link: 'https://www.coursera.org/',
+    },
+    {
+      subject: 'Massive',
+      title: 'edX',
+      description: 'Founded by Harvard University and MIT in 2012, edX is an online learning destination and MOOC provider, offering high-quality courses from the world’s best universities and institutions to learners everywhere.',
+      link: 'https://www.edx.org/',
+    },
+    {
+      subject: 'Massive',
+      title: 'Khan Academy',
+      description: 'Khan Academy offers practice exercises, instructional videos, and a personalized learning dashboard that empower learners to study at their own pace in and outside of the classroom. We tackle math, science, computer programming, history, art history, economics, and more. ',
+      link: 'https://www.khanacademy.org/',
+    },
+    {
+      subject: 'Massive',
+      title: 'Stanford Online',
+      description: 'Stanford Online is administered by the Office of the Vice Provost for Teaching and Learning at Stanford University. The Office of the Vice Provost for Teaching and Learning (VPTL) is committed to creating and supporting a lifetime of learning opportunities for learners on campus and beyond. Through free online courses, graduate and professional certificates, advanced degrees, and executive education programs, we are facilitating extended and meaningful engagement with Stanford faculty and their research, for learners of different ages, regions, and backgrounds throughout many stages of their lives and careers.',
+      link: 'https://online.stanford.edu/',
+    },
+    {
+      subject: 'Massive',
+      title: 'MIT OpenCourseWare',
+      description: 'Through OCW, educators improve courses and curricula, making their schools more effective; students find additional resources to help them succeed; and independent learners enrich their lives and use the content to tackle some of our world’s most difficult challenges, including sustainable development, climate change, and cancer eradication.',
+      link: 'https://ocw.mit.edu/index.htm',
+    },
+  ],
+};

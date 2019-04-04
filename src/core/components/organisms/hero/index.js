@@ -69,7 +69,7 @@ class Hero extends Component {
               </h1>
               <h2 className="hero-subtitle">RYR Web facilita la comprensión del panorama de riesgo en la región.</h2>
               <div className="buttons-holder mt-30">
-                <Linked url="/noticias/reportes" className="btn btn-md rounded btn-white">
+                <Linked url="/reportes" className="btn btn-md rounded btn-white">
                   Ver Reportes de Riesgo
                 </Linked>
               </div>

@@ -69,6 +69,7 @@ class GMap extends Component {
   }
 
   componentDidMount() {
+    this.loading(true);
     if (window.google) {
       this.initGMap();
     } else {
@@ -200,6 +201,7 @@ class GMap extends Component {
 
     window.google.maps.event.addListenerOnce(this.gmap, 'idle', () => {
       // do something only the first time the map is loaded
+      this.loading(false);
       const center = this.gmap.getCenter();
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });

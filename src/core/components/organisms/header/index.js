@@ -203,7 +203,7 @@ class NavBar extends Component {
                     <NavItem
                       className="btn btn-sm rounded"
                       exact
-                      to="/noticias/reportes"
+                      to="/reportes"
                       onClick={() => {
                         $('#MainScroll').scrollTop(0);
                       }}

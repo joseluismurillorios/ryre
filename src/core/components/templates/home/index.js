@@ -61,7 +61,7 @@ class Home extends Component {
                   <br />
                   {dict.es['presentation.three']}
                 </p>
-                <Linked url="/noticias/reportes" className="btn btn-md btn-light mt-20">Explorar</Linked>
+                <Linked url="/reportes" className="btn btn-md btn-light mt-20">Explorar</Linked>
               </div>
               <div className="col-md-5 text-center">
                 <img

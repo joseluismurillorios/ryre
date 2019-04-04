@@ -14,11 +14,6 @@ const defaultState = {
   loading: true,
   curTime: (new Date()).getTime(),
   showInstallMessage: true,
-  // weatherMetric: {
-  //   weather: [],
-  //   main: {},
-  // },
-  // forecastMetric: {},
 };
 
 const reducer = (state = defaultState, action) => {
@@ -38,7 +33,6 @@ const reducer = (state = defaultState, action) => {
     }
 
     case SET_LOADER: {
-      console.log(action.payload);
       return {
         ...state,
         loading: action.payload,

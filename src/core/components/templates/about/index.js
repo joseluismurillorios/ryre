@@ -57,7 +57,7 @@ class AboutUs extends Component {
             paths={this.paths}
             aether
           />
-          <Section className="pt-80 pb-80 pt-mdm-30 icon-boxes style-4">
+          <Section className="pt-80 pb-80 pt-mdm-30">
             <Container>
               <Appear>
                 <h2 className="text-center mb-50 mb-mdm-30 bottom-line">

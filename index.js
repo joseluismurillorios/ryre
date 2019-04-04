@@ -166,7 +166,7 @@ http.listen(app.get('PORT'), (error) => {
   getData();
 });
 
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('*/3 * * * *', () => {
   logger('fetching mainWeatherData');
   getData();
 });

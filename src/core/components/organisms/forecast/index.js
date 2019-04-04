@@ -84,9 +84,6 @@ class Forecast extends Component {
     const gC = (<small> C</small>);
     return (
       <div className="widget weather">
-        <h3 className="widget-title heading relative heading-small uppercase style-2 text-center bottom-line pt-10 hidden-xs">
-          {'Pronóstico'}
-        </h3>
         <div className="weather-box">
           <h5 className="mt-0">
             Tijuana
