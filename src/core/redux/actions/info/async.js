@@ -31,6 +31,12 @@ export const storeOpinion = (uid, info) => (
           dispatch(setLoader(false));
           return false;
         })
+        .catch((error) => {
+          // Handle Errors here.
+          console.log(error);
+          toast.error('Error en el servidor', { autoClose: 5000 });
+          return false;
+        })
     );
   }
 );
@@ -57,6 +63,12 @@ export const deleteOpinion = (uid, id) => (
           }
           toast.error('Error al eliminar', { autoClose: 8000 });
           dispatch(setLoader(false));
+          return false;
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          console.log(error);
+          toast.error('Error en el servidor', { autoClose: 5000 });
           return false;
         })
     );

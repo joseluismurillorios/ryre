@@ -49,6 +49,12 @@ const geo = geofirex.init(firebase);
 
 const DEFAULT_POINT = geo.point(32.520666, -117.021315);
 
+// admin.auth().setCustomUserClaims('esoBYwO6DyQigOJOYz4RYRZbflE2', { admin: true }).then(() => {
+//   // The new custom claims will propagate to the user's ID token the
+//   // next time a new one is issued.
+//   console.log('done');
+// });
+
 
 const COLORS = [
   '#b48cc3',
@@ -105,8 +111,8 @@ const storeOpinion = (uid, info, res) => {
   };
   opinions.add({
     address,
-    latitude: lat.toFixed(12),
-    longitude: lon.toFixed(12),
+    latitude: lat,
+    longitude: lon,
     category: categ,
     message,
     subcategory: subcateg,

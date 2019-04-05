@@ -8,6 +8,8 @@ import {
 import $ from '../../../helpers/helper-jquery';
 import {
   userLogged,
+  // setLoader,
+  setAdmin,
 } from './index';
 
 const DEVELOMPENT = (process.env.NODE_ENV === 'development');
@@ -28,6 +30,35 @@ const unsetAppCookie = () => Cookies.remove('token', {
   path: '',
 });
 
+// export const isAdmin = () => {
+//   fetch('/api/isadmin', {
+//     headers: { 'Content-Type': 'application/json; charset=utf-8' },
+//     method: 'GET',
+//     credentials: 'include',
+//   })
+//     .then((response) => {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then((data) => {
+//       toast.success(JSON.stringify(data), { autoClose: 8000 });
+//       console.log(data);
+//       if (data.auth !== 'error') {
+//         toast.success(data.auth ? 'simon' : 'nel', { autoClose: 8000 });
+//         // dispatch(setLoader(false));
+//         return true;
+//       }
+//       toast.error(data.auth ? 'simon' : 'nel', { autoClose: 8000 });
+//       // dispatch(setLoader(false));
+//       return false;
+//     })
+//     .catch((error) => {
+//       // Handle Errors here.
+//       console.log(error);
+//       toast.error('Error en el servidor', { autoClose: 5000 });
+//     });
+// };
+
 
 export const onAuthChange = () => (
   dispatch => auth.onAuthStateChanged((user) => {
@@ -37,6 +68,8 @@ export const onAuthChange = () => (
       setAppCookie();
       // Reset cookie before hour expires
       setInterval(setAppCookie, 3500);
+
+      // isAdmin();
 
       const { displayName, email } = user;
       $('#Login').modal('hide');
@@ -106,6 +139,32 @@ export const authLogout = () => (
       })
       .catch((error) => {
         toast.error(error.message, { autoClose: 5000 });
+      })
+  )
+);
+
+export const isAdmin = () => (
+  dispatch => (
+    fetch('/api/isadmin', {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'GET',
+      credentials: 'include',
+    })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.auth !== 'error') {
+          dispatch(setAdmin(true));
+          return true;
+        }
+        dispatch(setAdmin(false));
+        return false;
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        console.log(error);
+        toast.error('Error en el servidor', { autoClose: 5000 });
+        dispatch(setAdmin(false));
       })
   )
 );

@@ -23,7 +23,10 @@ import { setEarthPhases } from '../../../redux/actions/forecast';
 class Weather extends Component {
   componentDidMount() {
     const { mapLoading, setPhases } = this.props;
-    mapLoading(false);
+    mapLoading(true);
+    setTimeout(() => {
+      mapLoading(false);
+    }, 500);
     setPhases();
   }
 

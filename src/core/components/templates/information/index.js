@@ -36,7 +36,10 @@ class Information extends Component {
 
   componentDidMount() {
     const { mapLoading } = this.props;
-    mapLoading(false);
+    mapLoading(true);
+    setTimeout(() => {
+      mapLoading(false);
+    }, 500);
   }
 
   shouldComponentUpdate() {

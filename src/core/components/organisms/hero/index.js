@@ -34,7 +34,17 @@ class Hero extends Component {
   }
 
   componentDidMount() {
+    const { onLoad } = this.props;
     $(this.container).height($(window).height() - $('#Header').height());
+    $('.nav-wrap').on('hidden.bs.collapse', () => {
+      // console.log(data);
+      $(this.container).height($(window).height() - $('#Header').height());
+      onLoad(false);
+    });
+
+    setTimeout(() => {
+      onLoad(false);
+    }, 500);
   }
 
   scrollTo() {
@@ -88,10 +98,12 @@ class Hero extends Component {
 
 Hero.defaultProps = {
   goTo: '',
+  onLoad: () => {},
 };
 
 Hero.propTypes = {
   goTo: PropTypes.string,
+  onLoad: PropTypes.func,
 };
 
 export default Hero;

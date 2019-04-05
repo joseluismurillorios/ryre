@@ -95,14 +95,30 @@ app.get('/', (req, res) => {
 
 app.get('/weather', (req, res) => {
   logger('getting weather');
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
   res.json(mainWeatherData.weather.metric);
 });
 
 app.get('/forecast', (req, res) => {
   logger('getting forecast');
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
   res.json(mainWeatherData.forecast.metric);
+});
+
+app.get('/api/isadmin', (req, res) => {
+  logger('isadmin');
+  const { token } = req.cookies;
+  // res.setHeader('Access-Control-Allow-Origin', '*');
+  if (!token) {
+    res.send({ auth: 'error' });
+  } else {
+    admin.auth().verifyIdToken(token)
+      .then((claims) => {
+        console.log(claims.admin);
+        const role = claims.admin ? 'admin' : 'error';
+        res.send({ auth: role });
+      });
+  }
 });
 
 app.post('/api/report', (req, res) => {
@@ -111,7 +127,7 @@ app.post('/api/report', (req, res) => {
     uid,
     info,
   } = req.body;
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
   if (!token) {
     res.send({ auth: 'error' });
   } else {
@@ -128,13 +144,22 @@ app.post('/api/report-delete', (req, res) => {
     uid,
     id,
   } = req.body;
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
   if (!token && !!(uid)) {
     res.send({ auth: 'error' });
   } else {
     admin.auth().verifyIdToken(token)
-      .then(() => {
+      .then((claims) => {
+        console.log(claims);
+        if (claims.admin) {
+          console.log('admiiiin');
+          res.send({ auth: 'admiiiin' });
+        }
         deleteOpiinion(uid, id, res);
+      })
+      .catch((error) => {
+        console.error('Error al guardar', error);
+        res.send({ auth: 'error' });
       });
   }
 });

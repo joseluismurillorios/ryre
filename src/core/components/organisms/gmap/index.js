@@ -216,6 +216,7 @@ class GMap extends Component {
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
     });
+    this.setState({ tooltip: 'myloc' });
   }
 
   handleMapClick(evnt) {
@@ -312,6 +313,7 @@ class GMap extends Component {
           console.log(formattedAddress);
           onUpdate(formattedAddress);
           this.searchWidget.value = formattedAddress;
+          this.setState({ tooltip: 'add' });
         } else {
           toast.error('No results found');
         }
@@ -443,10 +445,9 @@ class GMap extends Component {
     } = this.state;
     const {
       geo,
-    } = this.props;
-    const {
       address,
       user,
+      isAdmin,
     } = this.props;
     const hasGeo = (geo && !this.isIOS && !(window.cordova));
     const hasAddress = (address.latitude !== 0);
@@ -455,6 +456,13 @@ class GMap extends Component {
     return (
       <div className="fill full">
         <div ref={(el) => { this.container = el; }} id="map" className="fill full" />
+        <div className="map-menu fixed-right-top bg-light">
+          <label htmlFor="SearchWidget">
+            <input id="SearchWidget" ref={(el) => { this.searchWidget = el; }} type="text" className="map-search" />
+            <span className="implanf-search" />
+          </label>
+        </div>
+
         <div ref={(el) => { this.help = el; }} className={`map-help fs-menu ${showHelp ? 'open' : ''}`}>
           <div className="fixed-left-bottom">
             <span>Mostrar/Cerrar ayuda</span>
@@ -481,12 +489,6 @@ class GMap extends Component {
               && <span>Ir a mi ubicación</span>
             }
           </div>
-        </div>
-        <div className="map-menu fixed-right-top bg-light">
-          <label htmlFor="SearchWidget">
-            <input id="SearchWidget" ref={(el) => { this.searchWidget = el; }} type="text" className="map-search" />
-            <span className="implanf-search" />
-          </label>
         </div>
 
         <ControlsLeft
@@ -528,6 +530,7 @@ class GMap extends Component {
           zoomIn={this.zoomIn}
           toggle={this.hideAttrs}
           user={user}
+          isAdmin={isAdmin}
           deleteReport={this.deleteReport}
         />
       </div>
@@ -544,6 +547,7 @@ GMap.defaultProps = {
   address: {},
   geo: {},
   user: '',
+  isAdmin: false,
 };
 
 GMap.propTypes = {
@@ -555,6 +559,7 @@ GMap.propTypes = {
   address: PropTypes.objectOf(PropTypes.any),
   geo: PropTypes.objectOf(PropTypes.any),
   user: PropTypes.string,
+  isAdmin: PropTypes.bool,
 };
 
 export default GMap;

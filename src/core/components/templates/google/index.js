@@ -98,6 +98,7 @@ class Google extends Component {
     } = this.props;
     const { opened, errors } = this.state;
     const { uid } = common.user ? common.user : '';
+    const { isAdmin } = common;
     return (
       <Scrollable
         id="Google"
@@ -115,6 +116,7 @@ class Google extends Component {
           onUpdate={onUpdate}
           user={uid}
           opinionDelete={opinionDelete}
+          isAdmin={isAdmin}
         />
 
         <Report

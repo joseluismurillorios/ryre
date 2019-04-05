@@ -4,6 +4,7 @@ import {
   SET_LOADER,
   SET_OPINIONES,
   HIDE_INSTALL_MESSAGE,
+  SET_ADMIN,
 } from '../actions/common/constants';
 
 const defaultState = {
@@ -14,6 +15,7 @@ const defaultState = {
   loading: true,
   curTime: (new Date()).getTime(),
   showInstallMessage: true,
+  isAdmin: false,
 };
 
 const reducer = (state = defaultState, action) => {
@@ -50,6 +52,13 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         showInstallMessage: false,
+      };
+    }
+
+    case SET_ADMIN: {
+      return {
+        ...state,
+        isAdmin: action.payload,
       };
     }
 

@@ -17,6 +17,7 @@ const Attrs = ({
   toggle,
   user,
   deleteReport,
+  isAdmin,
 }) => {
   const {
     address = '',
@@ -27,7 +28,7 @@ const Attrs = ({
   } = info;
   const { geopoint = {} } = position;
   const { _lat: latitude, _long: longitude } = geopoint;
-  const canEdit = user === info.user;
+  const canEdit = isAdmin || user === info.user;
   return (
     <CSSTransition
       in={showInfo}
@@ -104,6 +105,7 @@ Attrs.defaultProps = {
   zoomIn: () => {},
   toggle: () => {},
   user: '',
+  isAdmin: false,
   deleteReport: () => { console.log('deleting...'); },
 };
 
@@ -116,6 +118,7 @@ Attrs.propTypes = {
   zoomIn: PropTypes.func,
   toggle: PropTypes.func,
   user: PropTypes.string,
+  isAdmin: PropTypes.bool,
   deleteReport: PropTypes.func,
 };
 

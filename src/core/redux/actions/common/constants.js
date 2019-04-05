@@ -19,3 +19,6 @@ export const SET_OPINIONES = 'core/redux/common/SET_OPINIONES';
 
 /** @constant {string} HIDE_INSTALL_MESSAGE */
 export const HIDE_INSTALL_MESSAGE = 'core/redux/common/HIDE_INSTALL_MESSAGE';
+
+/** @constant {string} SET_ADMIN */
+export const SET_ADMIN = 'core/redux/common/SET_ADMIN';

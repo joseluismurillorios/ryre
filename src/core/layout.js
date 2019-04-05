@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,6 +11,7 @@ import {
   authLogin,
   authLogout,
   userLogin,
+  isAdmin,
 } from './redux/actions/common/async';
 
 import {
@@ -67,6 +69,7 @@ class Layout extends Component {
       // getWeather,
       onWeather,
       onForecast,
+      setPrivileges,
     } = this.props;
     const { isStandalone } = this.state;
     if (isStandalone) {
@@ -81,6 +84,7 @@ class Layout extends Component {
     const { height } = rectHeader;
     this.setState({ top: height });
     authChange();
+    setPrivileges();
     // getForecast();
     // getWeather();
     onWeather();
@@ -157,10 +161,14 @@ class Layout extends Component {
           toastClassName="toast"
         />
 
-        {
-          common.loading
-          && <Loader style={{ top }} />
-        }
+        <CSSTransition
+          in={common.loading}
+          timeout={1000}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Loader style={{ top }} className="preloader bg-light" />
+        </CSSTransition>
         {
           showInstallMessage && common.showInstallMessage && (
             <AddHome id="addhome" onClick={hideMessage} />
@@ -196,6 +204,7 @@ Layout.defaultProps = {
   onWeather: () => {},
   onForecast: () => {},
   hideMessage: () => {},
+  setPrivileges: () => {},
 };
 
 Layout.propTypes = {
@@ -216,6 +225,7 @@ Layout.propTypes = {
   onWeather: PropTypes.func,
   onForecast: PropTypes.func,
   hideMessage: PropTypes.func,
+  setPrivileges: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -232,6 +242,7 @@ const mapDispatchToProps = {
   onWeather: onWeatherChange,
   onForecast: onForecastChange,
   hideMessage: hideInstallMessage,
+  setPrivileges: isAdmin,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout));

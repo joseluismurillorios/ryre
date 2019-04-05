@@ -5,6 +5,7 @@ import {
   SET_LOADER,
   SET_OPINIONES,
   HIDE_INSTALL_MESSAGE,
+  SET_ADMIN,
 } from './constants';
 
 export const toggleSideBar = payload => ({
@@ -34,5 +35,10 @@ export const setOpiniones = payload => ({
 
 export const hideInstallMessage = payload => ({
   type: HIDE_INSTALL_MESSAGE,
+  payload,
+});
+
+export const setAdmin = payload => ({
+  type: SET_ADMIN,
   payload,
 });

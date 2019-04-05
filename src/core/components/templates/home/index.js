@@ -26,10 +26,15 @@ import Row from '../../atoms/row';
 class Home extends Component {
   componentDidMount() {
     const { mapLoading } = this.props;
-    mapLoading(false);
+    mapLoading(true);
+    setTimeout(() => {
+      mapLoading(false);
+    }, 500);
   }
 
   render() {
+    const { mapLoading } = this.props;
+    // mapLoading(false);
     return (
       <div
         id="Home"
@@ -42,7 +47,7 @@ class Home extends Component {
           id="MainScroll"
           style={{ backgroundColor: 'transparent' }}
         >
-          <Hero goTo="HomePress" />
+          <Hero goTo="HomePress" onLoad={mapLoading} />
           <Section id="HomePress" className="icon-boxes style-5">
             <div className="container-fluid">
               <IconBox />
