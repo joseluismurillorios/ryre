@@ -22,7 +22,7 @@ export const storeOpinion = (uid, info) => (
         .then(response => response.json())
         .then((data) => {
           if (data.auth !== 'error') {
-            toast.success('Gracias por su opinión', { autoClose: 8000 });
+            toast.info('Gracias por su opinión', { autoClose: 8000 });
             dispatch(clearOpinion());
             dispatch(setLoader(false));
             return true;
@@ -57,7 +57,7 @@ export const deleteOpinion = (uid, id) => (
         .then(response => response.json())
         .then((data) => {
           if (data.auth !== 'error') {
-            toast.success('Reporte eliminado', { autoClose: 8000 });
+            toast.info('Reporte eliminado', { autoClose: 8000 });
             dispatch(setLoader(false));
             return true;
           }

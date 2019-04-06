@@ -127,7 +127,6 @@ const storeOpinion = (uid, info, res) => {
     'marker-size': 'large',
   })
     .then((docRef) => {
-      console.log('Document successfully written! direccion');
       users.doc(uid).set({
         opinions: {
           [docRef.id]: true,
@@ -148,7 +147,6 @@ const storeOpinion = (uid, info, res) => {
 };
 
 const deleteOpinion = (uid, id, res) => {
-  console.log(uid, id);
   const batch = db.batch();
 
   const reportRef = db.collection('opinions').doc(id);
@@ -182,8 +180,8 @@ const updateUser = ({
     displayName,
     photoURL,
   }, { merge: true })
-    .then((e) => {
-      console.log('User Updated', e);
+    .then(() => {
+      console.log('User Updated', uid);
       return true;
     })
     .catch((error) => {

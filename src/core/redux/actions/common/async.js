@@ -19,22 +19,29 @@ const DEVELOMPENT = (process.env.NODE_ENV === 'development');
 
 
 let connected = true;
+let toastId = null;
 
 socketIO.on('connect', () => {
   if (!connected) {
-    toast.success('Servidor online', { autoClose: 20000 });
+    toast.update(toastId, {
+      render: 'Servidor online',
+      type: toast.TYPE.SUCCESS,
+      autoClose: false,
+    });
+    // toast.info('Servidor online', { autoClose: 20000 });
     connected = true;
   }
 });
 
 socketIO.io.on('connect_error', () => {
   if (connected) {
-    toast.error('Servidor offline', { autoClose: 20000 });
+    toastId = toast.error('Servidor offline', { autoClose: false });
+    // toast.error('Servidor offline', { autoClose: 20000 });
     connected = false;
   }
 });
 
-const setAppCookie = () => auth.currentUser && (
+const setAppCookie = dispatch => auth.currentUser && (
   auth.currentUser.getIdToken().then((token) => {
     Cookies.set('token', token, {
       domain: window.location.hostname,
@@ -42,6 +49,29 @@ const setAppCookie = () => auth.currentUser && (
       path: '',
       secure: !DEVELOMPENT,
     });
+    console.log(dispatch);
+    if (dispatch) {
+      fetch('/api/authorize', {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        method: 'GET',
+        credentials: 'include',
+      })
+        .then(response => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data.auth !== 'error') {
+            dispatch(userLogged(data.auth));
+            return true;
+          }
+          dispatch(setAdmin(false));
+          return false;
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          console.log(error);
+          dispatch(setAdmin(false));
+        });
+    }
   })
 );
 
@@ -50,50 +80,23 @@ const unsetAppCookie = () => Cookies.remove('token', {
   path: '',
 });
 
-// export const isAdmin = () => {
-//   fetch('/api/isadmin', {
-//     headers: { 'Content-Type': 'application/json; charset=utf-8' },
-//     method: 'GET',
-//     credentials: 'include',
-//   })
-//     .then((response) => {
-//       console.log(response);
-//       return response.json();
-//     })
-//     .then((data) => {
-//       toast.success(JSON.stringify(data), { autoClose: 8000 });
-//       console.log(data);
-//       if (data.auth !== 'error') {
-//         toast.success(data.auth ? 'simon' : 'nel', { autoClose: 8000 });
-//         // dispatch(setLoader(false));
-//         return true;
-//       }
-//       toast.error(data.auth ? 'simon' : 'nel', { autoClose: 8000 });
-//       // dispatch(setLoader(false));
-//       return false;
-//     })
-//     .catch((error) => {
-//       // Handle Errors here.
-//       console.log(error);
-//       toast.error('Error en el servidor', { autoClose: 5000 });
-//     });
-// };
-
 
 export const onAuthChange = () => (
   dispatch => auth.onAuthStateChanged((user) => {
     // console.log(user);
     if (user) {
+      const { displayName, email, photoURL } = user;
+      dispatch(userLogged({ displayName, email, photoURL }));
+
       // user is logged in
-      setAppCookie();
+      setAppCookie(dispatch);
       // Reset cookie before hour expires
       setInterval(setAppCookie, 3500);
 
       // isAdmin();
 
-      const { displayName, email } = user;
       $('#Login').modal('hide');
-      toast.success(`Hola ${displayName || email}`, { autoClose: 2000 });
+      toast.info(`Hola ${displayName || email}`, { autoClose: 2000 });
       // dispatch(userLogged(user));
     } else {
       unsetAppCookie();

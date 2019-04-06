@@ -11,7 +11,6 @@ import {
   authLogin,
   authLogout,
   userLogin,
-  isAdmin,
 } from './redux/actions/common/async';
 
 import {
@@ -69,7 +68,6 @@ class Layout extends Component {
       // getWeather,
       onWeather,
       onForecast,
-      setPrivileges,
     } = this.props;
     const { isStandalone } = this.state;
     if (isStandalone) {
@@ -86,7 +84,6 @@ class Layout extends Component {
     const { height } = rectHeader;
     this.setState({ top: height });
     authChange();
-    setPrivileges();
     // getForecast();
     // getWeather();
     onWeather();
@@ -222,7 +219,6 @@ Layout.defaultProps = {
   onWeather: () => {},
   onForecast: () => {},
   hideMessage: () => {},
-  setPrivileges: () => {},
 };
 
 Layout.propTypes = {
@@ -243,7 +239,6 @@ Layout.propTypes = {
   onWeather: PropTypes.func,
   onForecast: PropTypes.func,
   hideMessage: PropTypes.func,
-  setPrivileges: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -262,7 +257,6 @@ const mapDispatchToProps = {
   onWeather: onWeatherChange,
   onForecast: onForecastChange,
   hideMessage: hideInstallMessage,
-  setPrivileges: isAdmin,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout));

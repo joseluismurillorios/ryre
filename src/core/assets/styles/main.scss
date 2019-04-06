@@ -298,18 +298,21 @@ button.toast-close {
 }
 
 // Toastify
+.Toastify__toast {
+  min-height: 53px;
+}
 .Toastify__toast--default {
   background: #fff;
   color: #aaa;
 }
 
 .Toastify__toast--info {
-  background: $secondary;
+  background: $primary;
   color: #fff;
 }
 
 .Toastify__toast--success {
-  background: $primary;
+  background: $secondary;
 }
 
 .Toastify__toast--warning {

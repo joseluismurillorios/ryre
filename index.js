@@ -107,8 +107,8 @@ app.get('/forecast', (req, res) => {
 });
 
 app.get('/api/authorize', (req, res) => {
-  // logger('isadmin');
   const { token } = req.cookies;
+  // logger(token);
   // res.setHeader('Access-Control-Allow-Origin', '*');
   if (!token) {
     res.send({ auth: 'error' });
@@ -132,7 +132,8 @@ app.get('/api/authorize', (req, res) => {
         };
         updateUser(newUser);
         res.send({ auth: newUser });
-      });
+      })
+      .catch(console.log);
   }
 });
 
@@ -160,15 +161,11 @@ app.post('/api/report-delete', (req, res) => {
     id,
   } = req.body;
   // res.setHeader('Access-Control-Allow-Origin', '*');
-  console.log(uid, id);
   if (!token && !!(uid)) {
     res.send({ auth: 'error' });
   } else {
     admin.auth().verifyIdToken(token)
-      .then((claims) => {
-        // if (claims.admin) {
-        //   console.log('admiiiin');
-        // }
+      .then(() => {
         deleteOpinion(uid, id, res);
       })
       .catch((error) => {
