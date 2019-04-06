@@ -49,7 +49,6 @@ const setAppCookie = dispatch => auth.currentUser && (
       path: '',
       secure: !DEVELOMPENT,
     });
-    console.log(dispatch);
     if (dispatch) {
       fetch('/api/authorize', {
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -58,7 +57,7 @@ const setAppCookie = dispatch => auth.currentUser && (
       })
         .then(response => response.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           if (data.auth !== 'error') {
             dispatch(userLogged(data.auth));
             return true;

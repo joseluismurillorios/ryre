@@ -180,10 +180,6 @@ const updateUser = ({
     displayName,
     photoURL,
   }, { merge: true })
-    .then(() => {
-      console.log('User Updated', uid);
-      return true;
-    })
     .catch((error) => {
       console.error('Error al guardar en usuario', error);
       return false;

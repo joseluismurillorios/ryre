@@ -13,9 +13,10 @@ const ContactCard = ({
   link,
   phone,
   email,
+  color,
 }) => (
   <div className={className}>
-    <div className="pricing-table bg-lighter wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+    <div className={`pricing-table wow fadeInUp bg-${color}`} data-wow-duration="1s" data-wow-delay="0.1s">
       <div className="pricing-title">
         <h3>{name}</h3>
       </div>
@@ -61,6 +62,7 @@ ContactCard.defaultProps = {
   link: '',
   phone: '',
   email: '',
+  color: 'lighter',
 };
 
 ContactCard.propTypes = {
@@ -72,6 +74,7 @@ ContactCard.propTypes = {
   link: PropTypes.string,
   phone: PropTypes.string,
   email: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default ContactCard;

@@ -181,6 +181,7 @@ class Contact extends Component {
                   name="Colegio de Constructores Posgraduados de Tijuana, A.C."
                   director="Luis Fernando González Vergara"
                   link="https://www.facebook.com/Colegio-de-Constructores-Posgraduados-de-Tijuana-AC-190332435133673/"
+                  color="light"
                 />
                 <ContactCard
                   img={assets.colearq}
