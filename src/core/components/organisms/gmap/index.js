@@ -108,9 +108,10 @@ class GMap extends Component {
   }
 
   initGMap() {
-    // const { geo } = this.props;
+    const { user } = this.props;
     // this.hasFeatures = !!(geo.features && geo.features.length > 0);
     this.gmap = new window.google.maps.Map(document.getElementById('map'), {
+      gestureHandling: 'greedy',
       zoomControl: false,
       zoomControlOptions: {
         position: window.google.maps.ControlPosition.RIGHT_BOTTOM,
@@ -167,11 +168,14 @@ class GMap extends Component {
     this.loading(false);
     this.gmap.data.setStyle((feature) => {
       const category = feature.getProperty('category');
+      const uid = feature.getProperty('user');
+      const strokeColor = (uid === user.uid) ? '#232323' : '#FFFFFF';
       return {
         icon: {
           ...circleMarker,
           anchor: new window.google.maps.Point(0, 0),
           fillColor: COLORS[category],
+          strokeColor,
         },
       };
     });
@@ -453,40 +457,42 @@ class GMap extends Component {
     const hasAddress = (address.latitude !== 0);
     const hasGeolocation = !!(navigator.geolocation);
     const showTooltip = !this.isMobile && !showHelp;
+    const datalayerVisible = showDataLayer ? 'Ocultar' : 'Ver';
+    const mapTypeVisible = mapType === 'satellite' ? 'Caminos' : 'Satélite';
     return (
       <div className="fill full">
         <div ref={(el) => { this.container = el; }} id="map" className="fill full" />
         <div className="map-menu fixed-right-top bg-light">
           <label htmlFor="SearchWidget">
             <input id="SearchWidget" ref={(el) => { this.searchWidget = el; }} type="text" className="map-search" />
-            <span className="implanf-search" />
+            <span className="btn btn-lighter implanf-search" />
           </label>
         </div>
 
         <div ref={(el) => { this.help = el; }} className={`map-help fs-menu ${showHelp ? 'open' : ''}`}>
           <div className="fixed-left-bottom">
-            <span>Mostrar/Cerrar ayuda</span>
+            <span>{isMobile ? 'Ayuda' : 'Mostrar/Cerrar ayuda'}</span>
             {
               hasGeo
-              && <span>Descargar KML</span>
+              && <span>{isMobile ? 'KML' : 'Descargar KML'}</span>
             }
             {
               hasFeatures
-              && <span>Ver/Ocultar todo</span>
+              && <span>{isMobile ? datalayerVisible : 'Ver/Ocultar todo'}</span>
             }
-            <span>Vista satelital</span>
-            <span>Ver mapa completo</span>
+            <span>{isMobile ? 'Vista' : mapTypeVisible}</span>
+            <span>{isMobile ? 'Inicio' : 'Ver mapa completo'}</span>
           </div>
           <div className="fixed-right-bottom">
             {
               hasAddress
-              && <span>Agregar Proyecto</span>
+              && <span>{isMobile ? 'Crear' : 'Agregar Proyecto'}</span>
             }
-            <span>Alejar mapa</span>
-            <span>Acercar mapa</span>
+            <span>{isMobile ? 'Alejar' : 'Alejar mapa'}</span>
+            <span>{isMobile ? 'Acercar' : 'Acercar mapa'}</span>
             {
               hasGeolocation
-              && <span>Ir a mi ubicación</span>
+              && <span>{isMobile ? 'Ubícame' : 'Ir a mi ubicación'}</span>
             }
           </div>
         </div>
@@ -546,7 +552,7 @@ GMap.defaultProps = {
   opinionDelete: () => {},
   address: {},
   geo: {},
-  user: '',
+  user: {},
   isAdmin: false,
 };
 
@@ -558,7 +564,9 @@ GMap.propTypes = {
   opinionDelete: PropTypes.func,
   address: PropTypes.objectOf(PropTypes.any),
   geo: PropTypes.objectOf(PropTypes.any),
-  user: PropTypes.string,
+  user: PropTypes.objectOf(
+    PropTypes.any,
+  ),
   isAdmin: PropTypes.bool,
 };
 

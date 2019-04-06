@@ -451,6 +451,16 @@ div.icon-boxes.style-3 .service-item-box {
   }
 }
 
+.isMobile {
+  .icon-box {
+    .service-item-box {
+      &:hover {
+        border: 1px solid #e0e0e0;
+      }
+    }
+  }
+}
+
 button.btn.btn-icon.icon-box .category.selected {
   border-color: $primary;
 }

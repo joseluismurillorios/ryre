@@ -97,7 +97,7 @@ class Google extends Component {
       opinionDelete,
     } = this.props;
     const { opened, errors } = this.state;
-    const { uid } = common.user ? common.user : '';
+    const { user } = common;
     const { isAdmin } = common;
     return (
       <Scrollable
@@ -114,7 +114,7 @@ class Google extends Component {
           geo={reports.geo}
           setCoords={setCoords}
           onUpdate={onUpdate}
-          user={uid}
+          user={user || {}}
           opinionDelete={opinionDelete}
           isAdmin={isAdmin}
         />

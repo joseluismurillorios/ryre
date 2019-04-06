@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { isMobile } from '../../../helpers/helper-util';
+
 class Button extends Component {
   constructor(props) {
     super(props);
+    const {
+      onMouseMove,
+    } = this.props;
     this.handleClick = this.handleClick.bind(this);
+    this.mouseUp = isMobile ? () => {} : this.handleClick;
+    this.touchEnd = !isMobile ? () => {} : this.handleClick;
+    this.mouseMove = isMobile ? () => {} : onMouseMove;
   }
 
   handleClick(e) {
@@ -57,23 +65,22 @@ class Button extends Component {
       children,
       value,
       name,
-      onMouseMove,
     } = this.props;
     const clss = `btn ${size ? `btn-${size}` : ''} btn-${color} ${rounded ? 'rounded' : ''}`;
     return (
       <button
         type="button"
         className={`${clss} ${className}`}
-        onClick={() => onTap({ value, name })}
-        onMouseUp={this.handleClick}
-        onTouchEnd={this.handleClick}
+        onClick={() => {
+          // console.log('onClick');
+          onTap({ value, name });
+        }}
+        onMouseUp={this.mouseUp}
+        onTouchEnd={this.touchEnd}
         ref={(el) => { this.button = el; }}
         tabIndex={tabIndex}
         disabled={disabled}
-        onMouseMove={onMouseMove}
-        data-toggle="tooltip"
-        data-placement="right"
-        title="Tooltip on right"
+        onMouseMove={this.mouseMove}
       >
         <div
           ref={(el) => { this.ripple = el; }}

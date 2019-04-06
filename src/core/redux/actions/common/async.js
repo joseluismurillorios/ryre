@@ -1,6 +1,8 @@
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
 
+import socketIO from '../../../helpers/helper-socket';
+
 import {
   auth,
   provider,
@@ -11,8 +13,26 @@ import {
   // setLoader,
   setAdmin,
 } from './index';
+import { clearOpinion } from '../info';
 
 const DEVELOMPENT = (process.env.NODE_ENV === 'development');
+
+
+let connected = true;
+
+socketIO.on('connect', () => {
+  if (!connected) {
+    toast.success('Servidor online', { autoClose: 20000 });
+    connected = true;
+  }
+});
+
+socketIO.io.on('connect_error', () => {
+  if (connected) {
+    toast.error('Servidor offline', { autoClose: 20000 });
+    connected = false;
+  }
+});
 
 const setAppCookie = () => auth.currentUser && (
   auth.currentUser.getIdToken().then((token) => {
@@ -74,7 +94,7 @@ export const onAuthChange = () => (
       const { displayName, email } = user;
       $('#Login').modal('hide');
       toast.success(`Hola ${displayName || email}`, { autoClose: 2000 });
-      dispatch(userLogged(user));
+      // dispatch(userLogged(user));
     } else {
       unsetAppCookie();
       dispatch(userLogged());
@@ -119,9 +139,6 @@ export const authLogin = () => (
       );
     } else {
       return auth.signInWithPopup(provider)
-        .then(() => {
-          unsetAppCookie();
-        })
         .catch((error) => {
           // Handle Errors here.
           toast.error(error.message, { autoClose: 5000 });
@@ -135,6 +152,8 @@ export const authLogout = () => (
   dispatch => (
     auth.signOut()
       .then(() => {
+        unsetAppCookie();
+        dispatch(clearOpinion());
         dispatch(userLogged());
       })
       .catch((error) => {
@@ -145,7 +164,7 @@ export const authLogout = () => (
 
 export const isAdmin = () => (
   dispatch => (
-    fetch('/api/isadmin', {
+    fetch('/api/authorize', {
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       method: 'GET',
       credentials: 'include',
@@ -154,7 +173,7 @@ export const isAdmin = () => (
       .then((data) => {
         console.log(data);
         if (data.auth !== 'error') {
-          dispatch(setAdmin(true));
+          dispatch(userLogged(data.auth));
           return true;
         }
         dispatch(setAdmin(false));

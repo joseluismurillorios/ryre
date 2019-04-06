@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../atoms/button';
+import { isMobile } from '../../../helpers/helper-util';
 
 const ControlsRight = ({
   tooltip,
@@ -17,6 +18,7 @@ const ControlsRight = ({
   <div
     className="map-menu fixed-right-bottom"
     onMouseLeave={() => { onMouseLeave({ tooltip: '' }); }}
+    onTouchEnd={() => { onMouseLeave({ tooltip: '' }); }}
   >
     {
       hasAddress
@@ -36,7 +38,7 @@ const ControlsRight = ({
     }
     <Button
       onTap={zoomIn}
-      color="light"
+      color="lighter"
       onMouseMove={() => { onMouseLeave({ tooltip: 'zoomin' }); }}
     >
       <span className="implanf-add" />
@@ -47,7 +49,7 @@ const ControlsRight = ({
     </Button>
     <Button
       onTap={zoomOut}
-      color="light"
+      color="lighter"
       onMouseMove={() => { onMouseLeave({ tooltip: 'zoomout' }); }}
     >
       <span className="implanf-remove" />
@@ -62,12 +64,12 @@ const ControlsRight = ({
         <Button
           onTap={getLocation}
           onMouseMove={() => { onMouseLeave({ tooltip: 'myloc' }); }}
-          color="light"
+          color="lighter"
         >
           <span className="implanf-my_location" />
           {
             (showTooltip && tooltip === 'myloc')
-            && <span className="map-tooltip-left">Mi ubicación</span>
+            && <span className="map-tooltip-left">{isMobile ? 'Ubícame' : 'Mi ubicación'}</span>
           }
         </Button>
       )

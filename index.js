@@ -17,7 +17,8 @@ const {
   reports,
   DEFAULT_POINT,
   storeOpinion,
-  deleteOpiinion,
+  deleteOpinion,
+  updateUser,
 } = require('./server/lib-firestore');
 
 // const serviceAccount = require('./serviceAccount.json');
@@ -105,8 +106,8 @@ app.get('/forecast', (req, res) => {
   res.json(mainWeatherData.forecast.metric);
 });
 
-app.get('/api/isadmin', (req, res) => {
-  logger('isadmin');
+app.get('/api/authorize', (req, res) => {
+  // logger('isadmin');
   const { token } = req.cookies;
   // res.setHeader('Access-Control-Allow-Origin', '*');
   if (!token) {
@@ -114,9 +115,23 @@ app.get('/api/isadmin', (req, res) => {
   } else {
     admin.auth().verifyIdToken(token)
       .then((claims) => {
-        console.log(claims.admin);
-        const role = claims.admin ? 'admin' : 'error';
-        res.send({ auth: role });
+        // console.log(claims);
+        // const role = claims.admin ? 'admin' : 'error';
+        const {
+          name: displayName,
+          email,
+          uid,
+          picture: photoURL,
+        } = claims;
+        const newUser = {
+          displayName,
+          email,
+          uid,
+          photoURL,
+          isAdmin: claims.admin,
+        };
+        updateUser(newUser);
+        res.send({ auth: newUser });
       });
   }
 });
@@ -145,17 +160,16 @@ app.post('/api/report-delete', (req, res) => {
     id,
   } = req.body;
   // res.setHeader('Access-Control-Allow-Origin', '*');
+  console.log(uid, id);
   if (!token && !!(uid)) {
     res.send({ auth: 'error' });
   } else {
     admin.auth().verifyIdToken(token)
       .then((claims) => {
-        console.log(claims);
-        if (claims.admin) {
-          console.log('admiiiin');
-          res.send({ auth: 'admiiiin' });
-        }
-        deleteOpiinion(uid, id, res);
+        // if (claims.admin) {
+        //   console.log('admiiiin');
+        // }
+        deleteOpinion(uid, id, res);
       })
       .catch((error) => {
         console.error('Error al guardar', error);
@@ -167,7 +181,7 @@ app.post('/api/report-delete', (req, res) => {
 app.use(express.static('www'));
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  // console.log('a user connected');
   socket.emit('weather', {
     metric: mainWeatherData.weather.metric,
   });
@@ -177,9 +191,9 @@ io.on('connection', (socket) => {
   socket.emit('reports', {
     metric: mainReportsData.geo,
   });
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
+  // socket.on('disconnect', () => {
+  //   // console.log('user disconnected');
+  // });
 });
 
 http.listen(app.get('PORT'), (error) => {

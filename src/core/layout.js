@@ -26,7 +26,6 @@ import {
 
 
 import {
-  debounce,
   isIOS,
   isInStandaloneMode,
   isIOSChrome,
@@ -51,12 +50,13 @@ class Layout extends Component {
       isStandalone: isIOS && (isInStandaloneMode() || !!(window.cordova)),
       email: '',
       password: '',
+      height: false,
     };
 
     this.toggleMenu = this.toggleMenu.bind(this);
 
     this.setHeaderRef = this.setHeaderRef.bind(this);
-    this.debouncedResize = debounce(this.debouncedResize.bind(this), 200);
+    this.debouncedResize = this.debouncedResize.bind(this);
 
     this.handleText = this.handleText.bind(this);
     this.login = this.login.bind(this);
@@ -78,8 +78,10 @@ class Layout extends Component {
 
       root.classList.add('class', 'isStandalone');
     }
+    window.addEventListener('orientationchange', this.debouncedOrientation, false);
     window.addEventListener('resize', this.debouncedResize, false);
     window.dispatchEvent(new Event('resize'));
+
     const rectHeader = this.header.getBoundingClientRect();
     const { height } = rectHeader;
     this.setState({ top: height });
@@ -90,6 +92,13 @@ class Layout extends Component {
     onWeather();
     onForecast();
     // getReports();
+
+    if (!isIOS && !isInStandaloneMode()) {
+      // this.header.addEventListener('touchmove', this.debouncedMove, false);
+      // this.debouncedMove();
+    } else {
+      document.documentElement.style.height = '100%';
+    }
   }
 
   setHeaderRef(header) {
@@ -97,13 +106,20 @@ class Layout extends Component {
   }
 
   debouncedResize() {
-    const head = this.header;
-    setTimeout(() => {
-      if (head) {
-        const rectHeader = head.getBoundingClientRect();
-        const { height } = rectHeader;
-        this.setState({ top: height });
+    switch (window.orientation) {
+      case -90 || 90: {
+        document.documentElement.style.height = isIOS ? '100vh' : '100%';
+        break;
       }
+      default: {
+        document.documentElement.style.height = !isIOS ? '100vh' : '100%';
+        break;
+      }
+    }
+    setTimeout(() => {
+      const rectHeader = this.header.getBoundingClientRect();
+      const { height } = rectHeader;
+      this.setState({ top: height, height: window.innerHeight });
     }, 100);
   }
 
@@ -131,13 +147,15 @@ class Layout extends Component {
       hideMessage,
     } = this.props;
     const {
+      showInstallMessage,
       top,
       isStandalone,
-      showInstallMessage,
+      height,
     } = this.state;
     // console.log(common.user);
+    const style = height ? { top, height: height - top } : { top };
     return (
-      <div id="Layout" className="app__layout full">
+      <div id="Layout" style={{ height }} className="app__layout full">
         <Header
           setRef={this.setHeaderRef}
           isStandalone={isStandalone}
@@ -149,7 +167,7 @@ class Layout extends Component {
         <section
           id="Router"
           className="app__router fill"
-          style={{ top }}
+          style={style}
         >
           {children}
         </section>
@@ -161,13 +179,14 @@ class Layout extends Component {
           toastClassName="toast"
         />
 
+
         <CSSTransition
           in={common.loading}
           timeout={1000}
           classNames="fade"
           unmountOnExit
         >
-          <Loader style={{ top }} className="preloader bg-light" />
+          <Loader style={{ top }} className="preloader bg-light-80" />
         </CSSTransition>
         {
           showInstallMessage && common.showInstallMessage && (
@@ -176,7 +195,6 @@ class Layout extends Component {
         }
 
         <Top />
-
         <Modal.Container id="Login">
           <Modal.Header text="Entrar" />
           <Modal.Footer>
@@ -230,6 +248,8 @@ Layout.propTypes = {
 
 const mapStateToProps = state => ({
   common: state.common,
+  esri: state.esri,
+  info: state.info,
 });
 
 const mapDispatchToProps = {

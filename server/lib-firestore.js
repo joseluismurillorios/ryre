@@ -129,7 +129,9 @@ const storeOpinion = (uid, info, res) => {
     .then((docRef) => {
       console.log('Document successfully written! direccion');
       users.doc(uid).set({
-        [docRef.id]: true,
+        opinions: {
+          [docRef.id]: true,
+        },
       }, { merge: true })
         .then(() => {
           res.send({ auth: 'success' });
@@ -145,7 +147,7 @@ const storeOpinion = (uid, info, res) => {
     });
 };
 
-const deleteOpiinion = (uid, id, res) => {
+const deleteOpinion = (uid, id, res) => {
   console.log(uid, id);
   const batch = db.batch();
 
@@ -153,9 +155,11 @@ const deleteOpiinion = (uid, id, res) => {
   batch.delete(reportRef);
 
   const usersRef = db.collection('users').doc(uid);
-  batch.update(usersRef, {
-    [id]: admin.firestore.FieldValue.delete(),
-  });
+  batch.set(usersRef, {
+    opinions: {
+      [id]: admin.firestore.FieldValue.delete(),
+    },
+  }, { merge: true });
 
   batch.commit()
     .then(() => {
@@ -167,6 +171,27 @@ const deleteOpiinion = (uid, id, res) => {
     });
 };
 
+const updateUser = ({
+  displayName,
+  email,
+  uid,
+  photoURL,
+}) => {
+  users.doc(uid).set({
+    email,
+    displayName,
+    photoURL,
+  }, { merge: true })
+    .then((e) => {
+      console.log('User Updated', e);
+      return true;
+    })
+    .catch((error) => {
+      console.error('Error al guardar en usuario', error);
+      return false;
+    });
+};
+
 module.exports = {
   admin,
   firebase,
@@ -174,5 +199,6 @@ module.exports = {
   reports,
   DEFAULT_POINT,
   storeOpinion,
-  deleteOpiinion,
+  deleteOpinion,
+  updateUser,
 };

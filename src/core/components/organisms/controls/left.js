@@ -24,11 +24,12 @@ const ControlsLeft = ({
   <div
     className="map-menu fixed-left-bottom"
     onMouseLeave={() => { onMouseLeave({ tooltip: '' }); }}
+    onTouchEnd={() => { onMouseLeave({ tooltip: '' }); }}
   >
     <Button
       onTap={toggleShowHelp}
       onMouseMove={() => { onMouseLeave({ tooltip: 'help' }); }}
-      color="light"
+      color="lighter"
     >
       {
         showHelp
@@ -46,7 +47,7 @@ const ControlsLeft = ({
         <Button
           onTap={download}
           onMouseMove={() => { onMouseLeave({ tooltip: 'download' }); }}
-          color="light"
+          color="lighter"
         >
           <span className="implanf-get_app" />
           {
@@ -63,7 +64,7 @@ const ControlsLeft = ({
         <Button
           onTap={toggleDataLayer}
           onMouseMove={() => { onMouseLeave({ tooltip: 'datalayer' }); }}
-          color="light"
+          color="lighter"
         >
           <span className={showDataLayer ? 'implanf-visibility' : 'implanf-visibility_off'} />
           {
@@ -76,7 +77,7 @@ const ControlsLeft = ({
     <Button
       onTap={toggleMapType}
       onMouseMove={() => { onMouseLeave({ tooltip: 'satellite' }); }}
-      color="light"
+      color="lighter"
       className={`${mapType === 'satellite' ? 'active' : ''}`}
     >
       <span className="implanf-satellite" />
@@ -88,7 +89,7 @@ const ControlsLeft = ({
     <Button
       onTap={reset}
       onMouseMove={() => { onMouseLeave({ tooltip: 'view' }); }}
-      color="light"
+      color="lighter"
     >
       <span className="implanf-public" />
       {

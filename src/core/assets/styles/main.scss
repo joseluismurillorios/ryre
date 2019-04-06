@@ -136,7 +136,7 @@ body {
 
   &.isStandalone {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     .app__statusbar {
       display: block;
     }
@@ -146,7 +146,7 @@ body {
     }
 
 
-    .full {
+    #Layout.full {
       width: 100vw;
       height: 100vh;
     }

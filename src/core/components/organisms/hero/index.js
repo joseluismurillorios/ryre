@@ -31,20 +31,29 @@ class Hero extends Component {
   constructor(props) {
     super(props);
     this.scrollTo = this.scrollTo.bind(this);
+    this.resizeChange = this.resizeChange.bind(this);
   }
 
   componentDidMount() {
     const { onLoad } = this.props;
-    $(this.container).height($(window).height() - $('#Header').height());
+    $(this.container).height(window.innerHeight - $('#Header').height());
     $('.nav-wrap').on('hidden.bs.collapse', () => {
       // console.log(data);
-      $(this.container).height($(window).height() - $('#Header').height());
+      $(this.container).height(window.innerHeight - $('#Header').height());
       onLoad(false);
     });
+
+    window.addEventListener('resize', this.resizeChange);
 
     setTimeout(() => {
       onLoad(false);
     }, 500);
+  }
+
+  resizeChange() {
+    setTimeout(() => {
+      $(this.container).height(window.innerHeight - $('#Header').height());
+    }, 200);
   }
 
   scrollTo() {

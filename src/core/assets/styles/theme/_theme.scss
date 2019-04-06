@@ -5560,6 +5560,14 @@ img {
 			border-color: transparent;
 		}
 	}
+	&.btn-lighter {
+		background-color: $white;
+		color: $color_bunker_approx;
+		&:hover {
+			background-color: $color_keppel_approx;
+			border-color: transparent;
+		}
+	}
 	&.btn-color {
 		background-color: $color_keppel_approx;
 	}
@@ -5902,7 +5910,7 @@ img {
 input[type="text"] {
 	height: 39px;
 	border: 1px solid $color_bon_jour_approx;
-	background-color: transparent;
+	// background-color: transparent;
 	width: 100%;
 	margin-bottom: 16px;
 	padding: 0 16px;
