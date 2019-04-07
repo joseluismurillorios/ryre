@@ -5,6 +5,7 @@ import banner from './images/ui/banner.png';
 import bg01 from './images/ui/bg-03.jpg';
 import device from './images/ui/promo_device.png';
 import navbarDark from './images/navbar-dark.png';
+import navbarSmall from './images/navbar-small.png';
 
 import IconShock from './images/categories/shock.png';
 import IconSink from './images/categories/sink.png';
@@ -132,6 +133,7 @@ export default {
   fullbg,
   banner,
   navbarDark,
+  navbarSmall,
   bg01,
   device,
 

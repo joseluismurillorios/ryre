@@ -53,7 +53,7 @@ class Contact extends Component {
 
   componentDidMount() {
     const { mapLoading } = this.props;
-    mapLoading(true);
+    mapLoading('bg-lighter');
     setTimeout(() => {
       mapLoading(false);
     }, 500);

@@ -151,6 +151,8 @@ class Layout extends Component {
     } = this.state;
     // console.log(common.user);
     const style = height ? { top, height: height - top } : { top };
+    const loaderClass = (typeof common.loading === 'string') ? common.loading : 'bg-light-80';
+    console.log(!!(common.loading));
     return (
       <div id="Layout" style={{ height }} className="app__layout full">
         <Header
@@ -178,12 +180,12 @@ class Layout extends Component {
 
 
         <CSSTransition
-          in={common.loading}
+          in={!!(common.loading)}
           timeout={1000}
           classNames="fade"
           unmountOnExit
         >
-          <Loader style={{ top }} className="preloader bg-light-80" />
+          <Loader style={{ top }} className={`preloader ${loaderClass}`} />
         </CSSTransition>
         {
           showInstallMessage && common.showInstallMessage && (

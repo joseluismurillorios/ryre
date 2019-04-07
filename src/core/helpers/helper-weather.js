@@ -527,7 +527,7 @@ export const getWeatherIcon = (code, night) => {
 // End Clock
 
 const formatHour = s => s.format('h:mm A');
-const formatDay = s => s.format('MMM DD');
+const formatDay = s => s.format('ddd DD');
 const formatDate = s => s.format('MMM DD h:mm A');
 
 export const getWeatherDateObj = (unix) => {
