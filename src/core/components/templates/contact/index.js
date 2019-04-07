@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import PageTitle from '../../atoms/page-title';
 import Appear from '../../atoms/appear';
@@ -9,6 +10,11 @@ import Container from '../../atoms/container';
 import Section from '../../atoms/section';
 import Scrollable from '../../atoms/scrollable';
 import GmapIframe from '../../atoms/gmap-iframe';
+
+import Textarea from '../../atoms/textarea';
+import Input from '../../atoms/input';
+import Button from '../../atoms/button';
+
 import Footer from '../../organisms/footer';
 import Row from '../../atoms/row';
 import ContactCard from '../../atoms/contact-card';
@@ -21,6 +27,7 @@ import {
 
 import { setLoader } from '../../../redux/actions/common';
 import { IMPLAN_DIRECTORY } from '../../../helpers/helper-constants';
+import $ from '../../../helpers/helper-jquery';
 import assets from '../../../assets';
 
 
@@ -30,9 +37,18 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     const { match } = this.props;
+
+    this.state = {
+      subject: '',
+      phone: '',
+      message: '',
+    };
+
     this.path = match.path.substring(1, match.path.length);
     this.paths = this.path.split('/');
     this.paths.pop();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -41,9 +57,77 @@ class Contact extends Component {
     setTimeout(() => {
       mapLoading(false);
     }, 500);
+    // this.form.addEventListener('change', this.handleChange);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.name]: e.value,
+    });
+  }
+
+  handleSubmit() {
+    const {
+      common,
+      mapLoading,
+    } = this.props;
+    const {
+      subject,
+      phone,
+      message,
+    } = this.state;
+    const { user } = common;
+    console.log(user);
+    if (user && user.uid) {
+      const { email, displayName, uid } = user;
+      mapLoading(true);
+      fetch('/api/message', {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        method: 'POST',
+        body: JSON.stringify({
+          subject,
+          phone,
+          message,
+          email,
+          displayName,
+          uid,
+        }),
+        credentials: 'include',
+      })
+        .then((response) => {
+          mapLoading(false);
+          return response.json();
+        })
+        .then((data) => {
+          if (data.auth !== 'error') {
+            toast.info('Mensaje enviado', { autoClose: 8000 });
+            this.setState({
+              message: '',
+              subject: '',
+              phone: '',
+            });
+          } else {
+            toast.error('Error al enviar', { autoClose: 8000 });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error('Error al enviar', { autoClose: 8000 });
+          mapLoading(false);
+        });
+    } else {
+      $('#Login').modal('show');
+    }
   }
 
   render() {
+    const {
+      subject,
+      phone,
+      message,
+    } = this.state;
+    const isPhone = (phone.match(/\d/g) || []).length === 10;
+    const hasErrors = (subject.length < 4 || !isPhone || message.length < 4);
     return (
       <div
         id="Contact"
@@ -63,59 +147,84 @@ class Contact extends Component {
           />
           <Section className="pt-50 pb-80 pt-mdm-30">
             <Container>
-              <Appear>
-                <div className="row">
-                  <div className="col-md-6 col-md-offset-3 text-center">
-                    <h2 className="text-center mb-30 bottom-line">
-                      Instituto Metropolitano de Planeación
-                    </h2>
+              <div className="row">
+                <div className="col-md-6 col-md-offset-3 text-center">
+                  <h2 className="text-center mb-30 bottom-line">
+                    Instituto Metropolitano de Planeación
+                  </h2>
+                </div>
+              </div>
+
+              <GmapIframe url={IMPLAN_IFRAME} visible />
+
+              <div className="row mt-40">
+                <div className="col-md-4 mb-40">
+                  <h5 className="uppercase">Información</h5>
+                  <div className="contact-item">
+                    <div className="contact-icon">
+                      <i className="esricon-home" />
+                    </div>
+                    <p>
+                      Blvd. Cuauhtemoc No. 2340 Col. Revolución CP.22400 Tijuana, B.C.
+                    </p>
+                  </div>
+                  <div className="contact-item">
+                    <div className="contact-icon">
+                      <i className="esricon-mobile" />
+                    </div>
+                    <span>(664) 686 6241 al 45</span>
+                  </div>
+                  <div className="contact-item">
+                    <div className="contact-icon">
+                      <i className="esricon-contact" />
+                    </div>
+                    <a href="mailto:info@implantijuana.com" className="dark-link">info@implantijuana.com</a>
                   </div>
                 </div>
-
-                <GmapIframe url={IMPLAN_IFRAME} visible />
-
-                <div className="row mt-40">
-                  <div className="col-md-4 mb-40">
-                    <h5 className="uppercase">Información</h5>
-                    <div className="contact-item">
-                      <div className="contact-icon">
-                        <i className="esricon-home" />
+                <div className="col-md-8">
+                  <h5 className="uppercase">Comunícate</h5>
+                  <div ref={(el) => { this.form = el; }}>
+                    <div className="row row-16">
+                      <div className="col-md-6 contact-name">
+                        <Input
+                          id="subject"
+                          placeholder="Asunto*"
+                          onChange={this.handleChange}
+                          value={subject}
+                          type="text"
+                        />
                       </div>
-                      <p>
-                        Blvd. Cuauhtemoc No. 2340 Col. Revolución CP.22400 Tijuana, B.C.
-                      </p>
+                      <div className="col-md-6 contact-name">
+                        <Input
+                          id="phone"
+                          placeholder="Telefono*"
+                          onChange={this.handleChange}
+                          value={phone}
+                          type="tel"
+                        />
+                      </div>
                     </div>
-                    <div className="contact-item">
-                      <div className="contact-icon">
-                        <i className="esricon-mobile" />
-                      </div>
-                      <span>(664) 686 6241 al 45</span>
-                    </div>
-                    <div className="contact-item">
-                      <div className="contact-icon">
-                        <i className="esricon-contact" />
-                      </div>
-                      <a href="mailto:info@implantijuana.com" className="dark-link">info@implantijuana.com</a>
-                    </div>
-                  </div>
-                  <div className="col-md-8">
-                    <h5 className="uppercase">Comunícate</h5>
-                    <form id="contact-form" action="#">
-                      <div className="row row-16">
-                        <div className="col-md-6 contact-name">
-                          <input name="FormSubject" id="FormSubject" type="text" placeholder="Asunto*" />
-                        </div>
-                        <div className="col-md-6 contact-name">
-                          <input name="FormPhone" id="FormPhone" type="tel" placeholder="Telefono*" />
-                        </div>
-                      </div>
-                      <textarea name="FormMessage" id="FormMessage" placeholder="Mensaje*" rows={9} defaultValue="" />
-                      <input type="submit" className="btn btn-lg btn-color btn-submit" value="Enviar Mensaje" id="submit-message" />
-                      <div id="msg" className="message" />
-                    </form>
+                    <Textarea
+                      id="message"
+                      placeholder="Mensaje*"
+                      rows="6"
+                      onChange={this.handleChange}
+                      value={message}
+                    />
+                    <Button
+                      onTap={this.handleSubmit}
+                      color="primary"
+                      className="mt-10"
+                      size="md"
+                      disabled={hasErrors}
+                    >
+                      Enviar Mensaje
+                      <span className="implanf-navigation-2 ml-10" />
+                    </Button>
+                    <div id="msg" className="message" />
                   </div>
                 </div>
-              </Appear>
+              </div>
             </Container>
           </Section>
 
@@ -206,6 +315,7 @@ class Contact extends Component {
 Contact.defaultProps = {
   mapLoading: () => { },
   match: false,
+  common: {},
 };
 
 Contact.propTypes = {
@@ -214,9 +324,11 @@ Contact.propTypes = {
     PropTypes.bool,
     PropTypes.object,
   ]),
+  common: PropTypes.objectOf(PropTypes.any),
 };
 
-const mapStateToProps = () => ({
+const mapStateToProps = state => ({
+  common: state.common,
 });
 
 const mapDispatchToProps = {

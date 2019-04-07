@@ -21,28 +21,44 @@ const DEVELOMPENT = (process.env.NODE_ENV === 'development');
 let connected = true;
 let toastId = null;
 
-socketIO.on('connect', () => {
-  if (!connected) {
-    toast.update(toastId, {
-      render: 'Servidor online',
-      type: toast.TYPE.SUCCESS,
+const onConnection = (connection) => {
+  const type = connection ? toast.TYPE.SUCCESS : toast.TYPE.ERROR;
+  const render = connection ? 'Conectado' : 'Desconectado';
+  const isActive = toast.isActive(toastId);
+  if (!toastId || !isActive) {
+    toastId = toast(render, {
+      render,
+      type,
       autoClose: false,
     });
-    // toast.info('Servidor online', { autoClose: 20000 });
+  } else {
+    toast.update(toastId, {
+      render,
+      type,
+      autoClose: false,
+    });
+  }
+};
+
+socketIO.on('connect', () => {
+  if (!connected) {
+    onConnection(true);
     connected = true;
   }
+  // onConnection(true);
 });
 
 socketIO.io.on('connect_error', () => {
   if (connected) {
-    toastId = toast.error('Servidor offline', { autoClose: false });
-    // toast.error('Servidor offline', { autoClose: 20000 });
+    onConnection(false);
     connected = false;
   }
+  // onConnection(false);
 });
 
 const setAppCookie = dispatch => auth.currentUser && (
   auth.currentUser.getIdToken().then((token) => {
+    // console.log('setAppCookie');
     Cookies.set('token', token, {
       domain: window.location.hostname,
       expire: 1 / 24, // One hour
@@ -84,8 +100,18 @@ export const onAuthChange = () => (
   dispatch => auth.onAuthStateChanged((user) => {
     // console.log(user);
     if (user) {
-      const { displayName, email, photoURL } = user;
-      dispatch(userLogged({ displayName, email, photoURL }));
+      const {
+        displayName,
+        email,
+        photoURL,
+        uid,
+      } = user;
+      dispatch(userLogged({
+        displayName,
+        email,
+        photoURL,
+        uid,
+      }));
 
       // user is logged in
       setAppCookie(dispatch);

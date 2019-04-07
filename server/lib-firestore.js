@@ -84,6 +84,7 @@ const reports = geo.collection('opinions', ref => ref.where('category', '==', 3)
 
 const opinions = db.collection('opinions');
 const users = db.collection('users');
+const messages = db.collection('messages');
 
 const storeOpinion = (uid, info, res) => {
   const {
@@ -186,6 +187,44 @@ const updateUser = ({
     });
 };
 
+const saveMessage = ({
+  subject,
+  phone,
+  message,
+  email,
+  displayName,
+  uid,
+}, res) => {
+  const timestamp = admin.firestore.FieldValue.serverTimestamp();
+  messages.add({
+    subject,
+    phone,
+    message,
+    email,
+    displayName,
+    user: uid,
+    timestamp,
+  })
+    .then((docRef) => {
+      users.doc(uid).set({
+        messages: {
+          [docRef.id]: true,
+        },
+      }, { merge: true })
+        .then(() => {
+          res.send({ auth: 'success' });
+        })
+        .catch((error) => {
+          console.error('Error al guardar en usuario', error);
+          res.send({ auth: 'error' });
+        });
+    })
+    .catch((error) => {
+      console.error('Error al guardar', error);
+      res.send({ auth: 'error' });
+    });
+};
+
 module.exports = {
   admin,
   firebase,
@@ -195,4 +234,5 @@ module.exports = {
   storeOpinion,
   deleteOpinion,
   updateUser,
+  saveMessage,
 };

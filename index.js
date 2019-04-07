@@ -19,6 +19,7 @@ const {
   storeOpinion,
   deleteOpinion,
   updateUser,
+  saveMessage,
 } = require('./server/lib-firestore');
 
 // const serviceAccount = require('./serviceAccount.json');
@@ -170,6 +171,38 @@ app.post('/api/report-delete', (req, res) => {
       })
       .catch((error) => {
         console.error('Error al guardar', error);
+        res.send({ auth: 'error' });
+      });
+  }
+});
+
+app.post('/api/message', (req, res) => {
+  const { token } = req.cookies;
+  const {
+    subject,
+    phone,
+    message,
+    email,
+    displayName,
+    uid,
+  } = req.body;
+  // res.setHeader('Access-Control-Allow-Origin', '*');
+  if (!token && !!(uid)) {
+    res.send({ auth: 'error' });
+  } else {
+    admin.auth().verifyIdToken(token)
+      .then(() => {
+        saveMessage({
+          subject,
+          phone,
+          message,
+          email,
+          displayName,
+          uid,
+        }, res);
+      })
+      .catch((error) => {
+        console.error('Error al guardar mensaje :(', error);
         res.send({ auth: 'error' });
       });
   }
