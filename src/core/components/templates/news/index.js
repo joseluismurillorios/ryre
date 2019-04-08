@@ -82,7 +82,7 @@ class News extends Component {
 
                 {
                   earthPhases && (
-                    <div className="col-sm-6 mb-20">
+                    <div className="col-md-6 mb-20">
                       <Phase
                         type="earth"
                         title="Fase Solar"
@@ -101,7 +101,7 @@ class News extends Component {
 
                 {
                   moonPhase && (
-                    <div className="col-sm-6 mb-20">
+                    <div className="col-md-6 mb-20">
                       <Phase
                         type="moon"
                         title="Fase Lunar"
@@ -150,7 +150,7 @@ class News extends Component {
                 <div className="row flex-wrap">
                   {
                     Object.keys(NEWS_LINKS).map(key => (
-                      <div key={key} className="col-md-6">
+                      <div key={key} className="col-md-4">
                         <blockquote className="bg-light blockquote-style-2 mb-30">
                           <div className="">
                             {key}

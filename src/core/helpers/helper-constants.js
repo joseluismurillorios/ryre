@@ -416,7 +416,7 @@ export const EXTERNAL_LINKS = {
       link: 'https://www.sgm.gob.mx/GeoInfoMexGobMx/',
     },
   ],
-  'Miología': [
+  'Meteorología': [
     {
       subject: 'Meteorología',
       institution: 'The Weather Company',
@@ -763,8 +763,6 @@ export const NEWS_LINKS = {
   'GOBIERNO': {
     'tijuana.gob.mx': 'http://www.tijuana.gob.mx/noticialistado.aspx',
     'bajacalifornia.gob.mx': 'http://www.bajacalifornia.gob.mx/portal/comunicados_prensa.jsp',
-  },
-  'COMUNITI': {
     'gob.mx': 'https://www.gob.mx/presidencia#5172',
     'nehrp.gov': 'https://www.nehrp.gov/',
   },
@@ -773,7 +771,7 @@ export const NEWS_LINKS = {
     'smn.cna.gob.mx': 'https://smn.cna.gob.mx/es/',
   },
   'ARTÍCULOS': {
-    'redalyc.org': 'https://www.redalyc.org/home.oa',
+    // 'redalyc.org': 'https://www.redalyc.org/home.oa',
     'scielo.org': 'https://www.scielo.org/',
     'doaj.org': 'https://doaj.org/',
     'biblat.unam.mx': 'https://biblat.unam.mx/es/',
