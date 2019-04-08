@@ -289,6 +289,12 @@ button::-moz-focus-inner {
   padding-bottom: 6px;
 }
 
+.mfp-container.mfp-iframe-holder {
+  padding-top: 40px;
+  // padding-bottom: 40px;
+  padding-bottom: 6px;
+}
+
 .mfp-iframe-holder .mfp-content {
   line-height: 0;
   width: 100%;

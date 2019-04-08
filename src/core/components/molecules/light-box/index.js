@@ -22,6 +22,7 @@ class IconBox extends Component {
             <div className="work-overlay">
               <div className="project-icons">
                 <Linked
+                  newTab
                   url={`https://www.youtube.com/watch?v=${video}?autoplay=1`}
                   className="lightbox-video mfp-iframe"
                 >
