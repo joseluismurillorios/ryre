@@ -293,7 +293,7 @@ class Contact extends Component {
                   color="light"
                 />
                 <ContactCard
-                  img={assets.colearq}
+                  img={assets.cict}
                   gmap={CICT_IFRAME}
                   className="col-lg-4 col-md-12 pl-0 pr-0"
                   name="Colegio de Ingenieros Civiles de Tijuana, A.C."

@@ -24,9 +24,9 @@ const Footer = ({ id }) => (
             <div className="widget footer-links small-space">
               <h5 className="uppercase">Links</h5>
               <ul>
-                <li><a href="#">IMPLAN</a></li>
-                <li><a href="#">SITT</a></li>
-                <li><a href="#">IMPAC</a></li>
+                <li><a href="http://implan.tijuana.gob.mx/">IMPLAN</a></li>
+                <li><a href="http://www.sitt.tijuana.gob.mx/">SITT</a></li>
+                <li><a href="http://www.impac.tijuana.gob.mx/">IMPAC</a></li>
               </ul>
             </div>
           </div>
@@ -36,23 +36,17 @@ const Footer = ({ id }) => (
     <div className="bottom-footer">
       <div className="container">
         <div className="row">
-          <div className="col-md-4 col-xs-12 copyright">
+          <div className="col-md-6 col-xs-12 copyright">
             <span>
               2019 IMPLAN
             </span>
           </div>
-          <div className="col-md-5 col-xs-12">
+          <div className="col-md-6 col-xs-12 footer-socials mt-mdm-10 text-right">
             <ul className="bottom-footer-links style-2">
               <li><a href="#">Privacidad</a></li>
               <li><a href="#">Términos y Condiciones</a></li>
-              <li><a href="#">Contácto</a></li>
+              <li><a href="#/contacto">Contácto</a></li>
             </ul>
-          </div>
-          <div className="col-md-3 col-xs-12 footer-socials mt-mdm-10 text-right">
-            <div className="social-icons dark">
-              <a href="#"><i className="implanf-google" /></a>
-              <a href="#"><i className="implanf-facebook" /></a>
-            </div>
           </div>
         </div>
       </div>
