@@ -149,10 +149,8 @@ class Layout extends Component {
       isStandalone,
       height,
     } = this.state;
-    // console.log(common.user);
     const style = height ? { top, height: height - top } : { top };
     const loaderClass = (typeof common.loading === 'string') ? common.loading : 'bg-light-80';
-    console.log(!!(common.loading));
     return (
       <div id="Layout" style={{ height }} className="app__layout full">
         <Header

@@ -22,9 +22,10 @@ export const CICT_IFRAME = 'https://www.google.com/maps/embed/v1/place?q=place_i
 
 export const GOOGLE_API_KEY = 'AIzaSyBDwhjDbm_tWAGz_gO3bAwkMa7Lad2B8Ws';
 
-// export const DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.10/src/core/assets/files/mapastijuanarosarito/tijuana-colonias.kmz';
-export const COLONIAS_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.10/src/core/assets/files/mapastijuanarosarito/tijuana-colonias.kmz';
-export const DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.10/src/core/assets/files/delegaciones_50.kmz';
+export const TIJUANA_COLONIAS_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.11/src/core/assets/files/mapastijuanarosarito/tijuana-colonias.kmz';
+// export const TIJUANA_DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.11/src/core/assets/files/mapastijuanarosarito/tijuana-delegaciones.kmz';
+export const TIJUANA_DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.11/src/core/assets/files/delegaciones_50.kmz';
+export const TIJUANA_DELEGACIONES_KML = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.11/src/core/assets/files/delegaciones_2017.kml';
 
 export const ARCGIS_REVERSE_GEOCODE = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer';
 

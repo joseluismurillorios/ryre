@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import tokml from 'tokml';
+// import tokml from 'tokml';
 
 import { loadScript, circleMarker, styles } from '../../../helpers/helper-gmap';
 
@@ -12,7 +12,11 @@ import {
   TIJUANA,
 } from '../../../helpers/helper-constants';
 
-import { GOOGLE_API_KEY, TIJUANA_DELEGACIONES_KMZ } from '../../../../config';
+import {
+  GOOGLE_API_KEY,
+  TIJUANA_DELEGACIONES_KMZ,
+  TIJUANA_DELEGACIONES_KML,
+} from '../../../../config';
 
 import {
   isIOS,
@@ -51,14 +55,10 @@ class GMap extends Component {
     this.goTo = this.goTo.bind(this);
     this.reverseGeocode = this.reverseGeocode.bind(this);
     this.reset = this.reset.bind(this);
-    this.createOpinion = this.createOpinion.bind(this);
     this.toggleShowHelp = this.toggleShowHelp.bind(this);
     this.hideShowHelp = this.hideShowHelp.bind(this);
     this.toggleMapType = this.toggleMapType.bind(this);
-    this.renderFeatures = this.renderFeatures.bind(this);
-    this.toggleDataLayer = this.toggleDataLayer.bind(this);
     this.download = this.download.bind(this);
-    this.deleteReport = this.deleteReport.bind(this);
     this.hideAttrs = this.hideAttrs.bind(this);
 
     this.featureSelected = false;
@@ -80,22 +80,6 @@ class GMap extends Component {
     // this.menu.addEventListener('click', this.hideShowHelp);
   }
 
-  componentDidUpdate(prevProps) {
-    const { geo } = this.props;
-    this.hasFeatures = !!(geo.features && geo.features.length > 0);
-    if (this.hasFeatures && !!(this.gmap)) {
-      this.geo = geo;
-      const hasPrevFeatures = !!(prevProps.geo.features);
-      if (hasPrevFeatures) {
-        if (geo.features.length !== prevProps.geo.features.length) {
-          console.log('new data');
-          this.renderFeatures(geo);
-        }
-      } else {
-        this.renderFeatures(geo);
-      }
-    }
-  }
 
   componentWillUnmount() {
     this.help.removeEventListener('click', this.hideShowHelp);
@@ -127,7 +111,7 @@ class GMap extends Component {
     this.kmzLayer = new window.google.maps.KmlLayer({
       url: TIJUANA_DELEGACIONES_KMZ,
       map: this.gmap,
-      suppressInfoWindows: true,
+      // suppressInfoWindows: true,
     });
 
     this.gmap.data.setStyle({
@@ -135,8 +119,13 @@ class GMap extends Component {
       strokeWeight: 20,
     });
 
-    this.kmzLayer.addListener('click', this.handleMapClick);
-    this.gmap.data.addListener('click', this.handleFeatClick);
+    // this.kmzLayer.addListener('click', this.handleMapClick);
+    // this.gmap.data.addListener('click', this.handleFeatClick);
+
+    this.kmzLayer.addListener('click', (e) => {
+      console.log(e);
+      e.featureData.infoWindowHtml = e.featureData.infoWindowHtml.replace(/target="_blank"/g, '');
+    });
 
     this.marker = new window.google.maps.Marker({
       map: this.gmap,
@@ -184,7 +173,6 @@ class GMap extends Component {
     this.autocomplete.bindTo('bounds', this.gmap);
 
     this.autocomplete.addListener('place_changed', () => {
-      const { onUpdate, setCoords } = this.props;
       const place = this.autocomplete.getPlace();
 
       const { lat, lng } = place.geometry.location;
@@ -198,9 +186,6 @@ class GMap extends Component {
       this.marker.setPosition(place.geometry.location);
       this.setState({ showProps: false });
       this.goTo({ value: { longitude, latitude } }, zoom);
-
-      setCoords({ latitude, longitude });
-      onUpdate(place.formatted_address);
     });
 
     window.google.maps.event.addListenerOnce(this.gmap, 'idle', () => {
@@ -209,10 +194,6 @@ class GMap extends Component {
       const center = this.gmap.getCenter();
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
-      if (this.geo) {
-        this.renderFeatures(this.geo);
-      }
-      // this.search();
     });
     window.google.maps.event.addListenerOnce(this.gmap, 'zoom_changed', () => {
       // do something only the first time the map is loaded
@@ -220,11 +201,9 @@ class GMap extends Component {
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
     });
-    this.setState({ tooltip: 'myloc' });
   }
 
   handleMapClick(evnt) {
-    const { setCoords } = this.props;
     this.featureSelected = false;
     const { lat, lng } = evnt.latLng;
 
@@ -239,16 +218,12 @@ class GMap extends Component {
     this.setState({ showProps: false });
     this.goTo({ value: { longitude, latitude } }, zoom);
 
-    setCoords({ latitude, longitude });
-
     const latlng = { lat: latitude, lng: longitude };
     this.reverseGeocode(latlng);
   }
 
   handleFeatClick(evnt) {
     this.featureSelected = true;
-    // this.kmzLayer.setMap(null);
-    this.container.classList.add('transparent');
 
     const feat = evnt.feature;
 
@@ -261,12 +236,6 @@ class GMap extends Component {
 
     this.markerHighlight.setVisible(true);
     this.markerHighlight.setPosition(evnt.latLng);
-  }
-
-  createOpinion() {
-    this.setState({ showProps: false });
-    const { toggle } = this.props;
-    toggle();
   }
 
   toggleMapType() {
@@ -365,19 +334,11 @@ class GMap extends Component {
   }
 
   download() {
-    const { geo } = this.props;
     const stamp = (new Date()).getTime();
-    const kml = tokml(geo, {
-      name: 'name',
-      description: 'description',
-      documentName: 'Caminapp',
-      documentDescription: `Proyectos Caminapp ${stamp}`,
-      simplestyle: true,
-    });
     const filename = `caminapp-${stamp}.kml`;
-    const bb = new Blob([kml], { type: 'text/xml' });
+    // const bb = new Blob([kml], { type: 'text/xml' });
 
-    this.pom.setAttribute('href', window.URL.createObjectURL(bb));
+    this.pom.setAttribute('href', TIJUANA_DELEGACIONES_KML);
     this.pom.setAttribute('download', filename);
 
     this.pom.dataset.downloadurl = ['text/xml', this.pom.download, this.pom.href].join(':');
@@ -387,31 +348,6 @@ class GMap extends Component {
     this.pom.click();
   }
 
-  toggleDataLayer() {
-    const { showDataLayer } = this.state;
-    this.gmap.data.setStyle((feature) => {
-      const category = feature.getProperty('category');
-      return {
-        icon: {
-          ...circleMarker,
-          anchor: new window.google.maps.Point(0, 0),
-          fillColor: COLORS[category],
-        },
-        visible: !showDataLayer,
-      };
-    });
-    this.hideAttrs();
-  }
-
-  deleteReport(uid, id) {
-    const { opinionDelete } = this.props;
-    opinionDelete(uid, id).then((el) => {
-      if (el) {
-        this.markerHighlight.setVisible(false);
-        this.setState({ showProps: false });
-      }
-    });
-  }
 
   reset() {
     const { zoom, center } = this.state;
@@ -420,18 +356,6 @@ class GMap extends Component {
     // this.kmzLayer.setMap(this.gmap);
     this.container.classList.remove('transparent');
     this.setState({ showProps: false });
-  }
-
-  renderFeatures(geo) {
-    this.hasFeatures = !!(geo.features && geo.features.length > 0);
-    // console.log('renderFeatures', geo, this.hasFeatures);
-    this.gmap.data.forEach((feature) => {
-      this.gmap.data.remove(feature);
-    });
-    if (this.hasFeatures) {
-      this.gmap.data.addGeoJson(geo);
-      this.setState({ hasFeatures: this.hasFeatures });
-    }
   }
 
   renderMap() {
@@ -520,9 +444,7 @@ class GMap extends Component {
         <ControlsRight
           tooltip={tooltip}
           showTooltip={showTooltip}
-          hasAddress={hasAddress}
           hasGeolocation={hasGeolocation}
-          createOpinion={this.createOpinion}
           getLocation={this.getLocation}
           zoomOut={this.zoomOut}
           zoomIn={this.zoomIn}
@@ -548,10 +470,8 @@ class GMap extends Component {
 
 GMap.defaultProps = {
   onLoad: () => { console.log('webmap loading successfully'); },
-  toggle: () => {},
   setCoords: () => {},
   onUpdate: () => {},
-  opinionDelete: () => {},
   address: {},
   geo: {},
   user: {},
@@ -560,10 +480,8 @@ GMap.defaultProps = {
 
 GMap.propTypes = {
   onLoad: PropTypes.func,
-  toggle: PropTypes.func,
   setCoords: PropTypes.func,
   onUpdate: PropTypes.func,
-  opinionDelete: PropTypes.func,
   address: PropTypes.objectOf(PropTypes.any),
   geo: PropTypes.objectOf(PropTypes.any),
   user: PropTypes.objectOf(

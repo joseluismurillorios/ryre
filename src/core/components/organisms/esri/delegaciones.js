@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { DELEGACIONES_KMZ } from '../../../../config';
+import { TIJUANA_DELEGACIONES_KMZ } from '../../../../config';
 import {
   createLocator,
   createMap,
@@ -30,7 +30,7 @@ class Delegaciones extends Component {
     const { modules } = this.props;
 
     this.kmzLayer = new modules.KMLLayer({
-      url: DELEGACIONES_KMZ,
+      url: TIJUANA_DELEGACIONES_KMZ,
     });
 
     // Makes the layer 60% transparent
