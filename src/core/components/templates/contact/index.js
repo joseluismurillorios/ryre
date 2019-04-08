@@ -127,7 +127,9 @@ class Contact extends Component {
       message,
     } = this.state;
     const isPhone = (phone.match(/\d/g) || []).length === 10;
-    const hasErrors = (subject.length < 4 || !isPhone || message.length < 4);
+    const subjectError = subject.length < 4 || subject.length > 30;
+    const messageError = message.length < 4 || message.length > 1000;
+    const hasErrors = (subjectError || !isPhone || messageError);
     return (
       <div
         id="Contact"
