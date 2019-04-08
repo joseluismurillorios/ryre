@@ -13,7 +13,7 @@ const Linked = ({
 }) => (
   <a
     href={url}
-    target={newTab && '_blank'}
+    target={newTab ? '_blank' : '_self'}
     className={className}
     rel={newTab ? 'noopener noreferrer' : ''}
     onClick={(e) => {
