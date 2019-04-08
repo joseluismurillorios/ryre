@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-import IconArch from '../../molecules/icons/architecture';
-import IconBrainstorm from '../../molecules/icons/brainstorm';
-import IconDesign from '../../molecules/icons/design-tool';
+// import IconArch from '../../molecules/icons/architecture';
+// import IconBrainstorm from '../../molecules/icons/brainstorm';
+// import IconDesign from '../../molecules/icons/design-tool';
+
+import assets from '../../../assets';
 
 import dict from '../../../dict';
 
@@ -43,21 +45,24 @@ class IconBox extends Component {
         </div>
         <div ref={(el) => { this.box2 = el; }} className="col-md-3 service-item-wrap equal-height">
           <div className="service-item-box text-center">
-            <IconBrainstorm />
+            {/* <IconBrainstorm /> */}
+            <img src={assets.IconBrainstorm} alt="Identificar" />
             <h3>Identificar</h3>
             <p className="mb-0 hidden-text">{dict.es['objectives.one']}</p>
           </div>
         </div>
         <div ref={(el) => { this.box3 = el; }} className="col-md-3 service-item-wrap equal-height">
           <div className="service-item-box text-center">
-            <IconDesign />
+            {/* <IconDesign /> */}
+            <img src={assets.IconDesign} alt="Identificar" />
             <h3>Determinar</h3>
             <p className="mb-0 hidden-text">{dict.es['objectives.two']}</p>
           </div>
         </div>
         <div ref={(el) => { this.box4 = el; }} className="col-md-3 service-item-wrap equal-height">
           <div className="service-item-box text-center">
-            <IconArch />
+            {/* <IconArch /> */}
+            <img src={assets.IconArch} alt="Identificar" />
             <h3>Planear</h3>
             <p className="mb-0 hidden-text">{dict.es['objectives.three']}</p>
           </div>

@@ -16,6 +16,7 @@ import {
   GOOGLE_API_KEY,
   TIJUANA_DELEGACIONES_KMZ,
   TIJUANA_DELEGACIONES_KML,
+  TIJUANA_COLONIAS_KMZ,
 } from '../../../../config';
 
 import {
@@ -24,7 +25,7 @@ import {
 } from '../../../helpers/helper-util';
 
 // import Button from '../../atoms/button';
-import Attrs from '../../molecules/attrs';
+// import Attrs from '../../molecules/attrs';
 
 import ControlsLeft from '../controls/left';
 import ControlsRight from '../controls/right';
@@ -33,18 +34,18 @@ class GMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      properties: {},
-      showProps: false,
+      // properties: {},
+      // showProps: false,
       showHelp: false,
       zoom: isMobile ? 11 : 12,
       mapType: 'roadmap',
       tooltip: '',
       showDataLayer: true,
       hasFeatures: false,
+      // description: '<span>nothing</span>',
     };
     this.getLocation = this.getLocation.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
-    this.handleFeatClick = this.handleFeatClick.bind(this);
     this.showLocation = this.showLocation.bind(this);
     this.showError = this.showError.bind(this);
     this.renderMap = this.renderMap.bind(this);
@@ -59,7 +60,7 @@ class GMap extends Component {
     this.hideShowHelp = this.hideShowHelp.bind(this);
     this.toggleMapType = this.toggleMapType.bind(this);
     this.download = this.download.bind(this);
-    this.hideAttrs = this.hideAttrs.bind(this);
+    // this.hideAttrs = this.hideAttrs.bind(this);
 
     this.featureSelected = false;
     this.searching = false;
@@ -77,13 +78,11 @@ class GMap extends Component {
     }
 
     this.help.addEventListener('click', this.hideShowHelp);
-    // this.menu.addEventListener('click', this.hideShowHelp);
   }
 
 
   componentWillUnmount() {
     this.help.removeEventListener('click', this.hideShowHelp);
-    // this.menu.removeEventListener('click', this.hideShowHelp);
   }
 
   getLocation() {
@@ -93,7 +92,6 @@ class GMap extends Component {
 
   initGMap() {
     const { user } = this.props;
-    // this.hasFeatures = !!(geo.features && geo.features.length > 0);
     this.gmap = new window.google.maps.Map(document.getElementById('map'), {
       gestureHandling: 'greedy',
       zoomControl: false,
@@ -108,6 +106,12 @@ class GMap extends Component {
     });
     this.geocoder = new window.google.maps.Geocoder();
 
+    this.kmzColoniasLayer = new window.google.maps.KmlLayer({
+      url: TIJUANA_COLONIAS_KMZ,
+      map: this.gmap,
+      suppressInfoWindows: true,
+    });
+
     this.kmzLayer = new window.google.maps.KmlLayer({
       url: TIJUANA_DELEGACIONES_KMZ,
       map: this.gmap,
@@ -119,40 +123,19 @@ class GMap extends Component {
       strokeWeight: 20,
     });
 
-    // this.kmzLayer.addListener('click', this.handleMapClick);
+    this.kmzLayer.addListener('click', this.handleMapClick);
     // this.gmap.data.addListener('click', this.handleFeatClick);
 
-    this.kmzLayer.addListener('click', (e) => {
-      console.log(e);
-      e.featureData.infoWindowHtml = e.featureData.infoWindowHtml.replace(/target="_blank"/g, '');
-    });
-
-    this.marker = new window.google.maps.Marker({
-      map: this.gmap,
-      position: { lat: 32.476784, lng: -116.952631 },
-      icon: {
-        ...circleMarker,
-        scale: 0.55,
-        fillOpacity: 0.8,
-      },
-    });
-    this.marker.setVisible(false);
-
-    this.markerHighlight = new window.google.maps.Marker({
-      map: this.gmap,
-      position: { lat: 32.476784, lng: -116.952631 },
-      icon: {
-        ...circleMarker,
-        fillColor: '#00FFFF',
-        scale: 0.55,
-        fillOpacity: 0.6,
-      },
-    });
-    this.markerHighlight.setVisible(false);
-
-    this.markerHighlight.addListener('click', () => {
-      this.setState({ showProps: true });
-    });
+    // this.marker = new window.google.maps.Marker({
+    //   map: this.gmap,
+    //   position: { lat: 32.476784, lng: -116.952631 },
+    //   icon: {
+    //     ...circleMarker,
+    //     scale: 0.55,
+    //     fillOpacity: 0.8,
+    //   },
+    // });
+    // this.marker.setVisible(false);
 
     this.loading(false);
     this.gmap.data.setStyle((feature) => {
@@ -182,9 +165,9 @@ class GMap extends Component {
       const zm = this.gmap.getZoom();
       const zoom = zm < 15 ? 15 : zm;
 
-      this.marker.setVisible(true);
-      this.marker.setPosition(place.geometry.location);
-      this.setState({ showProps: false });
+      // this.marker.setVisible(true);
+      // this.marker.setPosition(place.geometry.location);
+      // this.setState({ showProps: false });
       this.goTo({ value: { longitude, latitude } }, zoom);
     });
 
@@ -203,40 +186,16 @@ class GMap extends Component {
     });
   }
 
-  handleMapClick(evnt) {
-    this.featureSelected = false;
-    const { lat, lng } = evnt.latLng;
+  handleMapClick(e) {
+    const { infoWindowHtml } = e.featureData;
+    const noTitle = infoWindowHtml.replace(/text-align:center;font-weight:bold;background:#9CBCE2/g, 'display:none');
+    this.info = noTitle.replace(/9CBCE2/g, '000000');
+    e.featureData.infoWindowHtml = this.info.replace(/D4E4F3/g, 'f5f5f5');
 
-    const latitude = lat();
-    const longitude = lng();
-    const zm = this.gmap.getZoom();
-    const inRange = (zm + 2) > 16 ? 1 : 2;
-    const zoom = zm < 16 ? zm + inRange : zm;
-
-    this.marker.setVisible(true);
-    this.marker.setPosition(evnt.latLng);
-    this.setState({ showProps: false });
-    this.goTo({ value: { longitude, latitude } }, zoom);
-
-    const latlng = { lat: latitude, lng: longitude };
-    this.reverseGeocode(latlng);
+    // this.setState({ description: infoWindowHtml });
+    // this.reverseGeocode(latlng);
   }
 
-  handleFeatClick(evnt) {
-    this.featureSelected = true;
-
-    const feat = evnt.feature;
-
-    const properties = {};
-    feat.forEachProperty((p, st) => {
-      properties[st] = p;
-    });
-    // console.log('properties', properties);
-    this.setState({ properties, showProps: true });
-
-    this.markerHighlight.setVisible(true);
-    this.markerHighlight.setPosition(evnt.latLng);
-  }
 
   toggleMapType() {
     const { mapType } = this.state;
@@ -254,23 +213,17 @@ class GMap extends Component {
     this.setState({ showHelp: false });
   }
 
-  hideAttrs() {
-    const { showDataLayer } = this.state;
-    this.markerHighlight.setVisible(false);
-    this.setState({ showDataLayer: !showDataLayer, showProps: false });
-  }
-
   showLocation(position) {
     const { setCoords } = this.props;
     const { longitude, latitude } = position.coords;
-    this.marker.setVisible(true);
-    this.marker.setPosition({ lat: latitude, lng: longitude });
+    // this.marker.setVisible(true);
+    // this.marker.setPosition({ lat: latitude, lng: longitude });
     this.goTo({ value: { longitude, latitude } }, 17);
 
     setCoords({ latitude, longitude });
 
-    const latlng = { lat: latitude, lng: longitude };
-    this.reverseGeocode(latlng);
+    // const latlng = { lat: latitude, lng: longitude };
+    // this.reverseGeocode(latlng);
   }
 
   showError(err) {
@@ -317,7 +270,7 @@ class GMap extends Component {
       return;
     }
     // this.kmzLayer.setMap(null);
-    this.container.classList.add('transparent');
+    // this.container.classList.add('transparent');
     const { latitude, longitude, id = '' } = value;
 
 
@@ -329,7 +282,7 @@ class GMap extends Component {
       this.searching = true;
     }
 
-    this.setState({ showProps: false });
+    // this.setState({ showProps: false });
     this.loading(false);
   }
 
@@ -355,7 +308,7 @@ class GMap extends Component {
     this.gmap.setZoom(zoom);
     // this.kmzLayer.setMap(this.gmap);
     this.container.classList.remove('transparent');
-    this.setState({ showProps: false });
+    // this.setState({ showProps: false });
   }
 
   renderMap() {
@@ -366,21 +319,20 @@ class GMap extends Component {
   render() {
     const {
       mapType,
-      properties,
-      showProps,
+      // properties,
+      // showProps,
       showHelp,
       tooltip,
       hasFeatures,
       showDataLayer,
+      // description,
     } = this.state;
     const {
       geo,
-      address,
-      user,
-      isAdmin,
+      // user,
+      // isAdmin,
     } = this.props;
     const hasGeo = (geo && !this.isIOS && !(window.cordova));
-    const hasAddress = (address.latitude !== 0);
     const hasGeolocation = !!(navigator.geolocation);
     const showTooltip = !this.isMobile && !showHelp;
     const datalayerVisible = showDataLayer ? 'Ocultar' : 'Ver';
@@ -410,10 +362,6 @@ class GMap extends Component {
             <span>{isMobile ? 'Inicio' : 'Ver mapa completo'}</span>
           </div>
           <div className="fixed-right-bottom">
-            {
-              hasAddress
-              && <span>{isMobile ? 'Crear' : 'Agregar Proyecto'}</span>
-            }
             <span>{isMobile ? 'Alejar' : 'Alejar mapa'}</span>
             <span>{isMobile ? 'Acercar' : 'Acercar mapa'}</span>
             {
@@ -453,7 +401,7 @@ class GMap extends Component {
           }}
         />
 
-        <Attrs
+        {/* <Attrs
           showInfo={showProps}
           info={properties}
           zoomOut={this.zoomOut}
@@ -462,7 +410,7 @@ class GMap extends Component {
           user={user}
           isAdmin={isAdmin}
           deleteReport={this.deleteReport}
-        />
+        /> */}
       </div>
     );
   }
@@ -472,22 +420,22 @@ GMap.defaultProps = {
   onLoad: () => { console.log('webmap loading successfully'); },
   setCoords: () => {},
   onUpdate: () => {},
-  address: {},
+  // address: {},
   geo: {},
   user: {},
-  isAdmin: false,
+  // isAdmin: false,
 };
 
 GMap.propTypes = {
   onLoad: PropTypes.func,
   setCoords: PropTypes.func,
   onUpdate: PropTypes.func,
-  address: PropTypes.objectOf(PropTypes.any),
+  // address: PropTypes.objectOf(PropTypes.any),
   geo: PropTypes.objectOf(PropTypes.any),
   user: PropTypes.objectOf(
     PropTypes.any,
   ),
-  isAdmin: PropTypes.bool,
+  // isAdmin: PropTypes.bool,
 };
 
 export default GMap;

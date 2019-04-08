@@ -10,7 +10,9 @@ import { debounce } from '../../../helpers/helper-util';
 
 import { CAMINAPP_URL } from '../../../../config';
 
-import Logo from '../../atoms/logo';
+import assets from '../../../assets';
+
+// import Logo from '../../atoms/logo';
 import Button from '../../atoms/button';
 import NavItem from './nav-item';
 
@@ -221,7 +223,8 @@ class NavBar extends Component {
                           $('#MainScroll').scrollTop(0);
                         }}
                       >
-                        <Logo />
+                        {/* <Logo /> */}
+                        <img src={assets.navbarSmall} alt="Ryre Web" />
                       </NavItem>
                     </div>
                   </div>

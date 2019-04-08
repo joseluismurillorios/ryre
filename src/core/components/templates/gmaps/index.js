@@ -15,7 +15,7 @@ import {
 } from '../../../redux/actions/info/async';
 
 import Scrollable from '../../atoms/scrollable';
-import GMaps from '../../organisms/gmaps';
+import GMaps from '../../organisms/maps';
 import Report from '../../organisms/report';
 
 class Google extends Component {

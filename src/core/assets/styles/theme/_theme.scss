@@ -2011,6 +2011,24 @@ p {
 			&:first-child {
 				background-color: $white;
 			}
+			&:hover {
+				color: $white;
+				background-color: $color_shark_approx;
+				 > * {
+					color: $white;
+					background-color: transparent;
+					transition: all 0.3s ease-in-out;
+				}
+			}
+		}
+		&.opened {
+			color: $white;
+			background-color: $color_shark_approx;
+			> button {
+				color: $white;
+				background-color: $color_shark_approx;
+				transition: all 0.3s ease-in-out;
+			}
 		}
 	}
 }

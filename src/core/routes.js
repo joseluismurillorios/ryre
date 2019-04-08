@@ -6,7 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { ROUTES } from './components/templates';
 import Home from './components/templates/home';
-import Maps from './components/templates/map';
+import Maps from './components/templates/gmaps';
 import NotFound from './components/templates/notfound';
 
 const SUB = [];

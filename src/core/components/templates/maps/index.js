@@ -20,6 +20,7 @@ import {
   TIJUANA_IFRAME,
   ROSARITO_IFRAME,
   CARTA_URBANA,
+  CARTA_URBANA_TIJUANA,
 } from '../../../../config';
 
 import { setLoader } from '../../../redux/actions/common';
@@ -116,7 +117,14 @@ class Maps extends Component {
                     <p className="subheading style-2">Tijuana 2010-2030</p>
                   </div>
                 </div>
-                <GmapIframe url={CARTA_URBANA} />
+                <GmapIframe title="Tijuana" url={CARTA_URBANA} />
+                {
+                  CARTA_URBANA_TIJUANA.map(obj => (
+                    <div key={obj.name} className="mt-20">
+                      <GmapIframe title={obj.name} url={obj.url} />
+                    </div>
+                  ))
+                }
                 <div className="row mt-40">
                   <div className="col-md-6 text-center mb-20">
                     <p>Plan Municipal de Desarrollo Urbano de Tijuana, B.C. (PMDU T 2008-2030)</p>

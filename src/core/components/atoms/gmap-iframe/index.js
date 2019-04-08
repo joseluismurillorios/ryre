@@ -58,17 +58,18 @@ class GmapIframe extends Component {
   }
 
   render() {
-    const { url, visible } = this.props;
+    const { url, visible, title } = this.props;
     const { isHide, loaded } = this.state;
     const isVisible = (!isHide || visible);
     const opened = isVisible ? 'opened' : '';
+    const text = isHide ? 'Ver Mapa' : 'Ocultar Mapa';
     return (
       <div style={{ overflow: 'hidden', flexDirection: 'column' }}>
         {
           !visible && (
             <div className={`gmap-btns flex-center ${opened}`}>
               <button type="button" className="flex-center" onClick={this.toggleMap}>
-                {isHide ? 'Ver Mapa' : 'Ocultar Mapa'}
+                {title || text}
                 <i className={`esricon-${!isHide ? 'non-' : ''}visible ml-10`} />
               </button>
               <Linked newTab url={url} className="mfp-pop flex-center">
@@ -122,11 +123,16 @@ class GmapIframe extends Component {
 }
 
 GmapIframe.defaultProps = {
+  title: false,
   visible: false,
 };
 
 GmapIframe.propTypes = {
   url: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+  ]),
   visible: PropTypes.bool,
 };
 

@@ -7,6 +7,10 @@ import device from './images/ui/promo_device.png';
 import navbarDark from './images/navbar-dark.png';
 import navbarSmall from './images/navbar-small.png';
 
+import IconArch from './images/main/architecture.png';
+import IconBrainstorm from './images/main/brainstorm.png';
+import IconDesign from './images/main/design-tool.png';
+
 import IconShock from './images/categories/shock.png';
 import IconSink from './images/categories/sink.png';
 import IconRoad from './images/categories/road.png';
@@ -136,6 +140,10 @@ export default {
   navbarSmall,
   bg01,
   device,
+
+  IconArch,
+  IconBrainstorm,
+  IconDesign,
 
   'Lluvia (Riesgos)': IconRains,
   'Fugas': IconLeak,
