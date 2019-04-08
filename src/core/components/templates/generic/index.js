@@ -18,10 +18,7 @@ import Scrollable from '../../atoms/scrollable';
 class Generic extends Component {
   componentDidMount() {
     const { mapLoading } = this.props;
-    mapLoading(true);
-    setTimeout(() => {
-      mapLoading(false);
-    }, 500);
+    mapLoading(false);
   }
 
   render() {

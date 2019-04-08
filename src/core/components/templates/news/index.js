@@ -26,10 +26,7 @@ import { NEWS_LINKS } from '../../../helpers/helper-constants';
 class News extends Component {
   componentDidMount() {
     const { mapLoading, setPhases } = this.props;
-    mapLoading(true);
-    setTimeout(() => {
-      mapLoading(false);
-    }, 500);
+    mapLoading(false);
     setPhases();
   }
 

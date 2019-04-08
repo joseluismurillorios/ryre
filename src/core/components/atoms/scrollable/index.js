@@ -98,7 +98,7 @@ class Scrollable extends Component {
   }
 
   goTop() {
-    $(this.top).animate({ scrollTop: 0 }, 800, 'easeInOutQuart');
+    $(this.scrollable).animate({ scrollTop: 0 }, 800, 'easeInOutQuart');
   }
 
   render() {

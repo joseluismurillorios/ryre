@@ -77,7 +77,6 @@ class Contact extends Component {
       message,
     } = this.state;
     const { user } = common;
-    console.log(user);
     if (user && user.uid) {
       const { email, displayName, uid } = user;
       mapLoading(true);
