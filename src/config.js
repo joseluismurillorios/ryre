@@ -23,7 +23,7 @@ export const CICT_IFRAME = 'https://www.google.com/maps/embed/v1/place?q=place_i
 export const GOOGLE_API_KEY = 'AIzaSyBDwhjDbm_tWAGz_gO3bAwkMa7Lad2B8Ws';
 
 // export const DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.4/src/core/assets/files/mapastijuanarosarito/tijuana-colonias.kml';
-export const DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.4/src/core/assets/files/delegaciones_50.kml';
+export const DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.5/src/core/assets/files/delegaciones_50.kml';
 
 export const ARCGIS_REVERSE_GEOCODE = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer';
 

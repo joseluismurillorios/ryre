@@ -16,7 +16,7 @@
 <Folder><name>LIMITE_DELEGACIONES_MP_2017</name>
   <Placemark>
 	<name>PLAYAS DE TIJUANA</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">6161.193939</SimpleData>
@@ -33,7 +33,7 @@
   </Placemark>
   <Placemark>
 	<name>SAN ANTONIO DE LOS BUENOS</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">6242.107236</SimpleData>
@@ -50,7 +50,7 @@
   </Placemark>
   <Placemark>
 	<name>PRESA ESTE</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">43654.822942</SimpleData>
@@ -67,7 +67,7 @@
   </Placemark>
   <Placemark>
 	<name>RESTO DEL MUNICIPIO</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">46575.150532</SimpleData>
@@ -84,7 +84,7 @@
   </Placemark>
   <Placemark>
 	<name>SÁNCHEZ TABOADA</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">4262.848185</SimpleData>
@@ -101,7 +101,7 @@
   </Placemark>
   <Placemark>
 	<name>CERRO COLORADO</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">2347.429054</SimpleData>
@@ -118,7 +118,7 @@
   </Placemark>
   <Placemark>
 	<name>CENTRO</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">2492.675508</SimpleData>
@@ -135,7 +135,7 @@
   </Placemark>
   <Placemark>
 	<name>OTAY CENTENARIO</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">5261.073156</SimpleData>
@@ -152,7 +152,7 @@
   </Placemark>
   <Placemark>
 	<name>LA PRESA</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">3659.268916</SimpleData>
@@ -169,7 +169,7 @@
   </Placemark>
   <Placemark>
 	<name>LA MESA</name>
-	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffffff</fill></PolyStyle></Style>
+	<Style><LineStyle><color>cc3d5afe</color></LineStyle><PolyStyle><fill>22ffffff</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 		<SimpleData name="altitudeMode">clampToGround</SimpleData>
 		<SimpleData name="HA">3053.711528</SimpleData>
