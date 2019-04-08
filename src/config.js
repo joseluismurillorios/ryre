@@ -22,7 +22,7 @@ export const CICT_IFRAME = 'https://www.google.com/maps/embed/v1/place?q=place_i
 
 export const GOOGLE_API_KEY = 'AIzaSyBDwhjDbm_tWAGz_gO3bAwkMa7Lad2B8Ws';
 
-export const DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.1/src/core/assets/files//delegaciones_grey.kmz';
+export const DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.2/src/core/assets/files/tijuana.kmz';
 
 export const ARCGIS_REVERSE_GEOCODE = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer';
 

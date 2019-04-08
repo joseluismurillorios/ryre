@@ -371,17 +371,6 @@ button.toast-close {
   justify-content: center;
 }
 
-// Google maps
-#map > div > div > div > div > div:nth-child(2) img[draggable="false"] {
-  opacity: 0.4;
-  transition: all .25s ease-in-out;
-}
-
-#map.transparent > div > div > div > div > div:nth-child(2) img[draggable="false"] {
-  opacity: 0.0;
-  transition: all .25s ease-in-out;
-}
-
 .btn.btn-dark {
   background-color: #2b2b2b;
 }

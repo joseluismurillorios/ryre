@@ -12,7 +12,7 @@ import {
   TIJUANA,
 } from '../../../helpers/helper-constants';
 
-import { GOOGLE_API_KEY } from '../../../../config';
+import { GOOGLE_API_KEY, DELEGACIONES_KMZ } from '../../../../config';
 
 import {
   isIOS,
@@ -125,7 +125,7 @@ class GMap extends Component {
     this.geocoder = new window.google.maps.Geocoder();
 
     this.kmzLayer = new window.google.maps.KmlLayer({
-      url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage@0.0.2/models/delegaciones_grey.kmz',
+      url: DELEGACIONES_KMZ,
       map: this.gmap,
       suppressInfoWindows: true,
     });
