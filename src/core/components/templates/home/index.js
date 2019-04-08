@@ -46,6 +46,7 @@ class Home extends Component {
           className="fs-home open"
           id="MainScroll"
           style={{ backgroundColor: 'transparent' }}
+          toTop
         >
           <Hero goTo="HomePress" onLoad={mapLoading} />
           <Section id="HomePress" className="icon-boxes style-5">

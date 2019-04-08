@@ -8,6 +8,7 @@ class Scrollable extends Component {
     super(props);
     this.wheel = this.wheel.bind(this);
     this.handle = this.handle.bind(this);
+    this.scroll = this.scroll.bind(this);
     this.goUp = true;
     this.end = null;
     this.interval = null;
@@ -16,17 +17,29 @@ class Scrollable extends Component {
   }
 
   componentDidMount() {
+    const {
+      toTop,
+    } = this.props;
     if (isMac) {
       this.scrollable.addEventListener('wheel', this.wheel, false);
+    }
+    if (toTop) {
+      this.scrollable.addEventListener('scroll', this.scroll, false);
     }
   }
 
   componentWillUnmount() {
+    const {
+      toTop,
+    } = this.props;
     if (this.interval) {
       clearInterval(this.interval);
     }
     if (isMac) {
       this.scrollable.removeEventListener('wheel', this.wheel, false);
+    }
+    if (toTop) {
+      this.scrollable.removeEventListener('scroll', this.scroll, false);
     }
   }
 
@@ -71,6 +84,15 @@ class Scrollable extends Component {
     }
   }
 
+  scroll() {
+    const { scrollTop } = this.scrollable;
+    if (scrollTop >= 50) {
+      this.top.classList.add('show');
+    } else {
+      this.top.classList.remove('show');
+    }
+  }
+
   render() {
     const {
       children,
@@ -78,6 +100,7 @@ class Scrollable extends Component {
       id,
       setRef,
       disabled,
+      toTop,
     } = this.props;
     return (
       <div
@@ -94,6 +117,13 @@ class Scrollable extends Component {
         >
           {children}
         </div>
+        {
+          toTop && (
+            <div ref={(el) => { this.top = el; }} className="back-to-top">
+              <i className="implanf-expand_less" />
+            </div>
+          )
+        }
       </div>
     );
   }
@@ -102,8 +132,9 @@ class Scrollable extends Component {
 Scrollable.defaultProps = {
   className: '',
   id: '',
-  disabled: false,
   setRef: () => {},
+  disabled: false,
+  toTop: false,
 };
 
 Scrollable.propTypes = {
@@ -116,6 +147,7 @@ Scrollable.propTypes = {
   id: PropTypes.string,
   setRef: PropTypes.func,
   disabled: PropTypes.bool,
+  toTop: PropTypes.bool,
 };
 
 export default Scrollable;

@@ -60,6 +60,7 @@ class News extends Component {
           className="fs-home open"
           id="MainScroll"
           style={{ backgroundColor: 'transparent' }}
+          toTop
         >
           <PageTitle
             text={<span>Noticias</span>}

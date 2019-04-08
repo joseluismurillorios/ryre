@@ -20,7 +20,6 @@ import {
 import {
   onWeatherChange,
   onForecastChange,
-  // getReports,
 } from './redux/actions/forecast/async';
 
 
@@ -31,14 +30,12 @@ import {
 } from './helpers/helper-util';
 
 import CloseButton from './components/atoms/close';
-import Top from './components/atoms/top';
 import Loader from './components/atoms/loader';
 import Button from './components/atoms/button';
 import AddHome from './components/molecules/addhome';
 import Modal from './components/molecules/modal';
 import Header from './components/organisms/header';
 import { ROUTES } from './components/templates';
-// import Header from './components/organisms/header/type4';
 
 class Layout extends Component {
   constructor(props) {
@@ -64,8 +61,6 @@ class Layout extends Component {
   componentDidMount() {
     const {
       authChange,
-      // getForecast,
-      // getWeather,
       onWeather,
       onForecast,
     } = this.props;
@@ -84,16 +79,10 @@ class Layout extends Component {
     const { height } = rectHeader;
     this.setState({ top: height });
     authChange();
-    // getForecast();
-    // getWeather();
     onWeather();
     onForecast();
-    // getReports();
 
-    if (!isIOS && !isInStandaloneMode()) {
-      // this.header.addEventListener('touchmove', this.debouncedMove, false);
-      // this.debouncedMove();
-    } else {
+    if (isIOS && isInStandaloneMode()) {
       document.documentElement.style.height = '100%';
     }
   }
@@ -191,7 +180,7 @@ class Layout extends Component {
           )
         }
 
-        <Top />
+        {/* <Top /> */}
         <Modal.Container id="Login">
           <Modal.Header text="Entrar" />
           <Modal.Footer>

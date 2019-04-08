@@ -40,6 +40,7 @@ class NotFound extends Component {
           className="fs-home open"
           id="MainScroll"
           style={{ backgroundColor: 'transparent' }}
+          toTop
         >
           <PageTitle
             text={<span>404</span>}

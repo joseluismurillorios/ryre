@@ -40,6 +40,7 @@ class Generic extends Component {
           className="fs-home open"
           id="MainScroll"
           style={{ backgroundColor: 'transparent' }}
+          toTop
         >
           <PageTitle
             text={<span>{current.split('-').join(' ')}</span>}
