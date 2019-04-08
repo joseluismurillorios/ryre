@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
-<Document>
-	<name>LIMITE_DELEGACIONES_MP_2017.kml</name>
+<Document id="root_doc">
+	<name>delegaciones_50.kml</name>
+	<open>1</open>
 	<Schema name="LIMITE_DELEGACIONES_MP_2017" id="LIMITE_DELEGACIONES_MP_2017">
 		<SimpleField type="string" name="altitudeMode"></SimpleField>
 		<SimpleField type="string" name="HA"></SimpleField>
@@ -14,290 +15,53 @@
 		<SimpleField type="string" name="Hectareas"></SimpleField>
 		<SimpleField type="string" name="Field_1"></SimpleField>
 	</Schema>
-	<Style id="style">
+	<Style id="s_ylw-pushpin_hl3">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
 		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
+			<color>662b2b2b</color>
+			<width>0.2</width>
 		</LineStyle>
 		<PolyStyle>
-			<color>66f5f5f5</color>
+			<color>66e1e1e1</color>
 		</PolyStyle>
 	</Style>
-	<Style id="style0">
+	<Style id="s_ylw-pushpin3">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
 		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
+			<color>662b2b2b</color>
+			<width>0.2</width>
 		</LineStyle>
 		<PolyStyle>
-			<color>66f5f5f5</color>
+			<color>66e1e1e1</color>
 		</PolyStyle>
 	</Style>
-	<StyleMap id="stylemap_id7">
+	<StyleMap id="m_ylw-pushpin3">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#style10</styleUrl>
+			<styleUrl>#s_ylw-pushpin3</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#style6</styleUrl>
+			<styleUrl>#s_ylw-pushpin_hl3</styleUrl>
 		</Pair>
 	</StyleMap>
-	<StyleMap id="stylemap_id1">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style15</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style13</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style1">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style2">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<StyleMap id="stylemap_id9">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style12</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style14</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="stylemap_id4">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style2</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style3">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style4">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style5">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<StyleMap id="stylemap_id6">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style5</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style9</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style6">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style7">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style8">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style9">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style10">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style11">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<StyleMap id="stylemap_id0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style8</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style4</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style12">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<StyleMap id="stylemap_id3">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style16</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style17</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="stylemap_id2">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style7</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style1</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style13">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<StyleMap id="stylemap_id5">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style11</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style3</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="stylemap_id8">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style18</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style14">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style15">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style16">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style17">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
-	<Style id="style18">
-		<LineStyle>
-			<color>ccfe5b3c</color>
-			<width>1.2</width>
-		</LineStyle>
-		<PolyStyle>
-			<color>66f5f5f5</color>
-		</PolyStyle>
-	</Style>
 	<Folder>
 		<name>LIMITE_DELEGACIONES_MP_2017</name>
-		<open>1</open>
 		<Placemark>
 			<name>PLAYAS DE TIJUANA</name>
-			<styleUrl>#stylemap_id0</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -326,7 +90,7 @@
 		</Placemark>
 		<Placemark>
 			<name>SAN ANTONIO DE LOS BUENOS</name>
-			<styleUrl>#stylemap_id1</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -355,7 +119,7 @@
 		</Placemark>
 		<Placemark>
 			<name>PRESA ESTE</name>
-			<styleUrl>#stylemap_id2</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -384,7 +148,7 @@
 		</Placemark>
 		<Placemark>
 			<name>RESTO DEL MUNICIPIO</name>
-			<styleUrl>#stylemap_id3</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -413,7 +177,7 @@
 		</Placemark>
 		<Placemark>
 			<name>SÁNCHEZ TABOADA</name>
-			<styleUrl>#stylemap_id4</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -442,7 +206,7 @@
 		</Placemark>
 		<Placemark>
 			<name>CERRO COLORADO</name>
-			<styleUrl>#stylemap_id5</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -471,7 +235,7 @@
 		</Placemark>
 		<Placemark>
 			<name>CENTRO</name>
-			<styleUrl>#stylemap_id6</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -500,7 +264,7 @@
 		</Placemark>
 		<Placemark>
 			<name>OTAY CENTENARIO</name>
-			<styleUrl>#stylemap_id7</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -529,7 +293,7 @@
 		</Placemark>
 		<Placemark>
 			<name>LA PRESA</name>
-			<styleUrl>#stylemap_id8</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>
@@ -558,7 +322,7 @@
 		</Placemark>
 		<Placemark>
 			<name>LA MESA</name>
-			<styleUrl>#stylemap_id9</styleUrl>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#LIMITE_DELEGACIONES_MP_2017">
 					<SimpleData name="altitudeMode">clampToGround</SimpleData>

@@ -127,7 +127,7 @@ class GMap extends Component {
     this.kmzLayer = new window.google.maps.KmlLayer({
       url: DELEGACIONES_KMZ,
       map: this.gmap,
-      suppressInfoWindows: true,
+      // suppressInfoWindows: true,
     });
 
     this.gmap.data.setStyle({
