@@ -22,7 +22,7 @@ class IconBox extends Component {
             <div className="work-overlay">
               <div className="project-icons">
                 <Linked
-                  href={`https://www.youtube.com/watch?v=${video}?autoplay=1`}
+                  url={`https://www.youtube.com/watch?v=${video}?autoplay=1`}
                   className="lightbox-video mfp-iframe"
                 >
                   <i className="esricon-play" />
