@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import $ from '../../../helpers/helper-jquery';
 import { isMac } from '../../../helpers/helper-util';
 
 class Scrollable extends Component {
@@ -9,6 +10,7 @@ class Scrollable extends Component {
     this.wheel = this.wheel.bind(this);
     this.handle = this.handle.bind(this);
     this.scroll = this.scroll.bind(this);
+    this.goTop = this.goTop.bind(this);
     this.goUp = true;
     this.end = null;
     this.interval = null;
@@ -25,6 +27,7 @@ class Scrollable extends Component {
     }
     if (toTop) {
       this.scrollable.addEventListener('scroll', this.scroll, false);
+      this.top.addEventListener('click', this.goTop, false);
     }
   }
 
@@ -40,6 +43,7 @@ class Scrollable extends Component {
     }
     if (toTop) {
       this.scrollable.removeEventListener('scroll', this.scroll, false);
+      this.top.removeEventListener('click', this.goTop, false);
     }
   }
 
@@ -91,6 +95,10 @@ class Scrollable extends Component {
     } else {
       this.top.classList.remove('show');
     }
+  }
+
+  goTop() {
+    $(this.top).animate({ scrollTop: 0 }, 800, 'easeInOutQuart');
   }
 
   render() {
