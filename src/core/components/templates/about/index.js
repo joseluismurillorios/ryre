@@ -45,7 +45,6 @@ class AboutUs extends Component {
         id="AboutUs"
         className="app__page"
         ref={(el) => { this.container = el; }}
-        disabled
       >
         <Scrollable
           className="fs-home open"

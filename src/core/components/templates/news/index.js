@@ -51,7 +51,6 @@ class News extends Component {
         id="News"
         className="app__page"
         ref={(el) => { this.container = el; }}
-        disabled
       >
         <Scrollable
           className="fs-home open"

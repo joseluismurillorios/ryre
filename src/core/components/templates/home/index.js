@@ -40,7 +40,6 @@ class Home extends Component {
         id="Home"
         className="app__page"
         ref={(el) => { this.container = el; }}
-        disabled
       >
         <Scrollable
           className="fs-home open"

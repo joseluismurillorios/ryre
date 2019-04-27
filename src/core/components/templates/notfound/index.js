@@ -31,7 +31,6 @@ class NotFound extends Component {
         id="NotFound"
         className="app__page"
         ref={(el) => { this.container = el; }}
-        disabled
       >
         <Scrollable
           className="fs-home open"

@@ -134,7 +134,6 @@ class Contact extends Component {
         id="Contact"
         className="app__page"
         ref={(el) => { this.container = el; }}
-        disabled
       >
         <Scrollable
           className="fs-home open"
