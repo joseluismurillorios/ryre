@@ -138,7 +138,7 @@ class Scrollable extends Component {
 }
 
 Scrollable.defaultProps = {
-  className: '',
+  className: 'scroll-component',
   id: '',
   setRef: () => {},
   disabled: false,

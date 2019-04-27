@@ -108,7 +108,8 @@ class Slider extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { lang } = this.props.common;
+    const { common } = this.props;
+    const { lang } = common;
     if (lang !== prevProps.common.lang) {
       this.slider.revredraw();
     }

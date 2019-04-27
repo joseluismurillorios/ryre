@@ -19,7 +19,9 @@ class Appear extends Component {
   componentDidMount() {
     this.scroll = document.getElementById('MainScroll');
     this.scroll.addEventListener('scroll', this.throttledScroll);
-    setTimeout(() => { this.scroll.dispatchEvent(new Event('scroll')); }, 500);
+    setTimeout(() => {
+      this.throttledScroll();
+    }, 500);
   }
 
   shouldComponentUpdate(nextProps, nextState) {

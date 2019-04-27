@@ -73,7 +73,7 @@ class Layout extends Component {
     }
     window.addEventListener('orientationchange', this.debouncedOrientation, false);
     window.addEventListener('resize', this.debouncedResize, false);
-    window.dispatchEvent(new Event('resize'));
+    this.debouncedResize();
 
     const rectHeader = this.header.getBoundingClientRect();
     const { height } = rectHeader;
