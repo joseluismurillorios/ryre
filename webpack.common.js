@@ -37,7 +37,14 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['env', 'react'],
+          presets: [
+            ['env', {
+              targets: {
+                browsers: ['last 2 versions', 'ie >= 11'],
+              },
+            }],
+            'react',
+          ],
         },
       },
 
