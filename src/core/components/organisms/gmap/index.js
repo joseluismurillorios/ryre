@@ -70,7 +70,7 @@ class GMap extends Component {
 
   componentDidMount() {
     this.loading(true);
-    if (window.google) {
+    if (window.google && window.google.maps) {
       this.initGMap();
     } else {
       this.renderMap();
