@@ -5,6 +5,8 @@ import { toast } from 'react-toastify';
 
 import { loadScript, circleMarker, styles } from '../../../helpers/helper-gmap';
 
+import vialidades from '../../../assets/files/kmz/esquema-vial-actual.kmz';
+
 // import { getOpinions } from '../../../redux/actions/common/async';
 
 import {
@@ -16,7 +18,7 @@ import {
   GOOGLE_API_KEY,
   TIJUANA_DELEGACIONES_KMZ,
   TIJUANA_DELEGACIONES_KML,
-  TIJUANA_COLONIAS_KMZ,
+  // TIJUANA_COLONIAS_KMZ,
 } from '../../../../config';
 
 import {
@@ -107,7 +109,8 @@ class GMap extends Component {
     this.geocoder = new window.google.maps.Geocoder();
 
     this.kmzColoniasLayer = new window.google.maps.KmlLayer({
-      url: TIJUANA_COLONIAS_KMZ,
+      // url: TIJUANA_COLONIAS_KMZ,
+      url: vialidades,
       map: this.gmap,
       suppressInfoWindows: true,
     });
