@@ -18,7 +18,7 @@ import {
   GOOGLE_API_KEY,
   TIJUANA_DELEGACIONES_KMZ,
   TIJUANA_DELEGACIONES_KML,
-  // TIJUANA_COLONIAS_KMZ,
+  TIJUANA_COLONIAS_KMZ,
 } from '../../../../config';
 
 import {
@@ -109,8 +109,7 @@ class GMap extends Component {
     this.geocoder = new window.google.maps.Geocoder();
 
     this.kmzColoniasLayer = new window.google.maps.KmlLayer({
-      // url: TIJUANA_COLONIAS_KMZ,
-      url: vialidades,
+      url: TIJUANA_COLONIAS_KMZ,
       map: this.gmap,
       suppressInfoWindows: true,
     });
