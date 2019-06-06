@@ -88,7 +88,6 @@ class Layout extends Component {
   }
 
   setHeaderRef(header) {
-    console.log(this.header);
     this.header = header;
   }
 

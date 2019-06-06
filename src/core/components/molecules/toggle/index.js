@@ -10,9 +10,14 @@ class Toggle extends Component {
       active: false,
     };
     this.handleToggle = this.handleToggle.bind(this);
+    this.close = this.close.bind(this);
   }
 
   componentDidMount() {
+    const {
+      setRef,
+    } = this.props;
+    setRef(this.close);
     jQuery(this.panel).hide();
   }
 
@@ -28,8 +33,19 @@ class Toggle extends Component {
     });
   }
 
+  close() {
+    jQuery(this.panel).slideUp('easeOutExpo');
+    this.setState({
+      active: false,
+    });
+  }
+
   render() {
-    const { className, children, title } = this.props;
+    const {
+      className,
+      children,
+      title,
+    } = this.props;
     const { active } = this.state;
     return (
       <div className={`toggle ${className}`}>
@@ -47,6 +63,7 @@ class Toggle extends Component {
 Toggle.defaultProps = {
   className: '',
   title: '',
+  setRef: () => {},
 };
 
 Toggle.propTypes = {
@@ -57,6 +74,7 @@ Toggle.propTypes = {
   ]).isRequired,
   className: PropTypes.string,
   title: PropTypes.string,
+  setRef: PropTypes.func,
 };
 
 export default Toggle;

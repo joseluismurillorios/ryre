@@ -1,13 +1,10 @@
+/* eslint-disable react/no-danger */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 // import tokml from 'tokml';
 
 import { loadScript, circleMarker, styles } from '../../../helpers/helper-gmap';
-
-import vialidades from '../../../assets/files/kmz/esquema-vial-actual.kmz';
-
-// import { getOpinions } from '../../../redux/actions/common/async';
 
 import {
   COLORS,
@@ -16,9 +13,8 @@ import {
 
 import {
   GOOGLE_API_KEY,
-  TIJUANA_DELEGACIONES_KMZ,
   TIJUANA_DELEGACIONES_KML,
-  TIJUANA_COLONIAS_KMZ,
+  KMZS,
 } from '../../../../config';
 
 import {
@@ -32,18 +28,26 @@ import {
 import ControlsLeft from '../controls/left';
 import ControlsRight from '../controls/right';
 
+import Dropdown from '../../molecules/toggle';
+
 class GMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // properties: {},
-      // showProps: false,
+      showProps: false,
       showHelp: false,
       zoom: isMobile ? 11 : 12,
       mapType: 'roadmap',
       tooltip: '',
       showDataLayer: true,
       hasFeatures: false,
+      dhtml: 'Seleccione una capa',
+      kmzs: KMZS,
+      visibles: {
+        // eslint-disable-next-line quote-props
+        'Colonias': true,
+      },
       // description: '<span>nothing</span>',
     };
     this.getLocation = this.getLocation.bind(this);
@@ -62,6 +66,7 @@ class GMap extends Component {
     this.hideShowHelp = this.hideShowHelp.bind(this);
     this.toggleMapType = this.toggleMapType.bind(this);
     this.download = this.download.bind(this);
+    this.handleKmzChange = this.handleKmzChange.bind(this);
     // this.hideAttrs = this.hideAttrs.bind(this);
 
     this.featureSelected = false;
@@ -69,6 +74,8 @@ class GMap extends Component {
 
     this.isIOS = isIOS;
     this.pom = document.createElement('a');
+
+    this.kmzLayers = {};
   }
 
   componentDidMount() {
@@ -94,6 +101,7 @@ class GMap extends Component {
 
   initGMap() {
     const { user } = this.props;
+    const { kmzs } = this.state;
     this.gmap = new window.google.maps.Map(document.getElementById('map'), {
       gestureHandling: 'greedy',
       zoomControl: false,
@@ -108,36 +116,23 @@ class GMap extends Component {
     });
     this.geocoder = new window.google.maps.Geocoder();
 
-    this.kmzColoniasLayer = new window.google.maps.KmlLayer({
-      url: TIJUANA_COLONIAS_KMZ,
-      map: this.gmap,
-      suppressInfoWindows: true,
+    kmzs.map((kmz) => {
+      this.kmzLayers[kmz.name] = new window.google.maps.KmlLayer({
+        // url: TIJUANA_DELEGACIONES_KMZ,
+        url: kmz.url,
+        map: kmz.visible ? this.gmap : null,
+        suppressInfoWindows: true,
+      });
+      this.kmzLayers[kmz.name].addListener('click', this.handleMapClick);
+      this.kmzLayers[kmz.name].addListener('status_changed', this.handleKmzChange);
+      return true;
     });
 
-    this.kmzLayer = new window.google.maps.KmlLayer({
-      url: TIJUANA_DELEGACIONES_KMZ,
-      map: this.gmap,
-      // suppressInfoWindows: true,
-    });
 
     this.gmap.data.setStyle({
       fillColor: 'green',
       strokeWeight: 20,
     });
-
-    this.kmzLayer.addListener('click', this.handleMapClick);
-    // this.gmap.data.addListener('click', this.handleFeatClick);
-
-    // this.marker = new window.google.maps.Marker({
-    //   map: this.gmap,
-    //   position: { lat: 32.476784, lng: -116.952631 },
-    //   icon: {
-    //     ...circleMarker,
-    //     scale: 0.55,
-    //     fillOpacity: 0.8,
-    //   },
-    // });
-    // this.marker.setVisible(false);
 
     this.loading(false);
     this.gmap.data.setStyle((feature) => {
@@ -169,7 +164,7 @@ class GMap extends Component {
 
       // this.marker.setVisible(true);
       // this.marker.setPosition(place.geometry.location);
-      // this.setState({ showProps: false });
+      this.setState({ showProps: false });
       this.goTo({ value: { longitude, latitude } }, zoom);
     });
 
@@ -179,6 +174,9 @@ class GMap extends Component {
       const center = this.gmap.getCenter();
       const zoom = this.gmap.getZoom();
       this.setState({ center, zoom });
+      setTimeout(() => {
+        this.reset();
+      }, 500);
     });
     window.google.maps.event.addListenerOnce(this.gmap, 'zoom_changed', () => {
       // do something only the first time the map is loaded
@@ -188,11 +186,22 @@ class GMap extends Component {
     });
   }
 
+  handleKmzChange(e) {
+    console.log('status_changed', e, this.visibles);
+  }
+
   handleMapClick(e) {
     const { infoWindowHtml } = e.featureData;
     const noTitle = infoWindowHtml.replace(/text-align:center;font-weight:bold;background:#9CBCE2/g, 'display:none');
     this.info = noTitle.replace(/9CBCE2/g, '000000');
     e.featureData.infoWindowHtml = this.info.replace(/D4E4F3/g, 'f5f5f5');
+
+    this.setState({
+      dhtml: this.info,
+      showProps: true,
+    });
+
+    this.hideDropdown();
 
     // this.setState({ description: infoWindowHtml });
     // this.reverseGeocode(latlng);
@@ -310,7 +319,7 @@ class GMap extends Component {
     this.gmap.setZoom(zoom);
     // this.kmzLayer.setMap(this.gmap);
     this.container.classList.remove('transparent');
-    // this.setState({ showProps: false });
+    this.setState({ showProps: false });
   }
 
   renderMap() {
@@ -322,11 +331,14 @@ class GMap extends Component {
     const {
       mapType,
       // properties,
-      // showProps,
+      showProps,
       showHelp,
       tooltip,
       hasFeatures,
       showDataLayer,
+      dhtml,
+      kmzs,
+      visibles,
       // description,
     } = this.state;
     const {
@@ -334,6 +346,7 @@ class GMap extends Component {
       // user,
       // isAdmin,
     } = this.props;
+    // console.log(kmzs);
     const hasGeo = (geo && !this.isIOS && !(window.cordova));
     const hasGeolocation = !!(navigator.geolocation);
     const showTooltip = !this.isMobile && !showHelp;
@@ -402,6 +415,50 @@ class GMap extends Component {
             this.setState({ tooltip: tip.tooltip });
           }}
         />
+
+        <Dropdown setRef={(el) => { this.hideDropdown = el; }} title="Seleccionar capa" className="map-toggle">
+          {
+            kmzs.map(kmz => (
+              <button
+                key={kmz.name}
+                type="button"
+                onClick={() => {
+                  const visible = !!(visibles[kmz.name]);
+                  this.setState({
+                    visibles: {
+                      ...visibles,
+                      [kmz.name]: !visible,
+                    },
+                  });
+                  this.kmzLayers[kmz.name].setMap(!visible ? this.gmap : null);
+                }}
+                className={`toggle-item ${visibles[kmz.name] ? 'selected' : ''}`}
+              >
+                {kmz.name}
+              </button>
+            ))
+          }
+        </Dropdown>
+
+        {
+          showProps && (
+            <div className="map-attrs">
+              <button
+                className="btn-close"
+                type="button"
+                onClick={() => {
+                  this.setState({
+                    dhtml: 'Seleccione una capa',
+                    showProps: false,
+                  });
+                }}
+              >
+                <i className="implanf-close" />
+              </button>
+              <div className="map-attrs-content" dangerouslySetInnerHTML={{ __html: dhtml }} />
+            </div>
+          )
+        }
 
         {/* <Attrs
           showInfo={showProps}

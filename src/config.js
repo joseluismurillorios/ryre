@@ -89,6 +89,115 @@ export const TIJUANA_COLONIAS_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillo
 export const TIJUANA_DELEGACIONES_KML = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.13/src/core/assets/files/delegaciones_50.kml';
 export const TIJUANA_DELEGACIONES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.13/src/core/assets/files/delegaciones_50.kmz';
 
+
 export const ARCGIS_REVERSE_GEOCODE = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer';
 
 export const OSM_REVERSE_GEOCODE = 'https://nominatim.openstreetmap.org/reverse';
+
+export const NO_URBANIZABLES_KMZ = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/rellenos-sanitarios.kmz';
+export const FALLAS_VIALES = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/fallas-geologicas.kmz';
+
+export const KMZS = [
+  {
+    name: 'Areas Naturales Vegetacion',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/areas-naturales-vegetacion.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Colonias',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/colonias.kmz',
+    visible: true,
+    loaded: false,
+  },
+  {
+    name: 'Esquema Vial Actual',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/esquema-vial-actual.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Linea De Ferrocarril',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/linea-de-ferrocarril.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Fallas Geologicas',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/fallas-geologicas.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Fallas Geologicas Estatal',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/fallas-geologicas-estatal.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Fisiografia',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/fisiografia.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Geologia',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/geologia.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Limite Centro De Poblacion',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/limite-centro-de-poblacion.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Limite Internacional',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/limite-internacional.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Limite Municipal',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/limite-municipal.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Microfallas y Fracturas',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/microfallas-fracturas.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Rellenos Sanitarios',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/rellenos-sanitarios.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Sectores',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/sectores.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Subsectores',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/subsectores.kmz',
+    visible: false,
+    loaded: false,
+  },
+  {
+    name: 'Tiraderos Clandestinos',
+    url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/tiraderos-clandestinos.kmz',
+    visible: false,
+    loaded: false,
+  },
+  // {
+  //   name: 'zonas-potenciales-de inundacion',
+  //   url: 'https://cdn.jsdelivr.net/gh/joseluismurillorios/ryre@0.0.14/src/core/assets/files/kmz/zonas-potenciales-de inundacion.kmz',
+  // visible: false,
+  // loaded: false,
+  // },
+];

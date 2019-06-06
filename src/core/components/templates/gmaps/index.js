@@ -93,7 +93,6 @@ class Google extends Component {
       common,
       setCoords,
       onUpdate,
-      reports,
       opinionDelete,
     } = this.props;
     const { opened, errors } = this.state;
@@ -111,7 +110,6 @@ class Google extends Component {
           ref={(el) => { this.viewReference = el; }}
           toggle={this.toggleReport}
           address={info}
-          geo={reports.geo}
           setCoords={setCoords}
           onUpdate={onUpdate}
           user={user || {}}
@@ -147,9 +145,6 @@ Google.propTypes = {
     PropTypes.any,
   ).isRequired,
   info: PropTypes.objectOf(
-    PropTypes.any,
-  ).isRequired,
-  reports: PropTypes.objectOf(
     PropTypes.any,
   ).isRequired,
   setCoords: PropTypes.func,
