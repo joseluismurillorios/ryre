@@ -71,6 +71,20 @@ class Maps extends Component {
             paths={this.paths}
             aether
           />
+          <Section className="call-to-action style-3 bg-light pb-30 pt-30">
+            <Container>
+              <Row>
+                <div className="col-xs-12 text-center">
+                  <h2>¡Visita el mapa interactivo!</h2>
+                  <div className="cta-button">
+                    <Linked url="/gmaps" className="btn btn-md btn-color rounded">
+                      Explorar
+                    </Linked>
+                  </div>
+                </div>
+              </Row>
+            </Container>
+          </Section>
           <Section className="pt-50 pb-80 pt-mdm-30">
             <Container>
               <Appear>

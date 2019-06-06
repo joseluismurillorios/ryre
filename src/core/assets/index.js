@@ -4,6 +4,7 @@ import fullbg from './images/ui/full_bg.jpg';
 import banner from './images/ui/banner.png';
 import bg01 from './images/ui/bg-03.jpg';
 import device from './images/ui/promo_device.png';
+import device2 from './images/ui/promo_device2.png';
 import navbarDark from './images/navbar-dark.png';
 import navbarSmall from './images/navbar-small.png';
 
@@ -140,6 +141,7 @@ export default {
   navbarSmall,
   bg01,
   device,
+  device2,
 
   IconArch,
   IconBrainstorm,

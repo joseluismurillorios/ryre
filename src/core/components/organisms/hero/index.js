@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import OwlCarousel from 'react-owl-carousel';
 
 import $ from '../../../helpers/helper-jquery';
 // import assets from '../../../assets';
 
-import Rotator from '../../atoms/rotator';
+// import Rotator from '../../atoms/rotator';
 // import Aether from '../../atoms/aether';
 import Linked from '../../atoms/linked';
 import Wave from '../../atoms/waves';
 
 const content = [
   {
-    text: 'Clima',
+    text: 'Evaluación de riesgos',
+    desc: 'Un enfoque para evaluar la capacidad de recuperación de la comunidad.',
+    url: '/nosotros',
+    buttonText: 'Acerca de Nosotros',
     className: 'rotate',
     animation: 'fade',
   },
   {
-    text: 'Reportes',
+    text: 'Participacion Ciudadana',
+    desc: 'La comunidad ayudará al municipio a idenfiticar las áreas mas necesitadas.',
+    url: '/reportes',
+    buttonText: 'Explorar Reportes',
     className: 'rotate',
     animation: 'fade',
   },
   {
-    text: 'Mapas',
+    text: 'Por Una Tijuana Segura',
+    desc: 'Realice un seguimiento de los incidentes y las tendencias de riesgo.',
+    url: '/informacion',
+    buttonText: 'Conozca Más',
     className: 'rotate',
     animation: 'fade',
   },
@@ -79,19 +89,38 @@ class Hero extends Component {
           <Wave className="fill" />
           <div className="hero-holder">
             <div className="hero-message text-rotator">
-              <h1>
+              {/* <h1>
                 <Rotator
                   content={content}
                   time={4000}
                   startDelay={200}
                 />
-              </h1>
-              <h2 className="hero-subtitle">RYR Web facilita la comprensión del panorama de riesgo en la región.</h2>
-              <div className="buttons-holder mt-30">
-                <Linked url="/reportes" className="btn btn-md rounded btn-white">
-                  Ver Reportes de Riesgo
-                </Linked>
-              </div>
+              </h1> */}
+              <OwlCarousel
+                className="owl-hero"
+                items={1}
+                dots={false}
+                // slideBy="page"
+                // nav
+                autoplay
+                autoplayTimeout={6000}
+                loop
+                center
+              >
+                {
+                  content.map(item => (
+                    <div key={item.text}>
+                      <h1>{item.text}</h1>
+                      <h2 className="hero-subtitle">{item.desc}</h2>
+                      <div className="buttons-holder mt-30">
+                        <Linked url={item.url} className="btn btn-md rounded btn-white">
+                          {item.buttonText}
+                        </Linked>
+                      </div>
+                    </div>
+                  ))
+                }
+              </OwlCarousel>
               <div className="local-scroll">
                 <button onClick={this.scrollTo} type="button" className="scroll-down btn-color">
                   <i className="implanf-expand_more" />

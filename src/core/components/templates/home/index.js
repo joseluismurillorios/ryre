@@ -82,6 +82,35 @@ class Home extends Component {
               </div>
             </Container>
           </Section>
+          <Section className="promo-section bg-primary style-2">
+            <Container className="flex-center">
+              <div className="col-md-5 text-center">
+                <img
+                  src={assets.device2}
+                  alt=""
+                  className="wow fadeInRight"
+                  data-wow-duration="1s"
+                  data-wow-delay=".2s"
+                  style={{
+                    maxHeight: '480px',
+                  }}
+                />
+              </div>
+              <div className="col-md-7 mb-mdm-40">
+                <h3 className="color-white">Riesgos &amp; Resiliencias</h3>
+                <p className="color-white">
+                  {dict.es['evaluation.one']}
+                  <br />
+                  <br />
+                  {dict.es['evaluation.two']}
+                  <br />
+                  <br />
+                  {dict.es['evaluation.three']}
+                </p>
+                <Linked url="/reportes" className="btn btn-md btn-light mt-20">Explorar</Linked>
+              </div>
+            </Container>
+          </Section>
           <Section className="pt-50">
             <Container>
               <div className="col-md-9">
