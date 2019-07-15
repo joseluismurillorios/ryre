@@ -3,7 +3,7 @@
 - [Node 8.11.2](https://nodejs.org/fr/blog/release/v8.11.2/)
 - An .env file containing a [Service Account](https://cloud.google.com/compute/docs/access/service-accounts) to run this api.
 
-# Install Prerequisites (OSX, Linux)
+### Install Prerequisites (OSX, Linux)
 
 - [nvm](https://github.com/nvm-sh/nvm)
 
