@@ -1,27 +1,61 @@
-# Moonphase
-http://api.usno.navy.mil/rstt/oneday?date=now&coords=
-https://api.usno.navy.mil/rstt/oneday?date=2/21/2019&loc=Otay,%20CA
-https://aa.usno.navy.mil/data/docs/api.php#phase
-https://aa.usno.navy.mil/rstt/onedaytable?ID=AA&year=2019&month=2&day=20&state=CA&place=Otay
+## Prerequisites
 
-# Maps
-https://openweathermap.org/price
-https://darksky.net/dev/docs/faq
+- [Node 8.11.2](https://nodejs.org/fr/blog/release/v8.11.2/)
+- An .env file containing a [Service Account](https://cloud.google.com/compute/docs/access/service-accounts) to run this api.
 
-# Weather
-https://api.weather.com/v1/geocode/32.531/-117.02/forecast/daily/10day.json?language=es-MX&units=m&apiKey=8ffacbd2fbb24c09bacbd2fbb2ec0913
-https://github.com/merky1/PiClock/blob/master/PiClockJS.js
-https://api.weather.gov/points/32.55,-117.047
-https://api.weather.gov/gridpoints/SGX/59,5/forecast
+# Install Prerequisites (OSX, Linux)
 
-# Links
-https://smn.cna.gob.mx/es/pronostico-del-tiempo-por-municipios
-https://www.ventusky.com/?p=32.30;-113.48;7&l=temperature-2m&t=20190219/0600&w=soft
-http://www.comeres.org/
-https://www.wunderground.com/intellicast
-http://hisz.rsoe.hu/
-http://www.atlasnacionalderiesgos.gob.mx/
-http://implan.tijuana.gob.mx/
-http://demo.sahanafoundation.org/eden/gis/index
-http://implanrosarito.ddns.net/layers/geonode:inventario_de_obra_publica_2017_contratos
-http://hisz.rsoe.hu/
+- [nvm](https://github.com/nvm-sh/nvm)
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+
+```sh
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+```bash
+nvm install 8.11.2
+```
+
+- [Firebase](https://console.firebase.google.com)
+
+1. Create/Open a project
+2. Generate and download Service Account JSON
+3. Create an .env file with generated Firebase info and place it on the root folder
+
+
+## Installation
+
+Install depenndencies.
+
+```bash
+npm install
+```
+
+Run server local.
+
+```bash
+npm run local
+```
+
+Run develompent server.
+
+```bash
+npm run dev
+```
+
+## TODO:
+- Api to edit report info
+- A detailed user manual
+- Direct private messaging
+- Add english language
+- Integrate cordova for mobile deployment
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
