@@ -25,7 +25,7 @@
   },
   "proxy": "http://localhost:3000/",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bluebird": "^3.5.3",
     "cookie-parser": "^1.4.4",
     "css-element-queries": "^1.1.1",
